@@ -12,6 +12,13 @@
 <body>
 <div class="wrapper">
 <form method="POST" id = "formulario" action="../Controlador/inicio_sesion.php">
+    <?php
+session_start();
+    if(isset($_SESSION['alert'])){
+        echo $_SESSION['alert'];
+        unset($_SESSION['alert']);
+    }
+?>
 <h1>Inicio De Sesión</h1>
 <div class="input-box">
     <select name="rol" id="rol">
@@ -22,7 +29,7 @@
 <div class="input-box">
 <input type ="text" id = "numeroDNI" placeholder="Numero de Identificacion" 
          required name="numeroDNI">
-<i class='bx bxs-lock-alt' ></i>
+<i class='bx bxs-lock-alt'></i>
 </div>
 <div class="input-box">
 <input type = "password" id="clave" name = "clave" placeholder="Contrase&#241;a" required >

@@ -1,5 +1,6 @@
 <?php
 include "../Controlador/pagina_principal.php";
+require_once "../Controlador/sesiones.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -50,6 +51,7 @@ include "../Controlador/pagina_principal.php";
         <h1>
             Animales recientes
         </h1>
+        <h3>Hola <?php echo $_SESSION['user'] ?></h3>
     </div>
 <div class = "especie">
   <div class="col-span-2 row-span-3 row-start-3">
