@@ -1,5 +1,4 @@
 <?php
-session_start();
 $sesionCerrada = false;
 function cerrarSesion(): never{
     $sesionCerrada = true;

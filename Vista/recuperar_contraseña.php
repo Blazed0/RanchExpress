@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Unete a RanchExpress</title>
+<title>Recupera tu Contraseña</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 <link rel="stylesheet" href="../public/Registro.css"/>
 <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -11,15 +11,15 @@
 <!-- Estos estilos es para mantener distinta imagen pero conservando mismos estilos -->
 <body>
 <div class="wrapper">
-<form method="POST" id = "formulario" action="../Controlador/inicio_sesion.php">
+<form method="GET" id = "formulario" action="../Controlador/recuperacion_contraseña.php">
     <?php
-session_start();
-    if(isset($_SESSION['alert'])){
-        echo $_SESSION['alert'];
-        unset($_SESSION['alert']);
-    }
-?>
-<h1>Inicio De Sesión</h1>
+    session_start();
+        if(isset($_SESSION['alert'])){
+            echo $_SESSION['alert'];
+            unset($_SESSION['alert']);
+        }
+    ?>
+<h1>Recuperacion De contraseña</h1>
 <div class="input-box">
     <select name="rol" id="rol">
         <option value="instructor">Instructor</option>
@@ -27,21 +27,19 @@ session_start();
     </select>
 </div>
 <div class="input-box">
-<input type ="text" id = "numeroDNI" placeholder="Numero de Identificacion" 
-         required name="numeroDNI">
-<i class='bx bxs-lock-alt'></i>
+    <input type ="text" id = "numeroDNI" placeholder="Ingresa tu numero de Cedula" 
+    required name="numeroDNI">
+    <i class='bx bx-pencil'></i>
 </div>
 <div class="input-box">
-<input type = "password" id="clave" name = "clave" placeholder="Contrase&#241;a" required >
-<i class='bx bx-ghost'></i>
+    <input type ="text" id = "nombre" placeholder="Ahora tu nombre"
+    required name="nombre">
+    <i class='bx bx-user'></i> 
 </div>
-<div class="remember-forgot">
-<a href="recuperar_contraseña.php">¿Olvidaste la contraseña?</a>
+<button type="submit" class="btn">Recuperar contraseña</button>
 </div>
-<button type="submit" class="btn" id="iniciar" name = "iniciar">Inicia Sesion</button>
 </div>
 </form>
-<script src="../Controlador/validacion_registro.js"></script>
 </div>
 </body> 
 </html>

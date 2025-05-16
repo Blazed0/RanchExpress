@@ -1,0 +1,80 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+.header-custom {
+  background-color: #c99233;
+}
+
+.header-custom nav a {
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.search input {
+  border: 1px solid #000;
+  border-radius: 5px;
+  background-color: #fffbe6;
+  color: #000;
+}
+
+.btn-custom-search {
+  background-color: #000;
+  color: #660000;
+  border-radius: 5px;
+  padding: 5px 10px;
+  border: none;
+}
+
+.logo{
+    font-family: "Brush Script MT", cursive;
+}
+
+.vacuna{
+      width: 150px;
+  height: auto;
+}
+.vacuna-box {
+  background-color: #fff;
+  border: 2px solid #000;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.vacuna-titulo {
+  font-family: 'Chewy', cursive;
+  font-size: 26px;
+}
+
+.prop-text {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.footer-custom {
+  background-color: #c99233;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.btn-back {
+  background-color: transparent;
+  border: 2px solid black;
+  font-size: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  text-align: center;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: black;
+}
+
