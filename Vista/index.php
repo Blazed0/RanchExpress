@@ -1,6 +1,6 @@
 <?php
-include "../Controlador/pagina_principal.php";
-require_once "../Controlador/sesiones.php";
+include "../Controlador/vistas_dinamicas/pagina_principal.php";
+require_once "../Controlador/inicio_sesion/sesiones.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,7 +26,7 @@ require_once "../Controlador/sesiones.php";
         <img src = "../Media/logo_pagina.png" alt="logoApp" id="logazo">
       </div>
     </header>
-    <a class="navbar-brand" href="../../pagina1/index.html">RanchExpress</a>
+    <a class="navbar-brand" href = "index.php">RanchExpress</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -35,10 +35,10 @@ require_once "../Controlador/sesiones.php";
    <div class="collapse navbar-collapse" id="navbarSupportedContent">
      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
        <li class="nav-item">
-         <a class="nav-link active" aria-current="page" href="#">Registra un nuevo animal</a>
+         <a class="nav-link active" aria-current="page" href="registro_animal.php">Registra un nuevo animal</a>
        </li>
        <li class = "nav-item">
-        <a class = "nav-link" aria-details="page"href = "#"><strong>Animales</strong></a>
+        <a class = "nav-link" aria-details="page"href = "seleccion_animales.php"><strong>Animales</strong></a>
        </li>
 <!-- Hay que mandar esto a la derecha -->
      <form class="d-flex" role="search">

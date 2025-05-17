@@ -1,5 +1,6 @@
 <?php
-include '../Modelo/conn.php';
+session_start();    
+include '../../Modelo/conn.php';
 include 'cerrar_sesion.php';
 
 $usuario = $_POST['numeroDNI'];
@@ -19,16 +20,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $result->bind_param("iss", $usuario, $clave,$rol);
 
         $result->execute();
-        $result = $result->get_result();
+        $filas = $result->get_result();
 
-        if ($datos = $result->fetch_object()) {
+        if ($datos = $filas->fetch_object()) {
             $nombre = $datos->nombre;
             $_SESSION['user'] = $nombre;
-            header('Location: ../Vista/index.php');
+            header('Location: ../../Vista/index.php');
         }
         else{
             $_SESSION['alert'] = alerta("Valida los datos nuevamente y vuelve a intentarlo por favor");
-            header("Location:../Vista/iniciar_sesion.php");
+            header("Location:../../Vista/iniciar_sesion.php");
             exit();
         }
         $result->close();
@@ -38,12 +39,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     else {
         $_SESSION['alert'] = alerta("No puedes dejar los campos vacios");
-        header("Location:../Vista/iniciar_sesion.php");
+        header("Location:../../Vista/iniciar_sesion.php");
             exit();
     }
         if(isset($sesionCerrada) && $sesionCerrada){
             $_SESSION['alert'] = alerta("Inicia sesion nuevamente para volver a entrar");
-            header("Location:../Vista/iniciar_sesion.php");
+            header("Location:../../Vista/iniciar_sesion.php");
             exit();
         }
 }

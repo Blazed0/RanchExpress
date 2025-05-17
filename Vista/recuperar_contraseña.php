@@ -11,7 +11,7 @@
 <!-- Estos estilos es para mantener distinta imagen pero conservando mismos estilos -->
 <body>
 <div class="wrapper">
-<form method="GET" id = "formulario" action="../Controlador/recuperacion_contraseña.php">
+<form method="GET" id = "formulario" action="../Controlador/inicio_sesion/recuperacion_contraseña.php">
     <?php
     session_start();
         if(isset($_SESSION['alert'])){

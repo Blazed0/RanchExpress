@@ -11,7 +11,7 @@
 <!-- Estos estilos es para mantener distinta imagen pero conservando mismos estilos -->
 <body>
 <div class="wrapper">
-<form method="POST" id = "formulario" action="../Controlador/inicio_sesion.php">
+<form method="POST" id = "formulario" action="../Controlador/inicio_sesion/inicio_sesion.php">
     <?php
 session_start();
     if(isset($_SESSION['alert'])){
@@ -41,7 +41,7 @@ session_start();
 <button type="submit" class="btn" id="iniciar" name = "iniciar">Inicia Sesion</button>
 </div>
 </form>
-<script src="../Controlador/validacion_registro.js"></script>
+<script src="../Controlador/inicio_sesion/validacion_registro.js"></script>
 </div>
 </body> 
 </html>
