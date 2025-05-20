@@ -2,14 +2,14 @@
 session_start();    
 include '../../Modelo/conn.php';
 include 'cerrar_sesion.php';
+require '../PHPMailer/PHPMailer.php';
+require '../PHPMailer/Exception.php';
+require '../PHPMailer/SMTP.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\SMTP; 
 
-require '../PHPMailer/Exception.php';
-require '../PHPMailer/PHPMailer.php';
-require '../PHPMailer/SMTP.php';
 
 try {
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
@@ -49,14 +49,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
                 
                 //Recipients
                 $mail->setFrom($correoMensajero, 'Mailer');
-                //Creo que el problema se encuentra en que no esta agarrando correctamente el correo o quiza sea que no es uno valido bajo modalidad PHPMAILER. Mañana reviso
                 $mail->addAddress($correo, $usuario);     //Add a recipient
                 
+                $token = base64_encode($correo . ',' . time());
+
                 //Content
                 $mail->isHTML(true);                                  //Set email format to HTML
+                $enlace = '<a href="localhost/Ranchexpress%20v4.0/Vista/actualizar_contraseña.php?token= '.$token.'"> Cambio de contraseña </a>';
                 $mail->Subject = 'Recuperacion de contraseña';
-                $mail->Body    = 'Si sirvio el envio de correos';
-                $mail->AltBody = 'Hola tilin, no se esto pa que sirva';
+                $mail->Body    = 'Ingresa al siguiente enlace para cambiar tu contraseña ' . $enlace;
+                $mail->AltBody = 'RanchExpress prueba';
                 
                 $mail->send();
                 $_SESSION['alert'] = alerta("Por favor revisa tu correo para seguir el proceso");
