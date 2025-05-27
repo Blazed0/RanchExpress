@@ -1,11 +1,11 @@
 <?php
-include "../Controlador/vistas_dinamicas/pagina_principal.php";
-require_once "../Controlador/inicio_sesion/sesiones.php";
+include '../Controlador/pagina_principal.php';
+include "../Controlador/inicio_sesion/sesiones.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -23,7 +23,7 @@ require_once "../Controlador/inicio_sesion/sesiones.php";
       <nav class="navbar navbar-expand-lg navbar-custom">
         <header class="header">
         <div class="logo">
-        <img src = "../Media/logo_pagina.png" alt="logoApp" id="logazo">
+        <img src = "../Media/icons/logo_pagina.jpeg" alt="logoApp" id="logazo">
       </div>
     </header>
     <a class="navbar-brand" href = "index.php">RanchExpress</a>
@@ -40,39 +40,61 @@ require_once "../Controlador/inicio_sesion/sesiones.php";
        <li class = "nav-item">
         <a class = "nav-link" aria-details="page"href = "seleccion_animales.php"><strong>Animales</strong></a>
        </li>
+       <li class="nav-item">
+        <a href="registro_crias.php" aria-details = "page" class="nav-link"><strong>Registra una nueva cria</strong></a>
+       </li>
 <!-- Hay que mandar esto a la derecha -->
-     <form class="d-flex" role="search">
-       <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-       <button class="btn btn-outline-custom btn-custom-outline" type="submit">Buscar</button>
-     </form>
+    <div class="search-bar">
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+        <button class="btn btn-outline-custom btn-custom-outline" type="submit">Buscar</button>
+      </form>
     </div>
-    </div> 
-    <div class="col-span-2 col-start-3 row-start-2">
-        <h1>
-            Animales recientes
-        </h1>
-        <h3>Hola <?php echo $_SESSION['user'] ?></h3>
+  </div> 
+</div>     
+<main class="container my-4">
+    <div class="row text-center">
+      
+      <!-- Caprinos -->
+      <div class="col-md-4">
+        <div class="card-custom">
+          <h3>CAPRINOS</h3>
+          <p>
+            Su leche es una fuente excelente de proteína animal que puede ser consumida por los niños y la familia en forma de leche fresca o transformada en queso
+          </p>
+          <div class="d-flex justify-content-center">
+            <div class="text-center mx-2">
+                <?php echo $htmlCabras ?>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Total de animales -->
+      <div class="col-md-4 d-flex align-items-center justify-content-center">
+        <div class="central-box small-box">
+          TOTAL DE <br />ANIMALES <br />
+          <div class="total-count"><?php echo $totalResultados ?></div>
+        </div>
+      </div>
+
+      <!-- Ovinos -->
+      <div class="col-md-4">
+        <div class="card-custom">
+          <h3>OVINOS</h3>
+          <p>
+            son buenos productores de leche y carne, pero también lo son como proveedores de lana que se emplea en la industria textil para la confección de diversos tipos de tela, entre ellas, la lana.
+          </p>
+          <div class="d-flex justify-content-center">
+            <div class="text-center mx-2">
+                <?php echo $htmlOvejas ?>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
-<div class = "especie">
-  <div class="col-span-2 row-span-3 row-start-3">
-    <H2>
-      Bovinos
-    </H2>
-    <?php echo $htmlBovinos ?>
-  </div>
-  <div class="col-span-2 row-span-3 col-start-3 row-start-3">
-    <h2>
-      Cabras
-    </h2>
-    <?php echo $htmlCabras?>
-  </div>
-  <div class="col-span-2 row-span-3 col-start-5 row-start-3">
-    <h2>
-      Gallinas
-    </h2>
-    <?php echo $htmlGallinas?>
-  </div>
-</div>
+  </main>
   <div class="col-span-6 row-start-6">
     <footer>
       <div class="footer-content">

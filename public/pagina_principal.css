@@ -14,6 +14,10 @@ body {
     min-height: 100vh;
 }
 
+.container.my-4{
+  min-height: 78vh;
+  grid-template-rows: auto 1fr auto;
+}
 .header{
     
     display: flex;
@@ -47,7 +51,10 @@ body {
    
 }
 
-
+.d-flex{
+  display: flex;
+  align-items: end;
+}
 
 .navbar-custom {
     background-color: #a17f5d; 

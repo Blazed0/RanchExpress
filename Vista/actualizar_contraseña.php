@@ -11,7 +11,7 @@
 <!-- Estos estilos es para mantener distinta imagen pero conservando mismos estilos -->
 <body>
 <div class="wrapper">
-<form action="..\Controlador\inicio_sesion\actualizacion_contraseña.php" method="POST" >
+<form action="../Controlador/inicio_sesion/actualizacion_contraseña.php" method="POST" >
     <?php
     session_start();
         if(isset($_SESSION['alert'])){
