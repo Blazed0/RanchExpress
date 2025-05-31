@@ -2,8 +2,13 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
+<<<<<<< HEAD
 -- Servidor: 127.0.0.1:3307
 -- Tiempo de generación: 30-05-2025 a las 23:46:34
+=======
+-- Servidor: localhost:3307
+-- Tiempo de generación: 28-05-2025 a las 00:47:47
+>>>>>>> 5c0306bf5443da2d237602eb785568085674806a
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -18,7 +23,11 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
+<<<<<<< HEAD
 -- Base de datos: `ranchexpress_v3`
+=======
+-- Base de datos: `ranchexpress v3`
+>>>>>>> 5c0306bf5443da2d237602eb785568085674806a
 --
 
 -- --------------------------------------------------------
@@ -29,11 +38,17 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `animal` (
   `id_animal` int(11) NOT NULL,
+<<<<<<< HEAD
   `estado` text NOT NULL,
   `codigo_animal` varchar(70) NOT NULL,
   `fecha_ingreso` date DEFAULT NULL,
   `fecha_nacimiento` date NOT NULL,
   `proposito` varchar(180) NOT NULL,
+=======
+  `codigo_animal` varchar(70) NOT NULL,
+  `fecha_ingreso` date DEFAULT NULL,
+  `fecha_nacimiento` date NOT NULL,
+>>>>>>> 5c0306bf5443da2d237602eb785568085674806a
   `peso_nacimiento` double(5,2) NOT NULL,
   `nombre` text NOT NULL,
   `raza` varchar(120) NOT NULL,
@@ -41,16 +56,26 @@ CREATE TABLE `animal` (
   `sexo` enum('Hembra','Macho') NOT NULL,
   `imagen_animal` varchar(255) NOT NULL,
   `especie` text NOT NULL,
+<<<<<<< HEAD
   `id_usuario` int(11) DEFAULT NULL
+=======
+  `id_usuario` int(11) NOT NULL
+>>>>>>> 5c0306bf5443da2d237602eb785568085674806a
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `animal`
 --
 
+<<<<<<< HEAD
 INSERT INTO `animal` (`id_animal`, `estado`, `codigo_animal`, `fecha_ingreso`, `fecha_nacimiento`, `proposito`, `peso_nacimiento`, `nombre`, `raza`, `color`, `sexo`, `imagen_animal`, `especie`, `id_usuario`) VALUES
 (28, 'activo', '115', '2025-05-13', '2025-05-22', 'Reproductor', 32.00, 'Dario', 'R', 'Negro', 'Hembra', 'thumb-1920-609173.jpg', 'Caprino', 1),
 (29, 'vendido,muerto', '116', '2025-05-12', '2025-05-28', 'Reproductor', 32.00, 'Ramirez', 'hola', 'Negro', 'Hembra', 'lotera-de-animales-2-638.webp', 'Ovino', 1);
+=======
+INSERT INTO `animal` (`id_animal`, `codigo_animal`, `fecha_ingreso`, `fecha_nacimiento`, `peso_nacimiento`, `nombre`, `raza`, `color`, `sexo`, `imagen_animal`, `especie`, `id_usuario`) VALUES
+(8, '114', '2025-05-01', '2025-05-06', 32.00, 'Dandy', 'Si', 'Negro', 'Hembra', 'se', 'Caprino', 2),
+(10, '422', '2025-05-12', '2025-05-06', 32.00, 'Susy', 'Sea', 'Negro', 'Hembra', 'hola', 'Ovino', 3);
+>>>>>>> 5c0306bf5443da2d237602eb785568085674806a
 
 -- --------------------------------------------------------
 
@@ -66,9 +91,12 @@ CREATE TABLE `crias` (
   `raza` varchar(120) NOT NULL,
   `observaciones` varchar(180) NOT NULL,
   `peso_nacimiento` double(5,2) NOT NULL,
+<<<<<<< HEAD
   `nombre_cria` text NOT NULL,
   `especie_cria` text NOT NULL,
   `imagen_cria` varchar(5000) NOT NULL,
+=======
+>>>>>>> 5c0306bf5443da2d237602eb785568085674806a
   `id_madre` int(11) NOT NULL,
   `id_padre` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -172,7 +200,11 @@ ALTER TABLE `animal`
 ALTER TABLE `crias`
   ADD PRIMARY KEY (`id_crias`),
   ADD KEY `padres_cria` (`id_madre`,`id_padre`),
+<<<<<<< HEAD
   ADD KEY `crias_ibfk_2` (`id_padre`);
+=======
+  ADD KEY `id_padre` (`id_padre`);
+>>>>>>> 5c0306bf5443da2d237602eb785568085674806a
 
 --
 -- Indices de la tabla `lana`
@@ -216,13 +248,21 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `animal`
 --
 ALTER TABLE `animal`
+<<<<<<< HEAD
   MODIFY `id_animal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+=======
+  MODIFY `id_animal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+>>>>>>> 5c0306bf5443da2d237602eb785568085674806a
 
 --
 -- AUTO_INCREMENT de la tabla `crias`
 --
 ALTER TABLE `crias`
+<<<<<<< HEAD
   MODIFY `id_crias` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+=======
+  MODIFY `id_crias` int(11) NOT NULL AUTO_INCREMENT;
+>>>>>>> 5c0306bf5443da2d237602eb785568085674806a
 
 --
 -- AUTO_INCREMENT de la tabla `leche`
