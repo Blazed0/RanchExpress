@@ -1,0 +1,78 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fff;
+}
+
+/* Header */
+.header {
+  background-color: #b3832c;
+  color: black;
+  flex-wrap: wrap;
+}
+
+.logo {
+  height: 40px;
+}
+
+.brand-name {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+.search-input {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Main */
+.main-box {
+  border: 2px solid black;
+  border-radius: 12px;
+}
+
+/* Imagen que iguala al estado */
+.img-box {
+  border: 2px solid black;
+  border-radius: 10px;
+  overflow: hidden;
+  height: 100%;
+}
+
+.object-fit-cover {
+  object-fit: cover;
+}
+
+/* Cajas de contenido */
+.info-box {
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: white;
+}
+
+/* Puntitos indicadores */
+.dot {
+  width: 12px;
+  height: 12px;
+  background-color: #aaa;
+  border-radius: 50%;
+}
+
+/* Footer */
+.footer {
+  background-color: #b3832c;
+  color: white;
+  font-weight: bold;
+}
+
+.hola{
+  text-decoration: none;
+  
+}

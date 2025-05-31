@@ -1,0 +1,73 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fffdf6;
+  margin: 0;
+  padding: 0;
+}
+.container{
+  display: grid;
+  min-height: 72.6vh;
+  grid-template-rows: auto 1fr auto;
+}
+
+.header-custom {
+  background-color: #b18426;
+  
+}
+
+.logo-text {
+  font-family: 'Luckiest Guy', cursive;
+  font-size: 22px;
+  color: black;
+}
+
+.nav-link-custom {
+  color: black;
+  font-weight: bold;
+  margin: 0 10px;
+  text-decoration: none;
+  font-family: 'Luckiest Guy', cursive;
+}
+
+.nav-link-custom:hover {
+  text-decoration: underline;
+}
+
+.search-input {
+  border-radius: 5px;
+  border: 1px solid #000;
+}
+
+.search-btn {
+  background-color: #fff;
+  border: 1px solid #000;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+
+.section-title {
+  font-family: 'Luckiest Guy', cursive;
+  font-size: 28px;
+  font-weight: bold;
+  color: black;
+}
+
+.ganado-card {
+  background-color: #fff;
+  border: 2px solid #000;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+}
+
+.ganado-img {
+  height: 160px;
+  object-fit: cover;
+  border-bottom: 2px solid #000;
+}
+
+
+.footer-custom {
+  background-color: #b18426;
+  font-weight: bold;
+  font-size: 14px;
+}

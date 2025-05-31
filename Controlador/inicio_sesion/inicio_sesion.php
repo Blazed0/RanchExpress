@@ -40,7 +40,7 @@ $rol = $_POST['rol'];
             $result->execute();
             $filas = $result->get_result();
             $datos = $filas->fetch_assoc();
-            $nombre = $datos['nombre'];
+            $idUsuario = $datos['id_usuario'];
             $claveHash = $datos['clave']; 
             //El problema estoy casi seguro que esta en el encriptado, tengo que revisar detenidamente la salida de los datos que da y el como tienen que cuadrar con la base de datos
             //El problema se centra principalmente en la encriptacion. No se que sucee pero basicamente el hash es distinto 
@@ -54,7 +54,7 @@ $rol = $_POST['rol'];
             }
  
             if(password_verify($clavePlana,$claveHash)){
-                $_SESSION['user'] = $nombre;
+                $_SESSION['user'] = $idUsuario;
                 header('Location: ../../Vista/index.php');
             }
             else{

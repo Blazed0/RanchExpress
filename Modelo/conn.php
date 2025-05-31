@@ -3,7 +3,7 @@
 $host = "localhost:3307";
 $usuario = "root";
 $password = "";
-$database = "ranchexpress v2.2";
+$database = "ranchexpress_v3";
 
 $conn = new mysqli($host,$usuario,$password,$database);
 

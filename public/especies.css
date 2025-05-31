@@ -1,0 +1,96 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fffdf6;
+  margin: 0;
+  padding: 0;
+  flex-direction: column;
+}
+
+/* Header */
+.header-custom {
+  background-color: #b18426;
+}
+
+.logo-text {
+  font-family: 'Luckiest Guy', cursive;
+  font-size: 22px;
+  color: black;
+}
+
+.nav-link-custom {
+  color: black;
+  font-weight: bold;
+  margin: 0 10px;
+  text-decoration: none;
+  font-family: 'Luckiest Guy', cursive;
+}
+
+.nav-link-custom:hover {
+  text-decoration: underline;
+}
+.container{
+  flex-direction: column;
+  min-height: 81.4vh ;
+  grid-template-rows: auto 1fr auto;
+}
+.search-input {
+  border-radius: 5px;
+  border: 1px solid #000;
+}
+
+.search-btn {
+  background-color: #fff;
+  border: 1px solid #000;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+/* Cards */
+.animal-card {
+  border: 2px solid #000;
+}
+
+.animal-card img {
+  height: 400px;
+  object-fit: cover;
+  border-bottom: 2px solid #000;
+}
+
+.animal-label {
+  font-family: 'Luckiest Guy', cursive;
+  font-size: 18px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-top: 10px;
+  display: inline-block;
+  color: black;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+}
+
+.ganado {
+  background: linear-gradient(to right, #ff5f6d, #ffc371);
+  text-decoration: none;
+}
+
+.caprinos {
+  background: linear-gradient(to right, #f6d365, #fda085);
+  text-decoration: none;
+}
+
+/* Footer */
+footer {
+  background-color: #b98c2c;
+  color: white;
+  padding: 15px 0;
+}
+
+.footer-content  {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.slogan {
+  font-size: 14px;
+  font-weight: bold;
+}

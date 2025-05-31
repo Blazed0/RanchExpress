@@ -1,0 +1,67 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+}
+
+.header-custom {
+  background-color: #b8860b;
+  color: black;
+}
+
+.header-custom nav a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+.search input {
+  background-color: #fff;
+  border: 1px solid #000;
+  border-radius: 20px;
+  padding: 4px 10px;
+}
+
+.btn-custom-search {
+  background-color: #fff;
+  border: none;
+}
+
+.btn-back {
+  background-color: white;
+  border: 2px solid black;
+  font-size: 1.5rem;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  line-height: 35px;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+}
+
+.estadistica-box {
+  border: 1px solid black;
+  background-color: #d3d0c8;
+}
+
+.titulo-estadistica {
+  font-family: 'Chewy', cursive;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.grafico-img {
+  max-width: 100px;
+  height: auto;
+  margin-top: 10px;
+}
+
+.footer-custom {
+  background-color: #b8860b;
+  color: white;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
