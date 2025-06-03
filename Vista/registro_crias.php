@@ -1,9 +1,8 @@
 <?php
-<<<<<<< HEAD
+
 include("../Controlador/registros/padres.php");
-=======
-include '../Controlador/registros/padres.php';
->>>>>>> 5c0306bf5443da2d237602eb785568085674806a
+include '../Controlador/inicio_sesion/sesiones.php';
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -74,13 +73,8 @@ include '../Controlador/registros/padres.php';
         <label class="form-label">Codigo de padre</label>
         <select name="idPadre" id="idPadre" class="form-select">
         <option value="" disabled selected>Seleccione código de padre</option>
-<<<<<<< HEAD
-          <?php foreach ($codigoPadre as $padre): ?>
-              <option value="<?= $padre['id_animal'] ?>"><?= htmlspecialchars($padre['codigo_animal']) ?></option>
-=======
           <?php foreach ($codigoPadre as $codigo): ?>
               <option value="<?= htmlspecialchars($codigo) ?>"><?= htmlspecialchars($codigo) ?></option>
->>>>>>> 5c0306bf5443da2d237602eb785568085674806a
           <?php endforeach; ?>
 
         </select>
@@ -91,13 +85,13 @@ include '../Controlador/registros/padres.php';
         <select name="idMadre" id="idMadre" class="form-select">
         <option value="" disabled selected>Seleccione Codigo de Madre</option>
            <?php
-<<<<<<< HEAD
+
            foreach($codigoMadre as $madre):?>
            <option value ="<?= $madre['id_animal']?>"><?=htmlspecialchars($madre['codigo_animal'])?></option>
-=======
+
            foreach($codigoMadre as $codigoMaterno):?>
            <option value ="<?= htmlspecialchars($codigoMaterno)?>"><?=htmlspecialchars($codigoMaterno)?></option>
->>>>>>> 5c0306bf5443da2d237602eb785568085674806a
+
         <?php endforeach; ?>
         </select>
       </div>
