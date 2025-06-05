@@ -1,3 +1,7 @@
+<?php
+include '../Controlador/mostrar_info_animales.php';
+include '../Controlador/inicio_sesion/sesiones.php';
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -11,13 +15,13 @@
 
 <header class="header d-flex justify-content-between align-items-center px-3 py-2">
   <div class="d-flex align-items-center">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Logo_SENA.svg/1200px-Logo_SENA.svg.png" alt="logo" class="logo me-2">
+    <img src="../Media/icons/logo_pagina-removebg-preview.png" alt="logo" class="logo me-2">
     <span class="brand-name">RanchExpress</span>
   </div>
   <nav class="nav-links d-flex gap-3">
     <a href="index.php">Inicio</a>
     <a href="registro_animal.php">Registro de animales</a>
-       <a href="registro_crias.php">Registro de crias</a>
+    <a href="registro_crias.php">Registro de crias</a>
     <a href="especies.html">Animales</a>
   </nav>
   <input type="text" class="search-input" placeholder="Search">
@@ -30,23 +34,25 @@
     <div class="row g-3 align-items-stretch">
       <div class="col-md-6">
         <div class="img-box h-100">
-          <img src="img/descarga.jfif" class="img-fluid w-100 h-100 object-fit-cover rounded" alt="Animal">
+          <?php
+           echo '<img src="../Media/Uploads/'.$imagen.'" class="img-fluid w-100 h-100 object-fit-cover rounded" alt="Animal">'
+          ?>
         </div>
       </div>
       <div class="col-md-6">
         <div class="info-box h-100 d-flex flex-column justify-content-between">
           <div>
             <div class="d-flex justify-content-between align-items-center mb-2">
-              <h6 class="m-0">ESTADOS</h6>
-              <span class="badge bg-success">ACTIVO</span>
+              <h6 class="m-0">ESTADO</h6>
+              <span id = "estado"> <?php echo $html ?></span>
             </div>
-            <p class="mb-1">Nombre de padres: Sam y Verta</p>
-            <p class="mb-1">Código: 322</p>
-            <p class="mb-1">Raza: Alpina</p>
-            <p class="mb-1">Raza de padres: Alpina</p>
-            <p class="mb-2">Sexo: macho</p>
+            <p class="mb-1">Padres: <?php echo $nombrePadre ?></p>
+            <p class="mb-1">Codigo: <?php echo $codigo ?></p>
+            <p class="mb-1">Raza: <?php echo $raza ?></p>
+            <p class="mb-1">Raza de padres: <?php echo "Esto tambien tocara arreglar de donde sacamos esta info"?></p>
+            <p class="mb-2">Sexo: <?php echo $sexo ?></p>
           </div>
-          <button class="btn btn-danger btn-sm mt-2">ACTUALIZAR</button>
+          <a class="btn btn-danger btn-sm mt-2" href="#">ACTUALIZAR</a>
         </div>
       </div>
     </div>
@@ -56,7 +62,7 @@
       <div class="col-md-6">
         <div class="info-box text-center h-100">
           <p class="fw-bold mb-0">Propósito</p>
-          <p class="fs-5">Reproducción</p>
+          <p class="fs-5"><?php echo $proposito ?></p>
         </div>
       </div>
       <div class="col-md-6">
@@ -67,7 +73,7 @@
               PESO : KG
             </button>
             </a>
-          <p>26 KG - 20/03/2023</p>
+          <p><?php echo $peso ?> - <?php echo $fechaPesaje ?></p>
           <div class="d-flex justify-content-center gap-2 mb-2">
             <div class="dot"></div>
             <div class="dot"></div>
@@ -86,7 +92,7 @@
             <h6 class="m-0">TRATAMIENTOS</h6>
             <button class="btn btn-danger btn-sm">ACTUALIZAR</button>
           </div>
-          <p class="fw-bold mt-2">El morantel - 20/03/2023</p>
+          <p class="fw-bold mt-2"><?php echo $nombreTratamiento ?> - <?php echo $fechaAplicacion ?></p>
           <hr>
           <hr>
           <hr>

@@ -35,7 +35,7 @@ $nombreImagen = $imagen['name']; //Nombre del archivo
 $tipoImagen = $imagen['type']; //Tipo de archivo
 $nombreTemporal = $imagen['tmp_name']; //Aca se guarda temporalmente la imagen en lo que se define su destino final
 
-$directorioImagen = "../../Media/Uploads/adultos/";
+$directorioImagen = "../../Media/Uploads/";
 $archivoSubido = $directorioImagen. basename($nombreImagen);
 
 $valoresPost = [
@@ -62,11 +62,6 @@ foreach($valoresPost as $valores){
 }
 
 if(move_uploaded_file($nombreTemporal, $archivoSubido)){
-    echo "<img src = '".$archivoSubido."'/>";
-}
-else{
-    echo "Error";
-}
 
 // Columnas fijas si siempre se insertan todas
 $columnas = "estado, codigo_animal, fecha_ingreso, fecha_nacimiento, proposito, peso_nacimiento, nombre, especie, raza, color, sexo, imagen_animal,id_usuario";
@@ -106,7 +101,11 @@ $stmt->bind_param("sssssissssss",
     $sexo, 
     $imagen_animal
 );
+<<<<<<< HEAD
 
+=======
+}
+>>>>>>> 01266f9d1a0dc36f5d7a0eb95ea9d7d58b0feba1
 if ($stmt->execute()) {
     $session['alert'] = alerta("El animal ha sido registrada  con exito");
     header('Location: ../../Vista/registro_animal.php');

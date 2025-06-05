@@ -76,3 +76,6 @@ body {
   text-decoration: none;
   
 }
+#estado{
+  max-width: 50%;
+}

@@ -85,8 +85,8 @@
           <label class="form-label">Estado</label>
           <select name="estado" id="estado" class="form-select">
             <option value="activo">Activo</option>
-            <option value="vendido,muerto">Vendido</option>
-            <option value="vendido,muerto">Muerto</option>
+            <option value="vendido">Vendido</option>
+            <option value="muerto">Muerto</option>
           </select>
         </div>
           

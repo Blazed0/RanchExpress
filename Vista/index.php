@@ -32,7 +32,7 @@ include "../Controlador/inicio_sesion/sesiones.php";
       <div class="collapse navbar-collapse justify-content-between" id="navbar">
         <ul class="navbar-nav flex-row gap-4 justify-content-center">
           <li class="nav-item">
-            <a class="nav-link" href="seleccion_animales.php"><strong>Animales</strong></a>
+            <a class="nav-link" href="especies.html"><strong>Animales</strong></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="registro_animal.php">Registro de animales</a>
