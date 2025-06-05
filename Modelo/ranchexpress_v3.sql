@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3307
--- Tiempo de generación: 28-05-2025 a las 00:47:47
+-- Tiempo de generación: 05-06-2025 a las 23:44:54
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `ranchexpress v3`
+-- Base de datos: `ranchexpress_v3`
 --
 
 -- --------------------------------------------------------
@@ -29,9 +29,11 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `animal` (
   `id_animal` int(11) NOT NULL,
+  `estado` text NOT NULL,
   `codigo_animal` varchar(70) NOT NULL,
   `fecha_ingreso` date DEFAULT NULL,
   `fecha_nacimiento` date NOT NULL,
+  `proposito` varchar(180) NOT NULL,
   `peso_nacimiento` double(5,2) NOT NULL,
   `nombre` text NOT NULL,
   `raza` varchar(120) NOT NULL,
@@ -39,34 +41,18 @@ CREATE TABLE `animal` (
   `sexo` enum('Hembra','Macho') NOT NULL,
   `imagen_animal` varchar(255) NOT NULL,
   `especie` text NOT NULL,
-  `id_usuario` int(11) NOT NULL
+  `etapa_edad` enum('Cria','Adulto') NOT NULL COMMENT 'si es adulto o una cria',
+  `id_usuario` int(11) NOT NULL,
+  `id_padre` int(11) DEFAULT NULL,
+  `id_madre` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `animal`
 --
 
-INSERT INTO `animal` (`id_animal`, `codigo_animal`, `fecha_ingreso`, `fecha_nacimiento`, `peso_nacimiento`, `nombre`, `raza`, `color`, `sexo`, `imagen_animal`, `especie`, `id_usuario`) VALUES
-(8, '114', '2025-05-01', '2025-05-06', 32.00, 'Dandy', 'Si', 'Negro', 'Hembra', 'se', 'Caprino', 2),
-(10, '422', '2025-05-12', '2025-05-06', 32.00, 'Susy', 'Sea', 'Negro', 'Hembra', 'hola', 'Ovino', 3);
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `crias`
---
-
-CREATE TABLE `crias` (
-  `id_crias` int(11) NOT NULL,
-  `fecha_nacidos` date NOT NULL,
-  `sexo` enum('Hembra','Macho') NOT NULL,
-  `codigo_cria` int(11) NOT NULL,
-  `raza` varchar(120) NOT NULL,
-  `observaciones` varchar(180) NOT NULL,
-  `peso_nacimiento` double(5,2) NOT NULL,
-  `id_madre` int(11) NOT NULL,
-  `id_padre` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+INSERT INTO `animal` (`id_animal`, `estado`, `codigo_animal`, `fecha_ingreso`, `fecha_nacimiento`, `proposito`, `peso_nacimiento`, `nombre`, `raza`, `color`, `sexo`, `imagen_animal`, `especie`, `etapa_edad`, `id_usuario`, `id_padre`, `id_madre`) VALUES
+(35, 'muerto', '115', '2025-06-09', '2025-06-01', 'Reproductor', 32.00, 'Correccion', 'Alpino', 'Negro', 'Hembra', 'Mob.jpeg', 'Ovino', 'Cria', 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -104,10 +90,17 @@ CREATE TABLE `peso` (
   `id_peso` int(11) NOT NULL,
   `fecha_pesaje` date NOT NULL,
   `peso` double(5,2) NOT NULL,
-  `peso_cria` double(5,2) NOT NULL,
   `observaciones` text DEFAULT NULL,
   `id_animal` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `peso`
+--
+
+INSERT INTO `peso` (`id_peso`, `fecha_pesaje`, `peso`, `observaciones`, `id_animal`) VALUES
+(1, '2025-06-02', 35.00, 'Desnutricion', 35),
+(3, '2025-06-25', 367.00, 'Ya no esta desnutrido', 35);
 
 -- --------------------------------------------------------
 
@@ -124,6 +117,13 @@ CREATE TABLE `tratamientos` (
   `realizador` varchar(80) NOT NULL,
   `id_animal` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `tratamientos`
+--
+
+INSERT INTO `tratamientos` (`id_tratamiento`, `fecha_aplicacion`, `diagnostico`, `nombre_tratamiento`, `observaciones`, `realizador`, `id_animal`) VALUES
+(1, '2025-06-16', 'Sida', 'Anti sida', 'Se curo del sida', 'Medico del Sida', 35);
 
 -- --------------------------------------------------------
 
@@ -145,7 +145,7 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id_usuario`, `nit`, `nombre`, `correo`, `clave`, `rol`) VALUES
-(1, 1141514648, 'Instructor de prueba', 'soxberg277@gmail.com', '$2y$10$MTTAQzDx5IRjOiLp9IwOnewu3fbvBjxIOCfix3Aw3SmOFjX3Iqr4O', 'Instructor'),
+(1, 1141514648, 'Instructor de prueba', 'soxberg277@gmail.com', '$2y$10$UwxD8e4sUh9deQlSRVp.Uu0Lv5IlJdTIqLyHMf72IYheDDx1bfC1K', 'Instructor'),
 (2, 1141514649, 'Aprendiz Prueba', 'pruebaAprendiz@gmail.com', '$2y$10$J6Tn/FdISha6Xz/wQob.6eS5q5rQOdnLU1a/VBglbs8', 'Aprendiz'),
 (3, 1141514642, 'Prueba Gallina', 'Sesdasd', '$2y$12$9Zi5iuDHJgQmWTNtR/lCEuemHmcGFgcebk9pgWt3HYY', 'Aprendiz'),
 (12, 1131513253, 'PruebaInsertado', 'PruebaInsertar@gmail.com', '$2y$10$mtOWNcrO4Q2.ga8yZsTh8eVao8GBb0ij0jiojeu2.Jk', 'Instructor');
@@ -159,15 +159,9 @@ INSERT INTO `usuario` (`id_usuario`, `nit`, `nombre`, `correo`, `clave`, `rol`) 
 --
 ALTER TABLE `animal`
   ADD PRIMARY KEY (`id_animal`),
-  ADD KEY `dueño vacas` (`id_usuario`) USING BTREE;
-
---
--- Indices de la tabla `crias`
---
-ALTER TABLE `crias`
-  ADD PRIMARY KEY (`id_crias`),
-  ADD KEY `padres_cria` (`id_madre`,`id_padre`),
-  ADD KEY `id_padre` (`id_padre`);
+  ADD KEY `dueño vacas` (`id_usuario`) USING BTREE,
+  ADD KEY `padres` (`id_padre`,`id_madre`),
+  ADD KEY `id_madre` (`id_madre`);
 
 --
 -- Indices de la tabla `lana`
@@ -181,21 +175,21 @@ ALTER TABLE `lana`
 --
 ALTER TABLE `leche`
   ADD PRIMARY KEY (`id_produccion`),
-  ADD KEY `produccion_leche` (`id_animal`);
+  ADD KEY `id_animal` (`id_animal`);
 
 --
 -- Indices de la tabla `peso`
 --
 ALTER TABLE `peso`
   ADD PRIMARY KEY (`id_peso`),
-  ADD KEY `pesaje_animal` (`id_animal`);
+  ADD KEY `id_animal` (`id_animal`);
 
 --
 -- Indices de la tabla `tratamientos`
 --
 ALTER TABLE `tratamientos`
   ADD PRIMARY KEY (`id_tratamiento`),
-  ADD UNIQUE KEY `vacunas animal` (`id_animal`);
+  ADD KEY `id_animal` (`id_animal`);
 
 --
 -- Indices de la tabla `usuario`
@@ -211,13 +205,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `animal`
 --
 ALTER TABLE `animal`
-  MODIFY `id_animal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
---
--- AUTO_INCREMENT de la tabla `crias`
---
-ALTER TABLE `crias`
-  MODIFY `id_crias` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_animal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT de la tabla `leche`
@@ -229,19 +217,13 @@ ALTER TABLE `leche`
 -- AUTO_INCREMENT de la tabla `peso`
 --
 ALTER TABLE `peso`
-  MODIFY `id_peso` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_peso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `tratamientos`
 --
 ALTER TABLE `tratamientos`
-  MODIFY `id_tratamiento` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `usuario`
---
-ALTER TABLE `usuario`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_tratamiento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Restricciones para tablas volcadas
@@ -251,20 +233,15 @@ ALTER TABLE `usuario`
 -- Filtros para la tabla `animal`
 --
 ALTER TABLE `animal`
-  ADD CONSTRAINT `animal_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`);
-
---
--- Filtros para la tabla `crias`
---
-ALTER TABLE `crias`
-  ADD CONSTRAINT `crias_ibfk_1` FOREIGN KEY (`id_madre`) REFERENCES `animal` (`id_animal`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `crias_ibfk_2` FOREIGN KEY (`id_padre`) REFERENCES `animal` (`id_animal`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `animal_ibfk_3` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `animal_ibfk_4` FOREIGN KEY (`id_padre`) REFERENCES `animal` (`id_animal`),
+  ADD CONSTRAINT `animal_ibfk_5` FOREIGN KEY (`id_madre`) REFERENCES `animal` (`id_animal`);
 
 --
 -- Filtros para la tabla `lana`
 --
 ALTER TABLE `lana`
-  ADD CONSTRAINT `lana_ibfk_1` FOREIGN KEY (`id_animal`) REFERENCES `animal` (`id_animal`);
+  ADD CONSTRAINT `lana_ibfk_1` FOREIGN KEY (`id_animal`) REFERENCES `animal` (`id_animal`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `leche`
@@ -282,7 +259,7 @@ ALTER TABLE `peso`
 -- Filtros para la tabla `tratamientos`
 --
 ALTER TABLE `tratamientos`
-  ADD CONSTRAINT `tratamientos_ibfk_1` FOREIGN KEY (`id_animal`) REFERENCES `animal` (`id_animal`);
+  ADD CONSTRAINT `tratamientos_ibfk_1` FOREIGN KEY (`id_animal`) REFERENCES `animal` (`id_animal`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

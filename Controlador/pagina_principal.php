@@ -44,20 +44,12 @@ try {
     function generarTarjetas($filas) {
         return '<div class = "col-6 mb-3">
                 <div class="card h-100" style="width: 100%;">
-<<<<<<< HEAD
-                <img src="../Media/Uploads/Adultos/' . $filas['imagen_animal'] . '" class="card-img-top" alt="Imagen del animal" style="width:100%; height:180px; object-fit:cover; object-position:center;">
-=======
                 <img src="../Media/Uploads/' . $filas['imagen_animal'] . '" class="card-img-top" alt="Imagen del animal" style="width:100%; height:180px; object-fit:cover; object-position:center;">
->>>>>>> 01266f9d1a0dc36f5d7a0eb95ea9d7d58b0feba1
                 <div class="card-body">
                 <h5 class="card-title">' . htmlspecialchars($filas['codigo_animal']) . '</h5>
                 <p class="card-text"> Nombre del animal: ' . $filas['nombre'] . '</p>
                 <p class="card-text"> Ingresado por: ' . $filas['nombre_usuario'] . '</p>
-<<<<<<< HEAD
-                <a href="ver_detalles_animal.php?id=' . $filas['id_animal'] . '" class="btn btn-primary">Ver información Detallada</a>
-=======
                 <a href="../Vista/hoja_animales.php?token=' . $filas['codigo_animal'] . '" class="btn btn-primary">Ver información Detallada</a>
->>>>>>> 01266f9d1a0dc36f5d7a0eb95ea9d7d58b0feba1
                 </div>
                 </div>
                 </div>';

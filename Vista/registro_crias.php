@@ -101,7 +101,7 @@ include '../Controlador/inicio_sesion/sesiones.php';
         </div>
         </div>  
         </div>
-             <center>
+      <center>
          <div class="col-md-4">
          <div class="mb-3">
       

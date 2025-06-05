@@ -1,5 +1,6 @@
   <?php
   include '../Controlador/inicio_sesion/sesiones.php';
+  include '../Controlador/registros/padres.php';
   ?>
   <!DOCTYPE html>
   <html lang="en">
@@ -59,6 +60,13 @@
             <option value="Ovino">Ovino</option>
           </select>
         </div>
+        <div class="mb-3">
+          <label class="form-label">Edad del animal</label>
+          <select name="edad" id="edad" class="form-select">
+            <option value="Adulto">Animal en Etapa Adulta</option>
+            <option value="Cria">Animal en etapa de Cria</option>
+          </select>
+        </div>
           </div>
 
           <div class="col-md-6">
@@ -89,8 +97,45 @@
             <option value="muerto">Muerto</option>
           </select>
         </div>
-          
-        
+
+
+
+          <div class="mb-3">
+            <label class="form-label">Padre</label>
+            <select name="padre" id="padre" class = "form-select">
+        <?php if (count($codigoPadre) > 0): ?>
+            <?php foreach ($codigoPadre as $padre): ?>
+                <option value="<?php echo htmlspecialchars($padre['id_animal']); ?>">
+                    <?php echo htmlspecialchars($padre['codigo_animal']); ?>
+                </option>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <option value="" disabled selected>No hay machos disponibles</option>
+        <?php endif; ?>
+                          <option value="">Animal Comprado o sin datos</option>
+            </select>
+          </div>
+
+
+
+
+          <div class="mb-3">
+            <label class="form-label">Madre</label>
+            <select name="madre" id="madre" class = "form-select">
+              <?php if(count($codigoMadre) > 0): ?>
+              <?php foreach($codigoMadre as $madre):?>
+                <option value="<?php htmlspecialchars($madre['id_animal']) ?>">
+                  <?php htmlspecialchars($madre['codigo']) ?></option>
+                  <?php endforeach ?>
+                <?php else: ?>
+                    <option value="" disabled selected>No hay Hembras disponibles</option>
+                  <?php endif; ?>
+                  <option value="">Animal Comprado o sin datos</option>
+            </select>
+          </div>
+
+
+
           <div class="mb-3">
               <label for="image" class="form-label">Imagen</label>
               <input type="file" class="form-control" id="image" name="imagen_animal" accept="image/*" required>
@@ -98,6 +143,7 @@
           </div>
           </div>
   <div class="d-flex justify-content-center">
+
     <button type="submit" class="btn-submit">Registrar Animal</button>
   </div>
       </form>

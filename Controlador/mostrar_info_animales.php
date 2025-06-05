@@ -29,9 +29,10 @@ if($resultados && $resultados > 0){
                             </div>';
                             break;
             case 'muerto':
-                $html.= '   <div class="alert alert-success" role="alert">
+                $html.= '   <div class="alert alert-danger" role="alert">
                                 Fallecido
                             </div>';
+                            break;
             default:
                 $html .= '   <div class="alert alert-secondary" role="alert">
                                 Hubo un error.
@@ -54,6 +55,7 @@ if($resultados && $resultados > 0){
         $fechaPesaje = $fila['fecha_pesaje'];
 
         /* Informacion del estado de SALUD */
+        $diagnostico = $fila['diagnostico'];
         $nombreTratamiento = $fila['nombre_tratamiento'];
         $fechaAplicacion = $fila['fecha_aplicacion'];
     }

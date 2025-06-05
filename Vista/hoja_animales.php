@@ -70,10 +70,11 @@ include '../Controlador/inicio_sesion/sesiones.php';
           <img src="https://cdn-icons-png.flaticon.com/512/5270/5270995.png" alt="peso" width="30" class="mb-2">
           <a class="fw-bold m-0 hola"  href="tabla.html">
             <button class="btn btn-danger btn-sm">
-              PESO : KG
+              Peso En Kilogramos
             </button>
             </a>
-          <p><?php echo $peso ?> - <?php echo $fechaPesaje ?></p>
+          <p>Ultimo Pesaje: <?php echo $peso ?>  <br>
+          Fecha del Pesaje: <?php echo $fechaPesaje ?></p>
           <div class="d-flex justify-content-center gap-2 mb-2">
             <div class="dot"></div>
             <div class="dot"></div>
@@ -89,10 +90,13 @@ include '../Controlador/inicio_sesion/sesiones.php';
       <div class="col-12">
         <div class="info-box">
           <div class="d-flex justify-content-between align-items-center">
-            <h6 class="m-0">TRATAMIENTOS</h6>
-            <button class="btn btn-danger btn-sm">ACTUALIZAR</button>
+            <h4 class="m-0">Tratamientos</h4>
+            <button class="btn btn-danger btn-sm">Actualizar</button>
           </div>
-          <p class="fw-bold mt-2"><?php echo $nombreTratamiento ?> - <?php echo $fechaAplicacion ?></p>
+          <p class="fw-bold mt-2"><?php echo $nombreTratamiento ?><br>
+          <?php echo $fechaAplicacion ?>
+        <br>
+      <?php echo $diagnostico ?></p>
           <hr>
           <hr>
           <hr>
