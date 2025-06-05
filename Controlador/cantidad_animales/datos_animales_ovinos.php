@@ -5,13 +5,15 @@ include '../../Modelo/conn.php';
 include '../inicio_sesion/sesiones.php';
 include '../inicio_sesion/cerrar_sesion.php';
 
-// Consulta: total de kilos producidos por año(para todos los animales)
-$sql = "SELECT produccion_anual, SUM(kilos_producidos) AS total_kilos
-        FROM lana
-        GROUP BY produccion_anual
-        ORDER BY produccion_anual ASC";
+// Consulta: total de animales caprinos
+$sql = "SELECT especie, COUNT(*) AS total_animales_ovinos
+        FROM animal
+        WHERE especie = 'Ovino'
+        GROUP BY especie
+        ORDER BY especie ASC";
 
 $resultado = $conn->query($sql);
+
 
 // arreglo para almacenar los datos que se enviarán al gráfico
 $datos = [];
@@ -22,7 +24,7 @@ $contador = 0;
 // bucle para recorrer los resultados y convertirlos al formato [x, y] para el grafico
 while ($fila = $resultado->fetch_assoc()) {
     //array con el contador como eje X y los litros como eje Y
-    $datos[] = ['label' => $fila['produccion_anual'], 'y' => (float)$fila['total_kilos']];
+    $datos[] = ['label' => $fila['especie'], 'y' => (float)$fila['total_animales_ovinos']];
 
     $contador++;
 }

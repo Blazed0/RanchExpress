@@ -1,3 +1,6 @@
+  <?php
+  include '../Controlador/inicio_sesion/sesiones.php';
+  ?>
   <!DOCTYPE html>
   <html lang="en">
   <head>

@@ -10,123 +10,128 @@
 </head>
 <body>
 
-  
-  <header class="header-custom py-2 px-4 d-flex justify-content-between align-items-center">
-    <div class="d-flex align-items-center">
-      <img src="img/logo.png" alt="Logo" width="50">
-      <h1 class="ms-2 m-0 fs-4 fw-bold">RanchExpress</h1>
-    </div>
-    <nav>
-      <a href="index.php" class="mx-3">Principal</a>
-      <a href="registro_animal.php" class="mx-3">Registro de animales</a>
-      <a href="registro_crias.php" class="mx-3 ">Registro de crias</a>
-      <a href="especies.html" class="mx-3 fw-bold">Animales</a>
-    </nav>
-    <div class="search d-flex align-items-center">
-      <input type="text" class="form-control me-2" placeholder="Search">
-      <button class="btn btn-custom-search">🔍</button>
-    </div>
-  </header>
+<header class="header-custom py-2 px-4 d-flex justify-content-between align-items-center">
+  <div class="d-flex align-items-center">
+    <img src="img/logo.png" alt="Logo" width="50">
+    <h1 class="ms-2 m-0 fs-4 fw-bold">RanchExpress</h1>
+  </div>
+  <nav>
+    <a href="index.php" class="mx-3">Principal</a>
+    <a href="registro_animal.php" class="mx-3">Registro de animales</a>
+    <a href="registro_crias.php" class="mx-3 ">Registro de crias</a>
+    <a href="especies.html" class="mx-3 fw-bold">Animales</a>
+  </nav>
+  <div class="search d-flex align-items-center">
+    <input type="text" class="form-control me-2" placeholder="Search">
+    <button class="btn btn-custom-search">🔍</button>
+  </div>
+</header>
 
- 
-  <main class="container my-4 text-center">
-    <a href="#" class="btn btn-back mb-3">←</a>
-    <div class="estadistica-box p-4">
-      <h2 class="titulo-estadistica">ESTADISTICA CAPRINOS</h2>
-      <div class="row mt-4">
-        <div class="col-md-4">
-          <h5 class="fw-bold">CANT . ANIMALES</h5>
-          <img src="img/grafico1.png" alt="Grafico 1" class="img-fluid grafico-img">
-        </div>
-        <div class="col-md-4">
-          <h5 class="fw-bold">PROPOSITO</h5>
-          <img src="img/grafico2.png" alt="Grafico 2" class="img-fluid grafico-img">
-        </div>
-        <div class="col-md-4">
-          <h5 class="fw-bold">LECHE</h5>
-      <!-- Script que se ejecuta cuando se carga toda la página -->
-<script>
-window.onload = function() {
+<main class="container my-4 text-center">
+  <a href="#" class="btn btn-back mb-3">←</a>
+  <div class="estadistica-box p-4">
+    <h2 class="titulo-estadistica">ESTADISTICA CAPRINOS</h2>
+    <div class="row mt-4">
 
-    // Arreglo que almacenará los puntos del gráfico (x, y)
-    var dataPoints = [];
-
-    // Configuración del gráfico
-    var options = {
-        theme: "light2", // Tema visual del gráfico
-        title: {
-            text: "Producción de leche" // Título del gráfico
-        },
-        data: [{
-            type: "line", // Tipo de gráfico: línea
-            dataPoints: dataPoints // Aquí se agregan los puntos dinámicos
-        }]
-    };
-
-    // Inicializa el gráfico en el contenedor con las opciones definidas
-    $("#chartContainer").CanvasJSChart(options);
-
-    // Llama a la función que actualiza los datos del gráfico
-    updateData();
-
-    // Variables para el eje X e Y y la cantidad de datos nuevos a agregar
-    var xValue = 0;
-    var yValue = 10;
-    var newDataCount = 6;
-
-    // Función que agrega nuevos datos al gráfico
-    function addData(data) {
-        if(newDataCount != 1) {
-            // Si se agregan múltiples datos, se recorre el arreglo
-            $.each(data, function(key, value) {
-                dataPoints.push({x: value[0], y: parseInt(value[1])});
-                xValue++; // Incrementa el valor X
-                yValue = parseInt(value[1]); // Actualiza Y con el valor actual
-            });
-        } else {
-            // Si se agrega solo un punto nuevo
-            dataPoints.push({x: data[0][0], y: parseInt(data[0][1])});
-            xValue++;
-            yValue = parseInt(data[0][1]);
-        }
-
-        newDataCount = 1; // A partir de aquí, solo se agregará un dato a la vez
-
-        // Se vuelve a renderizar el gráfico con los nuevos datos
-        $("#chartContainer").CanvasJSChart().render();
-
-        // Se programa otra actualización de datos dentro de 1.5 segundos
-        setTimeout(updateData, 1500);	
-    }
-
-    // Función que obtiene nuevos datos desde un servicio externo
-    function updateData() {
-        // Petición AJAX para obtener datos simulados desde el servidor de CanvasJS
-       $.getJSON("../Controlador/leche/datos_leche.php", addData);
-
-    }
-
-}
-</script>
-
-<!-- Contenedor donde se mostrará el gráfico -->
-<div id="chartContainer" style="height: 370px; width: 100%;"></div>
-
-<!-- Librería de jQuery requerida para el gráfico -->
-<script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
-
-<!-- Librería de CanvasJS que permite renderizar el gráfico -->
-<script src="https://cdn.canvasjs.com/jquery.canvasjs.min.js"></script>
-        </div>
+      <!-- CANTIDAD DE ANIMALES -->
+      <div class="col-md-4">
+        <h5 class="fw-bold">CANT. ANIMALES</h5>
+        <div id="chartCantidad" style="height: 370px; width: 100%;"></div>
       </div>
-    </div>
-  </main>
 
- 
-  <footer class="footer-custom py-2 text-center">
-    SENA: CONOCIMIENTO Y EMPRENDIMIENTO PARA TODOS LOS COLOMBIANOS
-    <img src="img/sena_logo.png" alt="SENA Logo" width="40" class="ms-2"/>
-  </footer>
+      <!-- PROPOSITO -->
+      <div class="col-md-4">
+        <h5 class="fw-bold">PROPÓSITO</h5>
+        <div id="chartProposito" style="height: 370px; width: 100%;"></div>
+      </div>
+
+      <!-- LECHE -->
+      <div class="col-md-4">
+        <h5 class="fw-bold">LECHE</h5>
+        <div id="chartLeche" style="height: 370px; width: 100%;"></div>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<footer class="footer-custom py-2 text-center">
+  SENA: CONOCIMIENTO Y EMPRENDIMIENTO PARA TODOS LOS COLOMBIANOS
+  <img src="img/sena_logo.png" alt="SENA Logo" width="40" class="ms-2"/>
+</footer>
+
+<!-- Librerías necesarias -->
+<script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+<script src="https://cdn.canvasjs.com/jquery.canvasjs.min.js"></script>
+
+<script>
+$(document).ready(function () {
+
+  // ----------------- CANTIDAD DE ANIMALES -------------------
+  var chartCantidad = new CanvasJS.Chart("chartCantidad", {
+    animationEnabled: true,
+    theme: "light2",
+    title: { text: "Cantidad de Animales" },
+    data: [{
+      type: "line",
+        dataPoints: [] 
+  }]
+});
+
+$.getJSON("../Controlador/cantidad_animales/datos_animales_caprinos.php", function(data) {
+  chartCantidad.options.data[0].dataPoints = data;
+  chartCantidad.render();
+});
+
+
+  // ----------------- PROPÓSITO -------------------
+  var chartProposito = new CanvasJS.Chart("chartProposito", {
+    animationEnabled: true,
+    theme: "light2",
+    title: { text: "Propósito" },
+      data: [{
+    type: "pie",
+    dataPoints: [] 
+  }]
+});
+
+$.getJSON("../Controlador/propositos/proposito_caprino.php", function(data) {
+  chartProposito.options.data[0].dataPoints = data;
+  chartProposito.render();
+});
+
+
+  // ----------------- GRAFICO DE LECHE -------------------
+  var dataPointsLeche = [];
+  var chartLeche = new CanvasJS.Chart("chartLeche", {
+    animationEnabled: true,
+    theme: "light2",
+    title: { text: "Producción de leche"  },
+  axisY: {
+    title: "Litros producidos"
+  },
+    data: [{
+      type: "line",
+      dataPoints: dataPointsLeche
+    }]
+  });
+  chartLeche.render();
+
+  // ----------------- FUNCION PARA ACTUALIZAR -------------------
+  function updateLecheData() {
+    $.getJSON("../Controlador/leche/datos_leche.php", function(data) {
+      $.each(data, function(key, value) {
+        dataPointsLeche.push({ x: value[0], y: parseInt(value[1]) });
+      });
+      chartLeche.render();
+      setTimeout(updateLecheData, 1500);
+    });
+  }
+
+  updateLecheData();
+});
+</script>
 
 </body>
 </html>
+

@@ -29,104 +29,116 @@
   </header>
 
  
-  <main class="container my-4 text-center">
-    <a href="#" class="btn btn-back mb-3">←</a>
-    <div class="estadistica-box p-4">
-      <h2 class="titulo-estadistica">ESTADISTICA OVINOS</h2>
-      <div class="row mt-4">
-        <div class="col-md-4">
-          <h5 class="fw-bold">CANT . ANIMALES</h5>
-          <img src="img/grafico1.png" alt="Grafico 1" class="img-fluid grafico-img">
-        </div>
-        <div class="col-md-4">
-          <h5 class="fw-bold">PROPOSITO</h5>
-          <img src="img/grafico2.png" alt="Grafico 2" class="img-fluid grafico-img">
-        </div>
-        <div class="col-md-4">
-          <h5 class="fw-bold">LANA</h5>
-      <!-- Script que se ejecuta cuando se carga toda la página -->
+<main class="container my-4 text-center">
+  <a href="hojanimales.html" class="btn btn-back mb-3">←</a>
+  <div class="estadistica-box p-4">
+    <h2 class="titulo-estadistica">ESTADISTICA OVINOS</h2>
+    <div class="row mt-4">
+        <!-- CANTIDAD DE ANIMALES -->
+      <div class="col-md-4">
+        <h5 class="fw-bold">CANT. ANIMALES</h5>
+        <div id="chartCantidad" style="height: 370px; width: 100%;"></div>
+      </div>
+
+      <!-- PROPOSITO -->
+      <div class="col-md-4">
+        <h5 class="fw-bold">PROPÓSITO</h5>
+        <div id="chartProposito" style="height: 370px; width: 100%;"></div>
+      </div>
+
+      <!-- LECHE -->
+      <div class="col-md-4">
+        <h5 class="fw-bold">LANA</h5>
+        <div id="chartLanaContainer" style="height: 370px; width: 100%;"></div>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<footer class="footer-custom py-2 text-center">
+  SENA: CONOCIMIENTO Y EMPRENDIMIENTO PARA TODOS LOS COLOMBIANOS
+  <img src="img/sena_logo.png" alt="SENA Logo" width="40" class="ms-2"/>
+</footer>
+
+<!-- Librerías necesarias -->
+<script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+<script src="https://cdn.canvasjs.com/jquery.canvasjs.min.js"></script>
+
 <script>
-window.onload = function() {
+$(document).ready(function () {
 
-    // Arreglo que almacenará los puntos del gráfico (x, y)
-    var dataPoints = [];
+  // ----------------- CANTIDAD DE ANIMALES -------------------
+  var chartCantidad = new CanvasJS.Chart("chartCantidad", {
+    animationEnabled: true,
+    theme: "light2",
+    title: { text: "Cantidad de Animales" },
+    data: [{
+      type: "column",
+         dataPoints: [] 
+  }]
+});
 
-    // Configuración del gráfico
-    var options = {
-        theme: "light2", // Tema visual del gráfico
-        title: {
-            text: "Producción de Lana" // Título del gráfico
-        },
-        data: [{
-            type: "line", // Tipo de gráfico: línea
-            dataPoints: dataPoints // Aquí se agregan los puntos dinámicos
-        }]
-    };
+$.getJSON("../Controlador/cantidad_animales/datos_animales_ovinos.php", function(data) {
+  chartCantidad.options.data[0].dataPoints = data;
+  chartCantidad.render();
+});
+  // ----------------- PROPÓSITO -------------------
+  var chartProposito = new CanvasJS.Chart("chartProposito", {
+    animationEnabled: true,
+    theme: "light2",
+    title: { text: "Propósito" },
+      data: [{
+    type: "pie",
+    dataPoints: [] 
+  }]
+});
 
-    // Inicializa el gráfico en el contenedor con las opciones definidas
-    $("#chartContainer").CanvasJSChart(options);
+$.getJSON("../Controlador/propositos/proposito_ovino.php", function(data) {
+  chartProposito.options.data[0].dataPoints = data;
+  chartProposito.render();
+});
+  // ----------------- GRAFICO DE LANA -------------------
+var dataPointsLana = [];
 
-    // Llama a la función que actualiza los datos del gráfico
-    updateData();
+var chartLana = new CanvasJS.Chart("chartLanaContainer", {
+  animationEnabled: true,
+  theme: "light2",
+  title: {
+    text: "Producción anual de lana"
+  },
+  axisY: {
+    title: "Kilos producidos"
+  },
+  data: [{
+    type: "line", 
+    dataPoints: dataPointsLana
+  }]
+});
 
-    // Variables para el eje X e Y y la cantidad de datos nuevos a agregar
-    var xValue = 0;
-    var yValue = 10;
-    var newDataCount = 6;
 
-    // Función que agrega nuevos datos al gráfico
-    function addData(data) {
-        if(newDataCount != 1) {
-            // Si se agregan múltiples datos, se recorre el arreglo
-            $.each(data, function(key, value) {
-                dataPoints.push({x: value[0], y: parseInt(value[1])});
-                xValue++; // Incrementa el valor X
-                yValue = parseInt(value[1]); // Actualiza Y con el valor actual
-            });
-        } else {
-            // Si se agrega solo un punto nuevo
-            dataPoints.push({x: data[0][0], y: parseInt(data[0][1])});
-            xValue++;
-            yValue = parseInt(data[0][1]);
-        }
+  // ----------------- FUNCION PARA ACTUALIZAR -------------------
+ function updateLanaData() {
+  $.getJSON("../Controlador/lana/datos_lana.php", function(data) {
+    dataPointsLana.length = 0; // Limpia los puntos anteriores
 
-        newDataCount = 1; // A partir de aquí, solo se agregará un dato a la vez
+    $.each(data, function(key, value) {
+      dataPointsLana.push({ label: value.label, y: parseFloat(value.y) });
+    });
 
-        // Se vuelve a renderizar el gráfico con los nuevos datos
-        $("#chartContainer").CanvasJSChart().render();
-
-        // Se programa otra actualización de datos dentro de 1.5 segundos
-        setTimeout(updateData, 1500);	
-    }
-
-    // Función que obtiene nuevos datos desde un servicio externo
-    function updateData() {
-        // Petición AJAX para obtener datos simulados desde el servidor de CanvasJS
-       $.getJSON("", addData);
-
-    }
-
+    chartLana.render();
+    setTimeout(updateLanaData, 1500);
+  });
 }
+
+
+  updateLanaData();
+});
 </script>
 
-<!-- Contenedor donde se mostrará el gráfico -->
-<div id="chartContainer" style="height: 370px; width: 100%;"></div>
+</body>
+</html>
 
-<!-- Librería de jQuery requerida para el gráfico -->
-<script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
-
-<!-- Librería de CanvasJS que permite renderizar el gráfico -->
-<script src="https://cdn.canvasjs.com/jquery.canvasjs.min.js"></script>
-        </div>
-      </div>
-    </div>
-  </main>
-
- 
-  <footer class="footer-custom py-2 text-center">
-    SENA: CONOCIMIENTO Y EMPRENDIMIENTO PARA TODOS LOS COLOMBIANOS
-    <img src="img/sena_logo.png" alt="SENA Logo" width="40" class="ms-2"/>
-  </footer>
 
 </body>
 </html>

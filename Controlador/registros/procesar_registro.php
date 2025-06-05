@@ -4,18 +4,18 @@ include '../../Modelo/conn.php';
 include '../inicio_sesion/sesiones.php';
 include '../inicio_sesion/cerrar_sesion.php';
 
-<<<<<<< HEAD
+
 $idUsuario = $_SESSION['user'];
 
 //Variables tomadas del formulario 
 $estado            = $_POST['estado'];
 $codigo_animal     = $_POST['codigo_animal'];
 $fecha_ingreso     = $_POST['fecha_ingreso'];
-=======
+
 $estado            = $_POST['estado'];
 $codigo_animal     = $_POST['codigo_animal'];
 $fecha_ingreso     = !empty($_POST['fecha_ingreso']) ? $_POST['fecha_ingreso'] : NULL;
->>>>>>> 5c0306bf5443da2d237602eb785568085674806a
+
 $fecha_nacimiento  = $_POST['fecha_nacimiento'];
 $proposito         = $_POST['proposito'];
 $peso_nacimiento   = $_POST['peso_nacimiento'];
@@ -24,7 +24,7 @@ $nombre            = $_POST['nombre'];
 $raza              = $_POST['raza'];
 $color             = $_POST['color'];
 $sexo              = $_POST['sexo'];
-<<<<<<< HEAD
+
 $ingresadoPor  = $_SESSION['user'];
 
 //Variables de tipo archivo tomadas del formulario manejadas por $_FILES
@@ -83,7 +83,7 @@ $stmt->bind_param($tiposDatos, ...$valoresPost);
 
 
 
-=======
+
 
 
 $fileName = $_FILES['imagen_animal']['name'];
@@ -106,7 +106,7 @@ $stmt->bind_param("sssssissssss",
     $sexo, 
     $imagen_animal
 );
->>>>>>> 5c0306bf5443da2d237602eb785568085674806a
+
 if ($stmt->execute()) {
     $session['alert'] = alerta("El animal ha sido registrada  con exito");
     header('Location: ../../Vista/registro_animal.php');

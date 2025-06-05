@@ -12,9 +12,9 @@ body {
   min-height: 100vh;
 }
 
-<<<<<<< HEAD
+
 /* NAVBAR */
-=======
+
 .container.my-4{
   min-height: 78vh;
   grid-template-rows: auto 1fr auto;
@@ -57,7 +57,7 @@ body {
   align-items: end;
 }
 
->>>>>>> 5c0306bf5443da2d237602eb785568085674806a
+
 .navbar-custom {
   background-color: #b98c2c; /* color café exacto */
   padding: 10px 20px;
