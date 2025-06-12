@@ -93,3 +93,7 @@ label {
       color: #0b5ed7;
     }
 
+    #image{
+        width: fit-content;
+    }
+

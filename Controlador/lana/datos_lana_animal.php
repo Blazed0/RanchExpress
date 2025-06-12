@@ -1,20 +1,56 @@
 <?php
-header('Content-Type: application/json');  // Para que reconozca que es un archivo json para aplicar funciones
+header('Content-Type: application/json');
 
 include '../../Modelo/conn.php';
+mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 include '../inicio_sesion/sesiones.php';
 include '../inicio_sesion/cerrar_sesion.php';
 
-// Este condicional verifica si el parámetro 'id_animal' fue enviado por GET
-if (!isset($_GET['id_animal'])) {
-    // Si no se envía, se devuelve un mensaje de error en formato json
-    echo json_encode(["error" => "Falta el parámetro id_animal"]);
+if (!isset($_POST['kilos']) || !isset($_POST['codigo_animal'])) {
+    echo json_encode(["error" => "Faltan datos obligatorios"]);
     exit;
 }
 
-//el  'id_animal' pasa  a entero para evitar inyecciones SQL
-$id_animal = (int) $_GET['id_animal'];
+// Obtener los datos del formulario
+$kilos_producidos = floatval($_POST['kilos']);
+$codigo_animal = $_POST['codigo_animal'];
 
+// Obtener el id_animal a partir del código
+$sql_buscar = "SELECT id_animal FROM animal WHERE codigo_animal = ?";
+$stmt_buscar = $conn->prepare($sql_buscar);
+$stmt_buscar->bind_param("i", $codigo_animal);
+$stmt_buscar->execute();
+$result = $stmt_buscar->get_result();
+
+if ($result->num_rows === 0) {
+    echo json_encode(["error" => "No se encontró el animal con el código ingresado"]);
+    exit;
+}
+
+$fila = $result->fetch_assoc();
+$id_animal = $fila['id_animal'];
+$stmt_buscar->close();
+
+// Consultar la producción acumulada hasta ahora
+$consulta_suma = $conn->prepare("SELECT SUM(kilos_producidos) AS total FROM lana WHERE id_animal = ?");
+$consulta_suma->bind_param("i", $id_animal);
+$consulta_suma->execute();
+$res = $consulta_suma->get_result();
+
+$produccion_total = 0;
+if ($fila = $res->fetch_assoc()) {
+    $produccion_total = floatval($fila['total']);
+}
+$consulta_suma->close();
+
+// Calcular la nueva producción anual
+$produccion_anual = $produccion_total + $kilos_producidos;
+
+// Insertar nuevo registro
+$insert = $conn->prepare("INSERT INTO lana (kilos_producidos, produccion_anual, id_animal) VALUES (?, ?, ?)");
+$insert->bind_param("ddi", $kilos_producidos, $produccion_anual, $id_animal);
+$insert->execute();
+$insert->close();
 // Consulta SQL para obtener la suma de kilos producidos por animal por añ
 $sql = "SELECT produccion_anual, SUM(kilos_producidos) AS total_kilos
         FROM lana

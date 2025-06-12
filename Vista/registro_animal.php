@@ -125,7 +125,7 @@
               <?php if(count($codigoMadre) > 0): ?>
               <?php foreach($codigoMadre as $madre):?>
                 <option value="<?php htmlspecialchars($madre['id_animal']) ?>">
-                  <?php htmlspecialchars($madre['codigo']) ?></option>
+                  <?php echo htmlspecialchars($madre['codigo_animal']) ?></option>
                   <?php endforeach ?>
                 <?php else: ?>
                     <option value="" disabled selected>No hay Hembras disponibles</option>
@@ -134,14 +134,17 @@
             </select>
           </div>
 
-
-
-          <div class="mb-3">
+          
+          
+         
+          </div>
+           <center>
+          <div class="mb-3 ">
               <label for="image" class="form-label">Imagen</label>
               <input type="file" class="form-control" id="image" name="imagen_animal" accept="image/*" required>
-          </div>
-          </div>
-          </div>
+            </div>
+          </center>
+        </div>
   <div class="d-flex justify-content-center">
 
     <button type="submit" class="btn-submit">Registrar Animal</button>

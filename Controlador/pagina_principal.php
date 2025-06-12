@@ -16,13 +16,22 @@ try {
 
     // Esto es el que define qué clase de animal se va a mostrar
     function obtenerAnimal($conn, $especie, $limite) {
-        $sqlAnimales = "SELECT imagen_animal, codigo_animal, animal.nombre, usuario.id_usuario, id_animal, usuario.nombre AS nombre_usuario FROM animal LEFT JOIN usuario ON animal.id_usuario = usuario.id_usuario WHERE especie = '$especie' LIMIT $limite ";
-        $resultado = $conn->query($sqlAnimales);
-        $html = ' ';
+        $sqlAnimales = "SELECT imagen_animal, codigo_animal, animal.nombre, usuario.id_usuario, id_animal, usuario.nombre AS nombre_usuario 
+        FROM animal 
+        LEFT JOIN usuario 
+        ON animal.id_usuario = usuario.id_usuario 
+        WHERE especie = ? 
+        LIMIT ? ";
+        $stmt = $conn->prepare($sqlAnimales);
+        $stmt ->bind_param("si", $especie, $limite); 
+        $stmt ->execute();
+        $resultado = $stmt ->get_result();
+        $html = '';
         if ($resultado && $resultado->num_rows > 0) {
             while ($fila = $resultado->fetch_assoc()) {
                 $html .= generarTarjetas($fila);
             }
+            $stmt->close(); 
             return $html;
         } else {
             $html .= '<div class="card text-center">
@@ -30,7 +39,7 @@ try {
                 <div class="card-body">
                 <h5 class="card-title">Animales no registrados</h5>
                 <p class="card-text">Ingresa un animal y prueba nuevamente.</p>
-                <a href="../Vista/registro_animal.php" class="btn btn-primary">Registra un nuevo animal</a>
+                <a href="../Vista/registro_animal.php" class="btn btn-danger w-100 text-wrap" style = "white-space = normal;">Registra un nuevo animal</a>
                 </div>
                 <div class="card-footer text-body-secondary">
                 RanchExpress
@@ -49,7 +58,7 @@ try {
                 <h5 class="card-title">' . htmlspecialchars($filas['codigo_animal']) . '</h5>
                 <p class="card-text"> Nombre del animal: ' . $filas['nombre'] . '</p>
                 <p class="card-text"> Ingresado por: ' . $filas['nombre_usuario'] . '</p>
-                <a href="../Vista/hoja_animales.php?token=' . $filas['codigo_animal'] . '" class="btn btn-primary">Ver información Detallada</a>
+                <a href="../Vista/hoja_animales.php?token=' . $filas['codigo_animal'] . '" class="btn btn-danger w-100 text-wrap" style = "white-space = normal;">Ver información Detallada</a>
                 </div>
                 </div>
                 </div>';

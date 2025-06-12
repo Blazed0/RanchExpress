@@ -46,10 +46,12 @@ include '../Controlador/inicio_sesion/sesiones.php';
               <h6 class="m-0">ESTADO</h6>
               <span id = "estado"> <?php echo $html ?></span>
             </div>
-            <p class="mb-1">Padres: <?php echo $nombrePadre ?></p>
+            <p class="mb-1">Padre: <a href= "hoja_animales.php?token=<?=$nombrePadre?>"><?php echo $nombrePadre ?></a></p>
+            <p class="mb-1">Madre:<a href = "hoja_animales.php?token=<?=$nombreMadre?>"><?php echo $nombreMadre ?></a></p>
             <p class="mb-1">Codigo: <?php echo $codigo ?></p>
             <p class="mb-1">Raza: <?php echo $raza ?></p>
-            <p class="mb-1">Raza de padres: <?php echo "Esto tambien tocara arreglar de donde sacamos esta info"?></p>
+            <p class="mb-1">Raza Del Padre: <?php echo $padreRaza?></p>
+            <p class="mb-1">Raza De La Madre: <?php echo $madreRaza?></p>
             <p class="mb-2">Sexo: <?php echo $sexo ?></p>
           </div>
           <a class="btn btn-danger btn-sm mt-2" href="#">ACTUALIZAR</a>
@@ -68,7 +70,7 @@ include '../Controlador/inicio_sesion/sesiones.php';
       <div class="col-md-6">
         <div class="info-box text-center h-100">
           <img src="https://cdn-icons-png.flaticon.com/512/5270/5270995.png" alt="peso" width="30" class="mb-2">
-          <a class="fw-bold m-0 hola"  href="tabla.html">
+          <a class="fw-bold m-0 hola"  href="tabla.php?token=<?= $id_animal ?>">
             <button class="btn btn-danger btn-sm">
               Peso En Kilogramos
             </button>

@@ -1,3 +1,7 @@
+<?php 
+include '../Controlador/inicio_sesion/sesiones.php';
+include '../Controlador/ver_caprinos.php';
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -31,50 +35,15 @@
     <h2 class="section-title">CAPRINO</h2>
 
    
+    <div class="total-box mx-auto my-3">
+      <p class="fw-bold m-0">TOTAL</p>
+      <hr class="my-1">
+      <h4 class="m-0"><?php echo $conteoTotal ?></h4>
+    </div>
     <div class="container mt-4">
       <div class="row g-4 justify-content-center">
-      
-        <div class="col-6 col-sm-4 col-md-3">
-          <div class="card text-center border-0 ganado-card">
-            <img src="img/ganado1.jpg" class="card-img-top ganado-img" alt="Ganado">
-            <div class="card-body p-2">
-              <p class="fw-bold m-1">E: 64354735</p>
-              
-            </div>
-          </div>
-        </div>
 
-        <div class="col-6 col-sm-4 col-md-3">
-          <div class="card text-center border-0 ganado-card">
-            <img src="img/ganado1.jpg" class="card-img-top ganado-img" alt="Ganado">
-            <div class="card-body p-2">
-              <p class="fw-bold m-1">E: 64354735</p>
-              
-            </div>
-          </div>
-        </div>
-
-        <div class="col-6 col-sm-4 col-md-3">
-          <div class="card text-center border-0 ganado-card">
-            <img src="img/ganado1.jpg" class="card-img-top ganado-img" alt="Ganado">
-            <div class="card-body p-2">
-              <p class="fw-bold m-1">E: 64354735</p>
-              
-            </div>
-          </div>
-        </div>
-
-        <div class="col-6 col-sm-4 col-md-3">
-          <div class="card text-center border-0 ganado-card">
-            <img src="img/ganado1.jpg" class="card-img-top ganado-img" alt="Ganado">
-            <div class="card-body p-2">
-              <p class="fw-bold m-1">E: 64354735</p>
-              
-            </div>
-          </div>
-        </div>
-
-       
+            <?php echo $html ?>
 
 
       </div>

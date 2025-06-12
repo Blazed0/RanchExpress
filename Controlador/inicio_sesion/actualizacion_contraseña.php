@@ -17,6 +17,7 @@
         
         if(time() - $tiempo > 3600){
             $_SESSION['alert'] = "Lo sentimos, el tiempo expiro. Por favor vuelve a intentarlo nuevamente";
+            header('Location: ../../Vista/actualizar_contraseña.php');
             exit();
         }
         else{

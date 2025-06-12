@@ -1,54 +1,65 @@
 <?php
-header('Content-Type: application/json');  // Para que reconozca que es un archivo json para aplicar funciones
+header('Content-Type: application/json');
 
 include '../../Modelo/conn.php';
 include '../inicio_sesion/sesiones.php';
 include '../inicio_sesion/cerrar_sesion.php';
 
-// Este condicional verifica si el parámetro 'id_animal' fue enviado por GET
-if (!isset($_GET['id_animal'])) {
-    // Si no se envía, se devuelve un mensaje de error en formato json
-    echo json_encode(["error" => "Falta el parámetro id_animal"]);
+// Validar que se enviaron los datos por POST
+if (!isset($_POST['fecha_produccion']) || !isset($_POST['litros']) || !isset($_POST['codigo_animal'])) {
+    echo json_encode(["error" => "Faltan datos obligatorios"]);
     exit;
 }
 
-//el  'id_animal' pasa  a entero para evitar inyecciones SQL
-$id_animal = (int) $_GET['id_animal'];
+// Obtener los datos del formulario
+$fecha_produccion = $_POST['fecha_produccion'];
+$litros_producidos = $_POST['litros'];
+$codigo_animal = $_POST['codigo_animal'];
 
-// Consulta SQL para obtener la suma de litros producidos por día para el animal indicado
+$sql_buscar = "SELECT id_animal FROM animal WHERE codigo_animal = ?";
+$stmt_buscar = $conn->prepare($sql_buscar);
+$stmt_buscar->bind_param("i", $codigo_animal);
+$stmt_buscar->execute();
+$result = $stmt_buscar->get_result();
+
+if ($result->num_rows === 0) {
+    echo json_encode(["error" => "No se encontró el animal con el código ingresado"]);
+    exit;
+}
+
+$fila = $result->fetch_assoc();
+$id_animal = $fila['id_animal'];
+$stmt_buscar->close();
+
+
+$insert = $conn->prepare("INSERT INTO leche (fecha_produccion, litros_producidos, id_animal) VALUES (?, ?, ?)");
+$insert->bind_param("sii", $fecha_produccion, $litros_producidos, $id_animal);
+$insert->execute();
+$insert->close();
+// Ahora obtener el total de litros por día para ese animal
 $sql = "SELECT fecha_produccion, SUM(litros_producidos) AS total_litros
         FROM leche
         WHERE id_animal = ?
         GROUP BY fecha_produccion
         ORDER BY fecha_produccion ASC";
 
-// se prepara la  sentencia SQL para evitar inyección de código
 $stmt = $conn->prepare($sql);
-
 $stmt->bind_param("i", $id_animal);
-
 $stmt->execute();
-
-
 $resultado = $stmt->get_result();
 
-//array para almacenar los datos que se devolverán en formato JSON
 $datos = [];
 $contador = 0;
 
-// bucle para recorrer los resultados y convertirlos al formato [x, y] para el grafico
 while ($fila = $resultado->fetch_assoc()) {
-    //array con el contador como eje X y los litros como eje Y
     $datos[] = [$contador, (float)$fila['total_litros']];
     $contador++;
 }
 
-// Devolvemos los datos codificados en formato JSON
 echo json_encode($datos);
 
-// Cerramos la consulta y la conexión
 $stmt->close();
+$conn->close();
 
-$conn ->close();
 
 ?>

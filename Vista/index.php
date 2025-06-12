@@ -1,6 +1,7 @@
 <?php
 include '../Controlador/pagina_principal.php';
 include "../Controlador/inicio_sesion/sesiones.php";
+include 'header.php';
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -17,44 +18,14 @@ include "../Controlador/inicio_sesion/sesiones.php";
   <!-- Tu CSS personalizado -->
   <link rel="stylesheet" href="../public/pagina_principal.css">
 </head>
-<body>
-  <nav class="navbar navbar-expand-lg navbar-custom">
-    <div class="container-fluid align-items-center">
-      <div class="logo">
-        <img src="../Media/icons/logo_pagina-removebg-preview.png" alt="Logo" id="logazo">
-      </div>
-      <p class="navbar-brand">RanchExpress</p>
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse justify-content-between" id="navbar">
-        <ul class="navbar-nav flex-row gap-4 justify-content-center">
-          <li class="nav-item">
-            <a class="nav-link" href="especies.html"><strong>Animales</strong></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="registro_animal.php">Registro de animales</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="registro_crias.php"><strong>Registrar una nueva cría</strong></a>
-          </li>
-        </ul>
-        <form class="d-flex search-form" role="search">
-          <input class="form-control me-2" type="search" placeholder="Buscar">
-          <button class="btn btn-outline-custom btn-custom-outline" type="submit">Buscar</button>
-        </form>
-      </div>
-    </div>
-  </nav>
 
   <main class="container my-4">
     <div class="row text-center align-items-center">
       <!-- CAPRINOS -->
       <div class="col-md-5 mb-4">
         <div class="card-custom h-100">
-          <a class="fw-bold m-0 hola" href="caprinos.html">
+          <a class="fw-bold m-0 hola" href="animales_caprinos.php">
             <button class="btn btn-danger btn-sm">CAPRINOS</button>
           </a>
           <p>
@@ -77,7 +48,7 @@ include "../Controlador/inicio_sesion/sesiones.php";
       <!-- OVINOS -->
       <div class="col-md-5 mb-4">
         <div class="card-custom h-100">
-          <a class="fw-bold m-0 hola" href="ovinos.html">
+          <a class="fw-bold m-0 hola" href="animales_ovinos.php">
             <button class="btn btn-danger btn-sm">OVINOS</button>
           </a>
           <p>
@@ -91,12 +62,7 @@ include "../Controlador/inicio_sesion/sesiones.php";
     </div>
   </main>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-content d-flex justify-content-between align-items-center px-4">
-      <p class="slogan m-0">SENA: CONOCIMIENTO Y EMPRENDIMIENTO PARA TODOS LOS COLOMBIANOS</p>
-      <img src="../Media/icons/Logo_Sena.png" alt="Logo SENA" style="height: 40px;">
-    </div>
-  </footer>
-</body>
-</html>
+  
+  <?php
+include 'footer.php';
+  ?>

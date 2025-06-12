@@ -69,7 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
 else{
     $_SESSION['alert'] = alerta("Usuario no encontrado, por favor verifica y vuelte a intentar");
-    header("Location:../Vista/recuperar_contraseña.php");
+    header("Location:../../Vista/recuperar_contraseña.php");
     exit();
 }
 

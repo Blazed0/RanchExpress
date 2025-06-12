@@ -32,7 +32,7 @@ include '../Controlador/inicio_sesion/sesiones.php';
       <div class="col-md-6">
     <div class="mb-3">
            <label class="form-label">Código de la cria</label>
-        <input type="text" name="codigo_cria" id="codigo_cria" class="form-control" required>
+        <input type="text" value= "<?php echo "Hola tilin"; ?>" name="codigo_cria" id="codigo_cria" class="form-control" required>
       </div>
       <div class="mb-3">
         <label class="form-label">Fecha de Nacimiento</label>
@@ -40,7 +40,7 @@ include '../Controlador/inicio_sesion/sesiones.php';
       </div>
       <div class="mb-3">
         <label class="form-label">Peso de nacimiento</label>
-        <input type="number" step="0.01" name="peso_nacimiento" id="peso_nacimiento" class="form-control">
+        <input  type="number" step="0.01" name="peso_nacimiento" id="peso_nacimiento" class="form-control">
       </div>
 
       <div class="mb-3">
