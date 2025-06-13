@@ -9,23 +9,35 @@
   <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <div class="container-fluid align-items-center">
+            <div class="logo">
+                <img src="../Media/icons/logo_pagina-removebg-preview.png" alt="Logo" id="logazo">
+            </div>
+            <a href="index.php" class ="navbar-brand d-flex align-items-center">
+                <p class="navbar-brand">RanchExpress</p>
+            </a>
 
-  
-  <header class="d-flex justify-content-between align-items-center px-4 py-3 header-custom">
-    <div class="d-flex align-items-center">
-      <img src="../Media/icons/logo_pagina-removebg-preview.png" alt="Logo" width="50" class="me-2"/>
-      <span class="logo-text">RanchExpress</span>
-    </div>
-    <nav>
-      <a href="index.php" class="nav-link-custom">Principal</a>
-      <a href="registro_animal.php" class="nav-link-custom">Registro de animales</a>
-      <a href="registro_crias.php" class="nav-link-custom">Registro de crias</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-between" id="navbar">
+                <ul class="navbar-nav flex-row gap-4 justify-content-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="especies.html"><strong>Animales</strong></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="registro_animal.php">Registro de animales</a>
+                    </li>
+                </ul>
+                <form class="d-flex search-form" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Buscar">
+                    <button class="btn btn-outline-custom btn-custom-outline" type="submit">Buscar</button>
+                </form>
+            </div>
+        </div>
     </nav>
-    <div class="d-flex">
-      <input type="text" class="form-control me-2 search-input" placeholder="Search">
-      <button class="btn search-btn">🔍</button>
-    </div>
-  </header>
 
   <main class="py-4 text-center">
   <div class="container">

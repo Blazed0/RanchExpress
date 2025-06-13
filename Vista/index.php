@@ -1,7 +1,7 @@
 <?php
 include '../Controlador/pagina_principal.php';
 include "../Controlador/inicio_sesion/sesiones.php";
-include 'header.php';
+include 'header.html';
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -64,5 +64,5 @@ include 'header.php';
 
   
   <?php
-include 'footer.php';
+include 'footer.html';
   ?>

@@ -1,6 +1,7 @@
 <?php
 include '../Controlador/mostrar_info_animales.php';
 include '../Controlador/inicio_sesion/sesiones.php';
+include 'header.html';
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -12,21 +13,6 @@ include '../Controlador/inicio_sesion/sesiones.php';
   <link rel="stylesheet" href="../public/hojanimales.css">
 </head>
 <body>
-
-<header class="header d-flex justify-content-between align-items-center px-3 py-2">
-  <div class="d-flex align-items-center">
-    <img src="../Media/icons/logo_pagina-removebg-preview.png" alt="logo" class="logo me-2">
-    <span class="brand-name">RanchExpress</span>
-  </div>
-  <nav class="nav-links d-flex gap-3">
-    <a href="index.php">Inicio</a>
-    <a href="registro_animal.php">Registro de animales</a>
-    <a href="registro_crias.php">Registro de crias</a>
-    <a href="especies.html">Animales</a>
-  </nav>
-  <input type="text" class="search-input" placeholder="Search">
-</header>
-
 <main class="container my-3">
   <div class="main-box p-3">
 
@@ -77,11 +63,6 @@ include '../Controlador/inicio_sesion/sesiones.php';
             </a>
           <p>Ultimo Pesaje: <?php echo $peso ?>  <br>
           Fecha del Pesaje: <?php echo $fechaPesaje ?></p>
-          <div class="d-flex justify-content-center gap-2 mb-2">
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-          </div>
           <button class="btn btn-danger btn-sm">ACTUALIZAR</button>
         </div>
       </div>
@@ -189,11 +170,6 @@ window.onload = function() {
 <script src="https://cdn.canvasjs.com/jquery.canvasjs.min.js"></script>
 
 
-          <div class="d-flex justify-content-center gap-2 mb-2">
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-          </div>
           <button class="btn btn-danger btn-sm">ACTUALIZAR</button>
         </div>
       </div>
@@ -202,9 +178,9 @@ window.onload = function() {
   </div>
 </main>
 
-<footer class="footer text-center py-2">
-  SENA: CONOCIMIENTO Y EMPRENDIMIENTO PARA TODOS LOS COLOMBIANOS
-</footer>
+<?php
+include 'footer.html';
+?>
 
 </body>
 </html>

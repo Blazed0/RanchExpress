@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
                 //Content
                 $mail->isHTML(true);                                  //Set email format to HTML
-                $enlace = '<a href="localhost/Ranchexpress%20v4.01/Vista/actualizar_contraseña.php?token= '.$token.'"> Cambio de contraseña </a>';
+                $enlace = '<a href="localhost/Ranchexpress/Vista/actualizar_contraseña.php?token= '.$token.'"> Cambio de contraseña </a>';
                 $mail->Subject = 'Recuperacion de contraseña';
                 $mail->Body    = 'Ingresa al siguiente enlace para cambiar tu contraseña ' . $enlace;
                 $mail->AltBody = 'RanchExpress prueba';

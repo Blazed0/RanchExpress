@@ -1,5 +1,7 @@
 <?php
 include '../Controlador/ver_ovinos.php';
+include '../Controlador/inicio_sesion/sesiones.php';
+include 'header.html';
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -12,24 +14,6 @@ include '../Controlador/ver_ovinos.php';
   <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
 </head>
 <body>
-
-
-  <header class="d-flex justify-content-between align-items-center px-4 py-3 header-custom">
-    <div class="d-flex align-items-center">
-      <img src="../Media/icons/logo_pagina-removebg-preview.png" alt="Logo" width="50" class="me-2"/>
-      <span class="logo-text">RanchExpress</span>
-    </div>
-    <nav>
-      <a href="index.php" class="nav-link-custom">Principal</a>
-      <a href="especies.html" class="nav-link-custom">Animales</a>
-    </nav>
-    <div class="d-flex">
-      <input type="text" class="form-control me-2 search-input" placeholder="Search">
-      <button class="btn search-btn">🔍</button>
-    </div>
-  </header>
-
-
   <main class="text-center py-4">
     <h2 class="section-title">ovinos</h2>
 
@@ -38,21 +22,38 @@ include '../Controlador/ver_ovinos.php';
       <hr class="my-1">
       <h4 class="m-0"><?php echo $conteoTotal ?></h4>
     </div>
-    <div class="container mt-4">
+     <div class="container mt-4">
       <div class="row g-4 justify-content-center">
+    <div class="row text-center mt-2">
+      <div class="col-4 fw-bold">HEMBRAS</div>
+      <div class="col-4 fw-bold">MACHOS</div>
+      <div class="col-4 fw-bold">CRÍAS</div>
+    </div>
+     <!-- Imágenes por categoría -->
+    <div class="row text-center  mb-4 gx-2 gy-2">
+      <!-- Fila 1 -->
+       <div class="col-md-4 align-items-center">
+        <?php echo $htmlMacho; ?>  
+      </div>
+ 
+      <!-- Fila 2 -->
+       <div class="col-md-4 align-items-center justify-content-center">
+        <?php echo $htmlHembra  ?>
+      </div>
 
-      <?php echo $html ?>
-        
+      <!-- Fila 3 -->
+       <div class="col-md-4">
+         <?php echo $htmlCrias ?>
+    </div>
+
+
 
       </div>
     </div>
   </main>
-
-
-  <footer class="footer-custom d-flex justify-content-center align-items-center py-3">
-    <span class="text-white me-2">SENA: CONOCIMIENTO Y EMPRENDIMIENTO PARA TODOS LOS COLOMBIANOS</span>
-    <img src="../Media/icons/Logo_Sena.png" alt="SENA" width="60"/>
-  </footer>
+  <?php
+    include 'footer.html';
+  ?>
 
 </body>
 </html>

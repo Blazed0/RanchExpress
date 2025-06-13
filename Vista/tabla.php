@@ -1,6 +1,7 @@
   <?php
   include '../Controlador/inicio_sesion/sesiones.php';
   include '../Controlador/ver_pesos.php';
+  include 'header.html';
   ?>
 
 <!DOCTYPE html>
@@ -22,18 +23,6 @@
       }
       ?>
 
-
-<header class="header d-flex justify-content-between align-items-center px-3 py-2">
-  <div class="d-flex align-items-center">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Logo_SENA.svg/1200px-Logo_SENA.svg.png" alt="logo" class="logo me-2">
-    <span class="brand-name">RanchExpress</span>
-  </div>
-  <nav class="nav-links d-flex gap-3">
-    <a href="index.php">Principal</a>
-    <a href="especies.html">animales</a>
-  </nav>
-  <input type="text" class="search-input" placeholder="Search">
-</header>
 
 
 <main class="container my-4">
@@ -65,11 +54,9 @@
   </div>
 </main>
 
-
-<footer class="footer text-center py-2">
-  SENA: CONOCIMIENTO Y EMPRENDIMIENTO PARA TODOS LOS COLOMBIANOS
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Logo_SENA.svg/1200px-Logo_SENA.svg.png" class="logo-sena ms-2" alt="SENA">
-</footer>
+<?php
+include 'footer.html';
+?>
 
 </body>
 </html>
