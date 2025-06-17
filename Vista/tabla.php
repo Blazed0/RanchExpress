@@ -1,7 +1,6 @@
   <?php
-  include '../Controlador/inicio_sesion/sesiones.php';
   include '../Controlador/ver_pesos.php';
-  include 'header.html';
+  include 'header.php';
   ?>
 
 <!DOCTYPE html>

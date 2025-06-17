@@ -1,5 +1,4 @@
 <?php 
-include '../Controlador/inicio_sesion/sesiones.php';
 include '../Controlador/ver_caprinos.php';
 ?>
 <!DOCTYPE html>
@@ -13,7 +12,7 @@ include '../Controlador/ver_caprinos.php';
   <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
 </head>
 <body>
-  <?php include 'header.html';?>
+  <?php include 'header.php';?>
   <main class="text-center py-4">
     <h2 class="section-title">CAPRINO</h2>
 

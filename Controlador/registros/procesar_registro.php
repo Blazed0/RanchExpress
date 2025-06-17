@@ -2,9 +2,7 @@
 
 include '../../Modelo/conn.php';
 include '../inicio_sesion/sesiones.php';
-include '../inicio_sesion/cerrar_sesion.php';
-
-
+include '../inicio_sesion/alertas.php';
 $idUsuario = $_SESSION['user'];
 
 //Variables tomadas del formulario 

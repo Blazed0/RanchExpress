@@ -1,7 +1,7 @@
 <?php
 session_start();    
 include '../../Modelo/conn.php';
-include 'cerrar_sesion.php';
+include 'alertas.php';
 require '../PHPMailer/PHPMailer.php';
 require '../PHPMailer/Exception.php';
 require '../PHPMailer/SMTP.php';

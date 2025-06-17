@@ -2,7 +2,7 @@
 
 include '../../Modelo/conn.php';
 include '../inicio_sesion/sesiones.php';
-include '../inicio_sesion/cerrar_sesion.php';
+include '../inicio_sesion/alertas.php';
 
 $Fecha_Aplicacion     = $_POST['fecha_aplicacion'];
 $Diagnostico = $_POST['diagnostico'];

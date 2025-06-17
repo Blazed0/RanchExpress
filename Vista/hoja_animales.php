@@ -1,7 +1,6 @@
 <?php
 include '../Controlador/mostrar_info_animales.php';
-include '../Controlador/inicio_sesion/sesiones.php';
-include 'header.html';
+include 'header.php';
 ?>
 <!DOCTYPE html>
 <html lang="es">

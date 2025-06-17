@@ -1,3 +1,6 @@
+<?php
+include '../Controlador/inicio_sesion/sesiones.php';
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -11,8 +14,18 @@
     <nav class="navbar navbar-expand-lg navbar-custom">
         <div class="container-fluid align-items-center">
             <div class="logo">
-                <img src="../Media/icons/logo_pagina-removebg-preview.png" alt="Logo" id="logazo">
-            </div>
+                <li class="nav-item dropdown">
+                    <a class = "nav-link dropdown" href="#" role="button" data-bs-toggle = "dropdown">
+                        <img src="../Media/icons/logo_pagina-removebg-preview.png" alt="Logo" id="logazo">
+                    </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item bg-success" href="#">Opcion Agregar usuarios</a></li>
+                    <li><a class="dropdown-item bg-primary" href="#">Opcion Eliminar usuarios</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item bg-danger" href= "../Controlador/inicio_sesion/destruir_sesion.php">Cerrar Sesion</a></li>
+                </ul>
+                </li>
+                </div>
             <a href="index.php" class ="navbar-brand d-flex align-items-center">
                 <p class="navbar-brand">RanchExpress</p>
             </a>
@@ -36,7 +49,7 @@
                         <a href="estadisticacaprinos.html" class="nav-link">Estadistica De Caprinos</a>
                     </li>
                 </ul>
-                <form class="d-flex search-form" role="search">
+                <form class="d-flex search-form" role="search" action = "#">
                     <input class="form-control me-2" type="search" placeholder="Buscar">
                     <button class="btn btn-outline-custom btn-custom-outline" type="submit">Buscar</button>
                 </form>

@@ -22,7 +22,7 @@
       <i class="bi bi-arrow-left"> </i> 
   </button>
       <?php 
-
+        echo "Hola";
       if(isset($_SESSION['alert'])){
           echo $_SESSION['alert'];
           unset ($_SESSION['alert']);

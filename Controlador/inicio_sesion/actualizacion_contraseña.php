@@ -1,5 +1,5 @@
 <?php
-    include 'cerrar_sesion.php';
+    include 'alertas.php';
     include '../../Modelo/conn.php';
 
     session_start();

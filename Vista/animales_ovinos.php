@@ -1,7 +1,6 @@
 <?php
 include '../Controlador/ver_ovinos.php';
-include '../Controlador/inicio_sesion/sesiones.php';
-include 'header.html';
+include 'header.php';
 ?>
 <!DOCTYPE html>
 <html lang="es">

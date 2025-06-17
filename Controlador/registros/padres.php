@@ -1,7 +1,6 @@
 <?php
 
 include '../Modelo/conn.php';
-include '../Controlador/inicio_sesion/cerrar_sesion.php';
 
 
 $stmtPadre = "SELECT id_animal,codigo_animal FROM animal WHERE estado = 'Activo' AND sexo = 'Macho' AND proposito = 'Reproductor'";

@@ -1,6 +1,6 @@
 <?php
 include '../Modelo/conn.php';
-include 'inicio_sesion/cerrar_sesion.php';
+include 'inicio_sesion/alertas.php';
 $token = $_GET['token'];
 if(!isset($token) || is_null($token)){
     header('Location: ../Vista/index.php');

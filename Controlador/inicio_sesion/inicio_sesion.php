@@ -1,7 +1,7 @@
 <?php
 session_start();    
 include '../../Modelo/conn.php';
-include 'cerrar_sesion.php';
+include 'alertas.php';
 
 //Variables necesarias para la base de datos
 $columns = ['id_usuario','nit','nombre', 'correo', 'clave', 'rol'];
