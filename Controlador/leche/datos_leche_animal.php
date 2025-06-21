@@ -3,7 +3,7 @@ header('Content-Type: application/json');
 
 include '../../Modelo/conn.php';
 include '../inicio_sesion/sesiones.php';
-include '../inicio_sesion/cerrar_sesion.php';
+
 
 // Validar que se enviaron los datos por POST
 if (!isset($_POST['fecha_produccion']) || !isset($_POST['litros']) || !isset($_POST['codigo_animal'])) {

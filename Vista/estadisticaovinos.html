@@ -19,36 +19,37 @@
     <nav>
       <a href="index.php" class="mx-3">Principal</a>
       <a href="registro_animal.php" class="mx-3">Registro de Animales</a>
-        <a href="registro_crias.php" class="mx-3">Registro de Crias</a>
       <a href="especies.html" class="mx-3 fw-bold">Animales</a>
     </nav>
     <div class="search d-flex align-items-center">
-      <input type="text" class="form-control me-2" placeholder="Search">
-      <button class="btn btn-custom-search">🔍</button>
+         <form class="d-flex search-form" role="search" method="GET" action="hoja_animales.php">
+                     <input class="form-control me-2" type="search" name="token" placeholder="Buscar código del animal" required>
+                    <button class="btn btn-outline-custom btn-custom-outline" type="submit">Buscar</button>
+                </form>
     </div>
   </header>
 
  
 <main class="container my-4 text-center">
-  <a href="hojanimales.html" class="btn btn-back mb-3">←</a>
+  <a href="#" class="btn btn-back mb-3">←</a>
   <div class="estadistica-box p-4">
     <h2 class="titulo-estadistica">ESTADISTICA OVINOS</h2>
     <div class="row mt-4">
         <!-- CANTIDAD DE ANIMALES -->
       <div class="col-md-4">
-        <h5 class="fw-bold">CANT. ANIMALES</h5>
+
         <div id="chartCantidad" style="height: 370px; width: 100%;"></div>
       </div>
 
       <!-- PROPOSITO -->
       <div class="col-md-4">
-        <h5 class="fw-bold">PROPÓSITO</h5>
-        <div id="chartProposito" style="height: 370px; width: 100%;"></div>
+   
+         <div id="chartProposito" style="height: 370px; width: 100%;"></div>
       </div>
 
-      <!-- LECHE -->
+      <!-- LANA -->
       <div class="col-md-4">
-        <h5 class="fw-bold">LANA</h5>
+
         <div id="chartLanaContainer" style="height: 370px; width: 100%;"></div>
       </div>
 
@@ -140,5 +141,4 @@ var chartLana = new CanvasJS.Chart("chartLanaContainer", {
 </html>
 
 
-</body>
-</html>
+

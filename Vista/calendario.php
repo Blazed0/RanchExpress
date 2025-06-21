@@ -1,3 +1,8 @@
+<?php 
+include '../Controlador/ver_caprinos.php';
+include 'header.php';
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -9,17 +14,7 @@
 </head>
 <body>
 
-<header class="header d-flex justify-content-between align-items-center px-3 py-2">
-  <div class="d-flex align-items-center">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Logo_SENA.svg" alt="logo" class="logo me-2">
-    <span class="brand-name">RanchExpress</span>
-  </div>
-  <nav class="nav-links d-flex gap-3">
-    <a href="#">Principal</a>
-    <a href="#">animales</a>
-  </nav>
-  <input type="text" class="search-input" placeholder="Search">
-</header>
+
 
 <main class="container my-4">
   <div class="mb-3">
@@ -53,10 +48,7 @@
   </div>
 </main>
 
-<footer class="footer text-center py-2 mt-4">
-  SENA: CONOCIMIENTO Y EMPRENDIMIENTO PARA TODOS LOS COLOMBIANOS
-  <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Logo_SENA.svg" class="logo-sena ms-2" alt="SENA">
-</footer>
+
 
 <script>
   let currentDate = new Date();
@@ -112,5 +104,9 @@
   generateCalendar(currentDate.getMonth(), currentDate.getFullYear());
 </script>
 
+
+  <?php
+    include 'footer.html';
+    ?>
 </body>
 </html>

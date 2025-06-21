@@ -18,12 +18,13 @@
   <nav>
     <a href="index.php" class="mx-3">Principal</a>
     <a href="registro_animal.php" class="mx-3">Registro de animales</a>
-    <a href="registro_crias.php" class="mx-3 ">Registro de crias</a>
     <a href="especies.html" class="mx-3 fw-bold">Animales</a>
   </nav>
   <div class="search d-flex align-items-center">
-    <input type="text" class="form-control me-2" placeholder="Search">
-    <button class="btn btn-custom-search">🔍</button>
+       <form class="d-flex search-form" role="search" method="GET" action="hoja_animales.php">
+                     <input class="form-control me-2" type="search" name="token" placeholder="Buscar código del animal" required>
+                    <button class="btn btn-outline-custom btn-custom-outline" type="submit">Buscar</button>
+                </form>
   </div>
 </header>
 

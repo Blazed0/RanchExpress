@@ -18,11 +18,7 @@
                 <p class="navbar-brand">RanchExpress</p>
             </a>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse justify-content-between" id="navbar">
+           <div class="collapse navbar-collapse justify-content-between" id="navbar">
                 <ul class="navbar-nav flex-row gap-4 justify-content-center">
                     <li class="nav-item">
                         <a class="nav-link" href="especies.html"><strong>Animales</strong></a>
@@ -30,9 +26,15 @@
                     <li class="nav-item">
                         <a class="nav-link" href="registro_animal.php">Registro de animales</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="estadisticaovinos.html">Estadistica de Ovinos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="estadisticacaprinos.html" class="nav-link">Estadistica De Caprinos</a>
+                    </li>
                 </ul>
-                <form class="d-flex search-form" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Buscar">
+                 <form class="d-flex search-form" role="search" method="GET" action="hoja_animales.php">
+                     <input class="form-control me-2" type="search" name="token" placeholder="Buscar código del animal" required>
                     <button class="btn btn-outline-custom btn-custom-outline" type="submit">Buscar</button>
                 </form>
             </div>
@@ -67,12 +69,15 @@
       </div>
     </main>
   </div>
-<footer>
+   <head>
+    <link rel="stylesheet" href="../public/footer.css">
+   </head>
+  <footer>
     <div class="footer-content d-flex justify-content-between align-items-center px-4">
       <p class="slogan m-0">SENA: CONOCIMIENTO Y EMPRENDIMIENTO PARA TODOS LOS COLOMBIANOS</p>
       <img src="../Media/icons/Logo_Sena.png" alt="Logo SENA" style="height: 40px;">
     </div>
-  </footer>     
+  </footer>  
 
 </body>
 </html>

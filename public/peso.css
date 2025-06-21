@@ -1,0 +1,105 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+     background-image:url(../Media/registros/cabra_oveja.jpg);
+    background-size: cover;
+    background-position: center;
+     background-repeat: no-repeat;    
+    background-attachment: fixed;
+    position: relative;
+    font-family: Arial, sans-serif;
+      display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding-top: 2px;
+    flex-direction: column;
+}
+
+.container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(163, 78, 78, 0.1);
+      font-family: 'Luckiest Guy', cursive;
+  font-size: 18px;
+
+  color: rgb(255, 255, 255);
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+     
+    background-color: rgba(0, 0, 0, 0.4); 
+    backdrop-filter: blur(10px);         
+    -webkit-backdrop-filter: blur(10px); 
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+ 
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    
+}
+
+label {
+    font-weight: bold;
+}
+
+.form-control {
+    margin-bottom: 10px;
+}
+
+.btn-submit {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+        background: linear-gradient(to right, #ff5f6d, #ffc371);
+        border: none;
+     border-radius: 12px !important ;
+    outline: 2px solid white; 
+}
+
+.btn-submit:hover {
+    background-color: #218838;
+}
+
+
+
+.header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 85px;
+    padding: 5px 2%;
+}
+
+
+
+.btn-custom-outline {
+    color: black;
+    border-color: black !important;
+}
+
+
+
+.d-flex {
+    font-family: Copperplate;
+}
+
+ .btn-flecha {
+      font-size: 24px;
+      background: none;
+      border: none;
+      cursor: pointer;
+   color: #ff5f6d;
+    }
+
+    .btn-flecha:hover {
+      color: #0b5ed7;
+    }
+

@@ -3,7 +3,7 @@ header('Content-Type: application/json');  // Para que reconozca que es un archi
 
 include '../../Modelo/conn.php';
 include '../inicio_sesion/sesiones.php';
-include '../inicio_sesion/cerrar_sesion.php';
+
 
 // Consulta: total de animales caprinos
 $sql = "SELECT proposito, COUNT(*) AS total_animales_caprinos

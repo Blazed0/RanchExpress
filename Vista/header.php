@@ -49,8 +49,8 @@ include '../Controlador/inicio_sesion/sesiones.php';
                         <a href="estadisticacaprinos.html" class="nav-link">Estadistica De Caprinos</a>
                     </li>
                 </ul>
-                <form class="d-flex search-form" role="search" action = "#">
-                    <input class="form-control me-2" type="search" placeholder="Buscar">
+                 <form class="d-flex search-form" role="search" method="GET" action="hoja_animales.php">
+                     <input class="form-control me-2" type="search" name="token" placeholder="Buscar código del animal" required>
                     <button class="btn btn-outline-custom btn-custom-outline" type="submit">Buscar</button>
                 </form>
             </div>

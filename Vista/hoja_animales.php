@@ -62,7 +62,9 @@ include 'header.php';
             </a>
           <p>Ultimo Pesaje: <?php echo $peso ?>  <br>
           Fecha del Pesaje: <?php echo $fechaPesaje ?></p>
+          <a class="fw-bold m-0 hola"  href="formulario_peso.php">
           <button class="btn btn-danger btn-sm">ACTUALIZAR</button>
+          </a>
         </div>
       </div>
     </div>

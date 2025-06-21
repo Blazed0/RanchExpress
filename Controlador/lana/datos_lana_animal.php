@@ -2,9 +2,8 @@
 header('Content-Type: application/json');
 
 include '../../Modelo/conn.php';
-mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 include '../inicio_sesion/sesiones.php';
-include '../inicio_sesion/cerrar_sesion.php';
+
 
 if (!isset($_POST['kilos']) || !isset($_POST['codigo_animal'])) {
     echo json_encode(["error" => "Faltan datos obligatorios"]);

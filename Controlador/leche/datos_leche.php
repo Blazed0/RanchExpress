@@ -3,7 +3,6 @@ header('Content-Type: application/json');  // Para que reconozca que es un archi
 
 include '../../Modelo/conn.php';
 include '../inicio_sesion/sesiones.php';
-include '../inicio_sesion/cerrar_sesion.php';
 
 // Consulta: total de litros producidos por día (para todos los animales)
 $sql = "SELECT fecha_produccion, SUM(litros_producidos) AS total_litros
