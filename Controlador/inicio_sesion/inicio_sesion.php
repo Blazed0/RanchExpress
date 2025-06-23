@@ -55,6 +55,7 @@ $rol = $_POST['rol'];
  
             if(password_verify($clavePlana,$claveHash)){
                 $_SESSION['user'] = $idUsuario;
+                $_SESSION['rol'] = $rol;
                 header('Location: ../../Vista/index.php');
             }
             else{

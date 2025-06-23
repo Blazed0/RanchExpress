@@ -24,8 +24,8 @@ include 'header.php';
      <div class="container mt-4">
       <div class="row g-4 justify-content-center">
     <div class="row text-center mt-2">
-      <div class="col-4 fw-bold">HEMBRAS</div>
       <div class="col-4 fw-bold">MACHOS</div>
+      <div class="col-4 fw-bold">HEMBRAS</div>
       <div class="col-4 fw-bold">CRÍAS</div>
     </div>
      <!-- Imágenes por categoría -->

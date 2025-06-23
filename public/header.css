@@ -1,5 +1,6 @@
 /* NAVBAR */
 
+
 /* Si container.my-4 es para el diseño de tu página principal y no directamente para el header, considera si debe ir aquí o en un CSS más general */
 .container.my-4{
     min-height: 78vh;
@@ -66,12 +67,6 @@
 .search-form .form-control {
     border-color: black; /* Borde del input */
 }
-
-/* Alineación de elementos d-flex si es necesario globalmente, pero Bootstrap ya maneja esto bien */
-/* .d-flex {
-    display: flex;
-    align-items: end;
-} */
 
 /* Ajustes para el botón del toggler (hamburguesa) en dispositivos móviles */
 .navbar-toggler {

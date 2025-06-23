@@ -18,7 +18,7 @@ $codigo_animal = $_POST['codigo_animal'];
 
 $sql_buscar = "SELECT id_animal FROM animal WHERE codigo_animal = ?";
 $stmt_buscar = $conn->prepare($sql_buscar);
-$stmt_buscar->bind_param("i", $codigo_animal);
+$stmt_buscar->bind_param("s", $codigo_animal);
 $stmt_buscar->execute();
 $result = $stmt_buscar->get_result();
 
@@ -56,8 +56,7 @@ while ($fila = $resultado->fetch_assoc()) {
     $contador++;
 }
 
-echo json_encode($datos);
-
+json_encode($datos);
 $stmt->close();
 $conn->close();
 

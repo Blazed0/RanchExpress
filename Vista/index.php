@@ -21,6 +21,12 @@ include 'header.php';
 
   <main class="container my-4">
     <div class="row text-center align-items-center">
+      <?php
+      if(isset($_SESSION['alert'])){
+        echo $_SESSION['alert'];
+        unset($_SESSION['alert']);
+      }
+      ?>
       <!-- CAPRINOS -->
       <div class="col-md-5 mb-4">
         <div class="card-custom h-100">

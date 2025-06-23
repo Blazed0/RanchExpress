@@ -3,8 +3,9 @@ include '../Modelo/conn.php';
 include 'inicio_sesion/alertas.php';
 $token = $_GET['token'];
 if(!isset($token) || is_null($token)){
+    $_SESSION['alert'] = alerta("Hubo un error al intentar ver el animal, si el problema persiste contacta con soporte");
     header('Location: ../Vista/index.php');
-    exit;
+    exit();
 }
 
 //Consulta SQL para recoger todos los datos. Tiene galleta esto
@@ -117,5 +118,6 @@ else{
     header('Location: ../Vista/index.php');
     exit;
 }
+
 
 ?>

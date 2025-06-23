@@ -3,7 +3,7 @@
   include '../Controlador/registros/padres.php';
   ?>
   <!DOCTYPE html>
-  <html lang="en">
+  <html lang="es">
   <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,7 +22,6 @@
       <i class="bi bi-arrow-left"> </i> 
   </button>
       <?php 
-        echo "Hola";
       if(isset($_SESSION['alert'])){
           echo $_SESSION['alert'];
           unset ($_SESSION['alert']);
@@ -103,6 +102,7 @@
           <div class="mb-3">
             <label class="form-label">Padre</label>
             <select name="padre" id="padre" class = "form-select">
+              <option value="" disabled selected>Selecciona Un Animal</option>
         <?php if (count($codigoPadre) > 0): ?>
             <?php foreach ($codigoPadre as $padre): ?>
                 <option value="<?php echo htmlspecialchars($padre['id_animal']); ?>">
@@ -112,7 +112,7 @@
         <?php else: ?>
             <option value="" disabled selected>No hay machos disponibles</option>
         <?php endif; ?>
-                          <option value="">Animal Comprado o sin datos</option>
+              <option value="">Animal Comprado o sin datos</option>
             </select>
           </div>
 
@@ -122,6 +122,7 @@
           <div class="mb-3">
             <label class="form-label">Madre</label>
             <select name="madre" id="madre" class = "form-select">
+              <option value="" disabled selected>Selecciona Un Animal</option>
               <?php if(count($codigoMadre) > 0): ?>
               <?php foreach($codigoMadre as $madre):?>
                 <option value="<?php htmlspecialchars($madre['id_animal']) ?>">

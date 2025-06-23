@@ -27,7 +27,6 @@ while ($fila = $resultado->fetch_assoc()) {
 
 // esto es para enviar los datos en formato json para el grafico
 echo json_encode($datos);
-
 $conn ->close();
 
 ?>

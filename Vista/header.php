@@ -15,11 +15,10 @@ include '../Controlador/inicio_sesion/sesiones.php';
         <div class="container-fluid align-items-center">
             <div class="logo">
                 <li class="nav-item dropdown">
-                    <a class = "nav-link dropdown" href="#" role="button" data-bs-toggle = "dropdown">
-                        <img src="../Media/icons/logo_pagina-removebg-preview.png" alt="Logo" id="logazo">
-                    </a>
+                        <img src="../Media/icons/logo_pagina-removebg-preview.png" class = "dropdown" role = "button" data-bs-toggle = "dropdown" alt="Logo" id="logazo">   
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item bg-success" href="#">Opcion Agregar usuarios</a></li>
+                    <li><a class="dropdown-item bg-success" href="perfil_usuario.php">Perfil</a></li>
                     <li><a class="dropdown-item bg-primary" href="#">Opcion Eliminar usuarios</a></li>
                     <li><hr class="dropdown-divider"></li>
                     <li><a class="dropdown-item bg-danger" href= "../Controlador/inicio_sesion/destruir_sesion.php">Cerrar Sesion</a></li>
@@ -50,7 +49,7 @@ include '../Controlador/inicio_sesion/sesiones.php';
                     </li>
                 </ul>
                  <form class="d-flex search-form" role="search" method="GET" action="hoja_animales.php">
-                     <input class="form-control me-2" type="search" name="token" placeholder="Buscar código del animal" required>
+                     <input class="form-control me-2" type="search" name="token" placeholder="Buscar" required>
                     <button class="btn btn-outline-custom btn-custom-outline" type="submit">Buscar</button>
                 </form>
             </div>

@@ -21,7 +21,8 @@ try {
         LEFT JOIN usuario 
         ON animal.id_usuario = usuario.id_usuario 
         WHERE especie = ? 
-        LIMIT ? ";
+        ORDER BY `animal`.`id_animal` DESC
+        LIMIT ?";
         $stmt = $conn->prepare($sqlAnimales);
         $stmt ->bind_param("si", $especie, $limite); 
         $stmt ->execute();
