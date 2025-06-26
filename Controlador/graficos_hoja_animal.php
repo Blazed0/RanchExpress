@@ -1,7 +1,8 @@
 <?php
 include '../Modelo/conn.php';
 
-$token = $_GET['token'];
+$codigoAnimal = $_GET['token'];
+$token = base64_decode($codigoAnimal);
 
 
 $sqlAnimales = "SELECT proposito, sexo, especie, etapa_edad
@@ -18,8 +19,6 @@ $coincidencia = $filtroAnimales->get_result();
 $filas = $coincidencia->fetch_assoc();
 $produccion = '';
 if($filas != null){
-
-  
   if($filas['especie'] === 'Caprino'){
     $produccion .= '
     <img src="https://cdn-icons-png.flaticon.com/512/1790/1790203.png" alt="leche" width="30" class="mb-2">
@@ -27,11 +26,7 @@ if($filas != null){
       <button class="btn btn-danger btn-sm">LECHE (LITROS) DIARIA</button>
     </a>
     <p>3 L - 21/05/2025</p>
-
     <div id="chartContainer" style="height: 370px; width: 100%;"></div>
-
-
-
     <a href="leche.php" role="button" class="btn btn-danger btn-sm">ACTUALIZAR</a>
     ';
   }

@@ -98,8 +98,7 @@ include 'header.php';
 <script src="../Controlador/graficos.js"></script>
 <script src="../Controlador/grafico_lana.js"></script>
         <?php  
-echo  $GLOBALS['produccion'];
-
+          echo  $GLOBALS['produccion'];
         ?>
 
         </div>
