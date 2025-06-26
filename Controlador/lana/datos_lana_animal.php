@@ -2,7 +2,7 @@
 header('Content-Type: application/json');
 
 include '../../Modelo/conn.php';
-include '../inicio_sesion/sesiones.php';
+
 
 
 if (!isset($_POST['kilos']) || !isset($_POST['codigo_animal'])) {

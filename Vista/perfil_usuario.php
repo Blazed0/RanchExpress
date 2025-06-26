@@ -54,6 +54,7 @@ include '../Controlador/perfil.php';
             <div class="update-section">
             <div id="view-buttons">
                 <button class="btn btn-primary" onclick="habilitarEditar()">Editar Perfil</button>
+                <a href = "recuperar_contraseña.php" role = "button"  class="btn btn-secondary">Actualizar Contraseña</a>
             </div>
             <div id="edit-buttons" class="hidden">
                 <button class="btn btn-success" onclick="guardarPerfil()">Guardar Cambios</button>

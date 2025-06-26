@@ -1,7 +1,8 @@
 <?php
 include '../Modelo/conn.php';
 include 'inicio_sesion/alertas.php';
-$token = $_GET['token'];
+$animal = $_GET['token'];
+$token = base64_decode($animal);
 if(!isset($token) || is_null($token)){
     $_SESSION['alert'] = alerta("Hubo un error al intentar ver el animal, si el problema persiste contacta con soporte");
     header('Location: ../Vista/index.php');

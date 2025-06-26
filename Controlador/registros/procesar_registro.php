@@ -57,14 +57,18 @@ $valoresPostObligatorios = [
 
 
 foreach($valoresPostObligatorios as $valores){
-    if(is_null($valores)){
+    if(empty($valores)){
         $_SESSION['alert'] = alerta("No se permiten campos vacios, vuelve a intentarlo por favor");
         header('Location:../../Vista/registro_animal.php');
         exit();
     }
 }
 
-if(move_uploaded_file($nombreTemporal, $archivoSubido)){
+if(!move_uploaded_file($nombreTemporal, $archivoSubido)){
+    $_SESSION['alert'] = alerta("Error al subir la imagen, vuelve a tratar por favor");
+    header('Location:../../Vista/registro_animal.php');
+    exit();
+}
 
 // Columnas fijas si siempre se insertan todas
 $columnas = "estado, codigo_animal, fecha_ingreso, fecha_nacimiento, proposito, peso_nacimiento, nombre, raza, color, sexo, imagen_animal, especie, etapa_edad, id_usuario, id_padre, id_madre";
@@ -103,9 +107,8 @@ $stmt->bind_param("sssssissssss",
     $sexo, 
     $imagen_animal
 ); */
-}
 if ($stmt->execute()) {
-    $session['alert'] = alerta("El animal ha sido registrada  con exito");
+    $_SESSION['alert'] = alerta("El animal ha sido registrada  con exito");
     header('Location: ../../Vista/registro_animal.php');
 } else {
     $_SESSION['alert'] = alerta("Hubo un, error vuelve a intentarlo");

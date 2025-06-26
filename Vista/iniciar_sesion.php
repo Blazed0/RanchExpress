@@ -11,6 +11,8 @@
 </head>
 <!-- Estos estilos es para mantener distinta imagen pero conservando mismos estilos -->
 <body>
+    <!-- Color del fondo blanco pa que se vea bonito
+     Si lo hago cafe, la letra tiene que ser blanca para resultar -->
 <div class="wrapper">
 <form method="POST" id = "formulario" action="../Controlador/inicio_sesion/inicio_sesion.php">
     <?php

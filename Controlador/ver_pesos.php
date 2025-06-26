@@ -1,7 +1,8 @@
 <?php
 include '../Modelo/conn.php';
 
-$codigo = $_GET['token'];
+$token = $_GET['token'];
+$id_animal = base64_decode($token);
 $sql = "SELECT * FROM peso WHERE id_animal = ? ";
 $stmtConsulta = $conn->prepare($sql);
 $stmtConsulta->bind_param("i", $id_animal);

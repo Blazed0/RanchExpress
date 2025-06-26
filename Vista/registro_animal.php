@@ -1,6 +1,7 @@
   <?php
   include '../Controlador/inicio_sesion/sesiones.php';
   include '../Controlador/registros/padres.php';
+  include '../Controlador/inicio_sesion/roles.php';
   ?>
   <!DOCTYPE html>
   <html lang="es">
@@ -102,7 +103,7 @@
           <div class="mb-3">
             <label class="form-label">Padre</label>
             <select name="padre" id="padre" class = "form-select">
-              <option value="" disabled selected>Selecciona Un Animal</option>
+              <option disabled selected>Selecciona Un Animal</option>
         <?php if (count($codigoPadre) > 0): ?>
             <?php foreach ($codigoPadre as $padre): ?>
                 <option value="<?php echo htmlspecialchars($padre['id_animal']); ?>">
@@ -122,7 +123,7 @@
           <div class="mb-3">
             <label class="form-label">Madre</label>
             <select name="madre" id="madre" class = "form-select">
-              <option value="" disabled selected>Selecciona Un Animal</option>
+              <option disabled selected>Selecciona Un Animal</option>
               <?php if(count($codigoMadre) > 0): ?>
               <?php foreach($codigoMadre as $madre):?>
                 <option value="<?php htmlspecialchars($madre['id_animal']) ?>">
@@ -157,9 +158,6 @@
   </div>   
         <!-- Scripts para la funcionalidad de la pagina -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script> 
-
-    <script src="../Controlador/registros/registro_animal.js">
-  </script>
         
   </body>
   </html>
