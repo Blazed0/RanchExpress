@@ -4,6 +4,9 @@ include '../../Modelo/conn.php';
 include '../inicio_sesion/sesiones.php';
 include '../inicio_sesion/alertas.php';
 
+$codigoAnimal = $_GET['token'];
+$token = base64_decode($codigoAnimal);
+
 $Fecha_Aplicacion     = $_POST['fecha_aplicacion'];
 $Diagnostico = $_POST['diagnostico'];
 $Nombre_Tratamiento  = $_POST['nombre_tramiento'];

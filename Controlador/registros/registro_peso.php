@@ -5,6 +5,8 @@ include '../inicio_sesion/sesiones.php';
 include '../inicio_sesion/alertas.php';
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $codigoAnimal = $_GET['token'];
+    $token = base64_decode($codigoAnimal);
     $fecha = $_POST['fecha_pesaje'];
     $tipo = $_POST['peso'];
     $peso = $_POST['peso_animal'];

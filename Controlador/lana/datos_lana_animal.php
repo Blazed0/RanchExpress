@@ -2,7 +2,7 @@
 <?php
 header('Content-Type: application/json');
 include '../../Modelo/conn.php';
-include '../inicio_sesion/sesiones.php';
+
 
 
 // Validar que se envíen los campos necesarios

@@ -26,7 +26,7 @@ function filtrado($conn,$sexo){
             <h5 class="card-title">' . htmlspecialchars($filas['codigo_animal']) . '</h5>
             <p class="card-text"> Nombre del animal: ' . $filas['nombre'] . '</p>
             <p class="card-text"> Ingresado por: ' . $filas['nombre_usuario'] . '</p>
-            <a href="../Vista/hoja_animales.php?token=' . $filas['codigo_animal'] . '" class="btn btn-danger w-100 text-wrap" style = "white-space = normal;">Ver información Detallada</a>
+            <a href="../Vista/hoja_animales.php?token=' . base64_encode($filas['codigo_animal']) . '" class="btn btn-danger w-100 text-wrap" style = "white-space = normal;">Ver información Detallada</a>
             </div>
             </div>
             </div>';
@@ -64,7 +64,7 @@ function filtrado($conn,$sexo){
             <h5 class="card-title">' . htmlspecialchars($rows['codigo_animal']) . '</h5>
             <p class="card-text"> Nombre del animal: ' . $rows['nombre'] . '</p>
             <p class="card-text"> Ingresado por: ' . $rows['nombre_usuario'] . '</p>
-            <a href="../Vista/hoja_animales.php?token=' . $rows['codigo_animal'] . '" class="btn btn-danger w-100 text-wrap" style = "white-space = normal;">Ver información Detallada</a>
+            <a href="../Vista/hoja_animales.php?token=' . base64_encode($rows['codigo_animal']) . '" class="btn btn-danger w-100 text-wrap" style = "white-space = normal;">Ver información Detallada</a>
             </div>
             </div>
             </div>';

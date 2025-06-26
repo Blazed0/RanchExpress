@@ -12,6 +12,7 @@ include 'header.php';
   <link rel="stylesheet" href="../public/hojanimales.css">
 </head>
 <body>
+  <!-- Cambiar el color de fondo para que sea beige y no haya tanto blanco en  la pagina-->
   <div class="main-box p-3">
     <main class="container my-3">
 
@@ -55,15 +56,14 @@ include 'header.php';
       <div class="col-md-6">
         <div class="info-box text-center h-100">
           <img src="https://cdn-icons-png.flaticon.com/512/5270/5270995.png" alt="peso" width="30" class="mb-2">
-          <a class="fw-bold m-0 hola"  href="tabla.php?token=<?= $id_animal ?>">
+          <a class="fw-bold m-0 hola"  href="tabla.php?token=<?= base64_encode($id_animal) ?>">
             <button class="btn btn-danger btn-sm">
               Peso En Kilogramos
             </button>
             </a>
           <p>Ultimo Pesaje: <?php echo $peso ?>  <br>
           Fecha del Pesaje: <?php echo $fechaPesaje ?></p>
-          <a class="fw-bold m-0 hola"  href="formulario_peso.php">
-          <a href = "formulario_peso.php?token=<?= $token ?>" role = "button" class="btn btn-danger btn-sm">ACTUALIZAR</a>
+          <a href = "formulario_peso.php?token=<?=base64_encode($token)?>" role = "button" class="btn btn-danger btn-sm">ACTUALIZAR</a>
           </a>
         </div>
       </div>

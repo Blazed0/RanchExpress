@@ -43,8 +43,6 @@ elseif($filas['especie'] === 'Ovino'){
   </a>
   <div id="chartContainerLana" style="height: 370px; width: 100%;"></div>
 
- 
-
   <a href="lana.php?token='.base64_encode($token).'" class="btn btn-warning btn-sm mt-2">ACTUALIZAR</a>';
 }
 else{

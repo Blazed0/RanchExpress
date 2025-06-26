@@ -37,6 +37,7 @@ include '../Controlador/inicio_sesion/sesiones.php';
 
             <div class="collapse navbar-collapse justify-content-between" id="navbar">
                 <ul class="navbar-nav flex-row gap-4 justify-content-center">
+                    
                     <li class="nav-item">
                         <a class="nav-link" href="especies.html"><strong>Animales</strong></a>
                     </li>
@@ -53,7 +54,7 @@ include '../Controlador/inicio_sesion/sesiones.php';
                     endif;
                     ?>
                 </ul>
-                 <form class="d-flex search-form" role="search" method="GET" action="hoja_animales.php">
+                 <form class="d-flex search-form" role="search" method="GET" action="../Controlador/mostrar_info_animales.php">
                      <input class="form-control me-2" type="search" name="token" placeholder="Buscar" required>
                     <button class="btn btn-outline-custom btn-custom-outline" type="submit">Buscar</button>
                 </form>

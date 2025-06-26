@@ -1,6 +1,7 @@
   <?php
   include '../Controlador/inicio_sesion/sesiones.php';
-  $token = $_GET['token'];
+  $idAnimal = $_GET['token'];
+  $token = base64_decode($idAnimal);
   ?>
   <!DOCTYPE html>
   <html lang="en">

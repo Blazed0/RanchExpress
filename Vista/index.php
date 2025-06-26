@@ -8,7 +8,7 @@ include 'header.php';
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Página Principal</title>
-
+<!-- Misma fuente para todas las paginas o maximo hasta 3 fuentes Titulo, Subtitutlo y parrafos y los cuadrados deben ser del mismo color todos -->
   <!-- Bootstrap + Icons -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
@@ -31,6 +31,7 @@ include 'header.php';
       <div class="col-md-5 mb-4">
         <div class="card-custom h-100">
           <a class="fw-bold m-0 hola" href="animales_caprinos.php">
+            <!-- Los botones deberian de ser similares al color principal -->
             <button class="btn btn-danger btn-sm">CAPRINOS</button>
           </a>
           <p>
