@@ -34,18 +34,15 @@
       <center>
             <div class="col-md-8">
 
-            <div class="mb-8">
-          <label class="form-label">Produccion anual</label>
-          <input type="number" name="produccion_anual" class="form-control">
-        </div>
+  
    
         <div class="mb-8">
           <label class="form-label">Kilos producidos</label>
-          <input type="number" name="kilos"id= "kilos" class="form-control">
+          <input type="number" name="kilos"id= "kilos"  step="0.01" class="form-control">
         </div>
           <div class="mb-8">
           <label class="form-label">Codigo del animal</label>
-          <input type="number" name="codigo_animal"id= "codigo_animal" class="form-control">
+          <input type="text" name="codigo_animal"id= "codigo_animal" class="form-control">
         </div>
           </div>
           </center>

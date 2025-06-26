@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: localhost:3307
--- Tiempo de generación: 05-06-2025 a las 23:44:54
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 26-06-2025 a las 01:21:29
 -- Versión del servidor: 10.4.32-MariaDB
--- Versión de PHP: 8.2.12
+-- Versión de PHP: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -52,7 +52,16 @@ CREATE TABLE `animal` (
 --
 
 INSERT INTO `animal` (`id_animal`, `estado`, `codigo_animal`, `fecha_ingreso`, `fecha_nacimiento`, `proposito`, `peso_nacimiento`, `nombre`, `raza`, `color`, `sexo`, `imagen_animal`, `especie`, `etapa_edad`, `id_usuario`, `id_padre`, `id_madre`) VALUES
-(35, 'muerto', '115', '2025-06-09', '2025-06-01', 'Reproductor', 32.00, 'Correccion', 'Alpino', 'Negro', 'Hembra', 'Mob.jpeg', 'Ovino', 'Cria', 1, NULL, NULL);
+(35, 'muerto', '115', '2025-06-09', '2025-06-01', 'Reproductor', 32.00, 'Correccion', 'Alpino', 'Negro', 'Hembra', 'Mob.jpeg', 'Ovino', 'Cria', 1, NULL, NULL),
+(36, 'activo', '111', '2025-06-24', '2025-06-24', 'Lana', 22.00, 'Ezio', 'Criolla', 'Blanco', 'Macho', 'oveja1.jpg', 'Ovino', 'Adulto', 12, NULL, NULL),
+(37, 'activo', '112', '2025-06-24', '2025-06-24', 'Reproductor', 22.00, 'Carla', 'Criolla', 'Blanco', 'Hembra', 'oveja2.jpg', 'Ovino', 'Adulto', 12, NULL, NULL),
+(38, 'activo', '113', '2025-06-24', '2025-06-24', 'Reproductor', 21.00, 'Cj', 'Criolla', 'Negro', 'Macho', 'oveja3.png', 'Ovino', 'Cria', 12, NULL, NULL),
+(39, 'activo', '90', '2025-06-24', '2025-06-24', 'Leche', 30.00, 'Goat', 'Criolla', 'Cafe', 'Macho', 'cabra1.jpg', 'Caprino', 'Adulto', 12, 38, NULL),
+(40, 'activo', '93', '2025-06-24', '2025-06-24', 'Leche', 5.00, 'Sweet', 'Criolla', 'Blanco', 'Macho', 'cabra2.webp', 'Caprino', 'Cria', 12, 38, NULL),
+(41, 'activo', '94', '2025-06-24', '2025-06-24', 'Reproductor', 25.00, 'kendal', 'Criolla', 'Blanco', 'Hembra', 'cabra3.jpg', 'Caprino', 'Adulto', 12, NULL, NULL),
+(42, 'activo', '92', '2025-06-24', '2025-06-24', 'Reproductor', 22.00, 'Luis', 'Criolla', 'Cafe', 'Macho', 'cabra4.jpg', 'Caprino', 'Adulto', 12, NULL, NULL),
+(43, 'activo', '91', '2025-06-25', '2025-06-25', 'Leche', 11.00, 'Cata', 'Criollo', 'Blanca', 'Hembra', 'cabra3.jpg', 'Caprino', 'Adulto', 12, NULL, NULL),
+(44, 'activo', '96', '2025-06-25', '2025-06-25', 'Leche', 22.00, 'Catalina', 'Criollo', 'Blanca', 'Hembra', 'cabra1.jpg', 'Caprino', 'Cria', 12, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -67,6 +76,16 @@ CREATE TABLE `lana` (
   `id_animal` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
+--
+-- Volcado de datos para la tabla `lana`
+--
+
+INSERT INTO `lana` (`id_produccion`, `kilos_producidos`, `produccion_anual`, `id_animal`) VALUES
+(1, 11.000, 11.000, 36),
+(2, 11.000, 22.000, 36),
+(3, 1.100, 23.100, 36),
+(4, 22.000, 22.000, 37);
+
 -- --------------------------------------------------------
 
 --
@@ -79,6 +98,17 @@ CREATE TABLE `leche` (
   `litros_producidos` int(11) NOT NULL,
   `id_animal` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `leche`
+--
+
+INSERT INTO `leche` (`id_produccion`, `fecha_produccion`, `litros_producidos`, `id_animal`) VALUES
+(2, '2025-06-25', 11, 39),
+(3, '0000-00-00', 11, 43),
+(4, '2025-06-25', 3, 43),
+(5, '2025-06-25', 2, 43),
+(6, '2025-06-25', 10, 43);
 
 -- --------------------------------------------------------
 
@@ -100,7 +130,8 @@ CREATE TABLE `peso` (
 
 INSERT INTO `peso` (`id_peso`, `fecha_pesaje`, `peso`, `observaciones`, `id_animal`) VALUES
 (1, '2025-06-02', 35.00, 'Desnutricion', 35),
-(3, '2025-06-25', 367.00, 'Ya no esta desnutrido', 35);
+(3, '2025-06-25', 367.00, 'Ya no esta desnutrido', 35),
+(4, '2025-06-25', 112.00, 'Ta flaco', 36);
 
 -- --------------------------------------------------------
 
@@ -148,7 +179,7 @@ INSERT INTO `usuario` (`id_usuario`, `nit`, `nombre`, `correo`, `clave`, `rol`) 
 (1, 1141514648, 'Instructor de prueba', 'soxberg277@gmail.com', '$2y$10$UwxD8e4sUh9deQlSRVp.Uu0Lv5IlJdTIqLyHMf72IYheDDx1bfC1K', 'Instructor'),
 (2, 1141514649, 'Aprendiz Prueba', 'pruebaAprendiz@gmail.com', '$2y$10$J6Tn/FdISha6Xz/wQob.6eS5q5rQOdnLU1a/VBglbs8', 'Aprendiz'),
 (3, 1141514642, 'Prueba Gallina', 'Sesdasd', '$2y$12$9Zi5iuDHJgQmWTNtR/lCEuemHmcGFgcebk9pgWt3HYY', 'Aprendiz'),
-(12, 1131513253, 'PruebaInsertado', 'PruebaInsertar@gmail.com', '$2y$10$mtOWNcrO4Q2.ga8yZsTh8eVao8GBb0ij0jiojeu2.Jk', 'Instructor');
+(12, 1131513253, 'PruebaInsertado', 'maickgarciaochoa@gmail.com', '$2y$10$TjF0ZZ3TwwrRd3pMjh40K.azVMzoZVcIV55Dh.mXVSajkrXwuk78e', 'Instructor');
 
 --
 -- Índices para tablas volcadas
@@ -205,19 +236,25 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `animal`
 --
 ALTER TABLE `animal`
-  MODIFY `id_animal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id_animal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+
+--
+-- AUTO_INCREMENT de la tabla `lana`
+--
+ALTER TABLE `lana`
+  MODIFY `id_produccion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `leche`
 --
 ALTER TABLE `leche`
-  MODIFY `id_produccion` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_produccion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `peso`
 --
 ALTER TABLE `peso`
-  MODIFY `id_peso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_peso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `tratamientos`

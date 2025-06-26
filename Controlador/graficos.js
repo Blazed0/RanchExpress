@@ -5,6 +5,7 @@ window.onload = function() {
 
     // Configuración del gráfico
     var options = {
+          animationEnabled: true,
         theme: "light2", // Tema visual del gráfico
         title: {
             text: "Producción de leche" // Título del gráfico
@@ -54,7 +55,10 @@ window.onload = function() {
     // Función que obtiene nuevos datos desde un servicio externo
     function updateData() {
         // Petición AJAX para obtener datos simulados desde el servidor de CanvasJS
-        $.getJSON("../Controlador/leche/datos_leche_animal.php", addData);
+       const params = new URLSearchParams(window.location.search);
+const token = params.get('token');
+$.getJSON(`../Controlador/leche/obtener_leche.php?token=${token}`, addData);
+
     }
 
 }

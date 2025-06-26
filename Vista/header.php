@@ -17,9 +17,11 @@ include '../Controlador/inicio_sesion/sesiones.php';
                 <li class="nav-item dropdown">
                         <img src="../Media/icons/logo_pagina-removebg-preview.png" class = "dropdown" role = "button" data-bs-toggle = "dropdown" alt="Logo" id="logazo">   
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item bg-success" href="#">Opcion Agregar usuarios</a></li>
                     <li><a class="dropdown-item bg-success" href="perfil_usuario.php">Perfil</a></li>
-                    <li><a class="dropdown-item bg-primary" href="#">Opcion Eliminar usuarios</a></li>
+                    <?php if($_SESSION['rol'] = 'Instructor'): ?>
+                        <?php echo '<li><a class="dropdown-item bg-success" href="#">Opcion Agregar usuarios</a></li>' ?>
+                        <li><a class="dropdown-item bg-primary" href="#">Opcion Eliminar usuarios</a></li>
+                        <?php endif ?>
                     <li><hr class="dropdown-divider"></li>
                     <li><a class="dropdown-item bg-danger" href= "../Controlador/inicio_sesion/destruir_sesion.php">Cerrar Sesion</a></li>
                 </ul>
@@ -41,12 +43,15 @@ include '../Controlador/inicio_sesion/sesiones.php';
                     <li class="nav-item">
                         <a class="nav-link" href="registro_animal.php">Registro de animales</a>
                     </li>
-                    <li class="nav-item">
+                    <?php if($_SESSION['rol']='Instructor'): ?>
+                    <?php echo '<li class="nav-item">
                         <a class="nav-link" href="estadisticaovinos.html">Estadistica de Ovinos</a>
                     </li>
                     <li class="nav-item">
                         <a href="estadisticacaprinos.html" class="nav-link">Estadistica De Caprinos</a>
-                    </li>
+                    </li>';
+                    endif;
+                    ?>
                 </ul>
                  <form class="d-flex search-form" role="search" method="GET" action="hoja_animales.php">
                      <input class="form-control me-2" type="search" name="token" placeholder="Buscar" required>

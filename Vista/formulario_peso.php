@@ -1,5 +1,6 @@
   <?php
   include '../Controlador/inicio_sesion/sesiones.php';
+  $token = $_GET['token'];
   ?>
   <!DOCTYPE html>
   <html lang="en">
@@ -53,7 +54,7 @@
         </div>
           <div class="mb-8">
           <label class="form-label">Codigo del animal</label>
-          <input type="number" name="codigo_animal"id= "codigo_animal" class="form-control">
+          <input type="number" name="codigo_animal" value = "<?php echo htmlspecialchars($token)?>"id= "codigo_animal" class="form-control">
         </div>
   <div class="mb-8">
           <label class="form-label">Observaciones</label>

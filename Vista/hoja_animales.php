@@ -63,7 +63,7 @@ include 'header.php';
           <p>Ultimo Pesaje: <?php echo $peso ?>  <br>
           Fecha del Pesaje: <?php echo $fechaPesaje ?></p>
           <a class="fw-bold m-0 hola"  href="formulario_peso.php">
-          <button class="btn btn-danger btn-sm">ACTUALIZAR</button>
+          <a href = "formulario_peso.php?token=<?= $token ?>" role = "button" class="btn btn-danger btn-sm">ACTUALIZAR</a>
           </a>
         </div>
       </div>
@@ -75,7 +75,7 @@ include 'header.php';
         <div class="info-box">
           <div class="d-flex justify-content-between align-items-center">
             <h4 class="m-0">Tratamientos</h4>
-            <button class="btn btn-danger btn-sm">Actualizar</button>
+            <a href = "registro_tratamiento.php" role="button" class="btn btn-primary btn-sm">Actualizar</a>
           </div>
           <p class="fw-bold mt-2"><?php echo $nombreTratamiento ?><br>
           <?php echo $fechaAplicacion ?>
@@ -88,7 +88,7 @@ include 'header.php';
       </div>
     </div>
 
-    <!-- Fila 4: Leche -->
+    <!-- Fila 4: Produccion-->
     <div class="row g-3 mt-2">
       <div class="col-12">
         <div class="info-box text-center">
@@ -96,8 +96,10 @@ include 'header.php';
         <h2>Produccion</h2>
         
 <script src="../Controlador/graficos.js"></script>
+<script src="../Controlador/grafico_lana.js"></script>
         <?php  
-        echo  $produccion;
+echo  $GLOBALS['produccion'];
+
         ?>
 
         </div>
@@ -113,5 +115,10 @@ include 'header.php';
 include 'footer.html';
 ?>
 
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+<script src="https://cdn.canvasjs.com/jquery.canvasjs.min.js"></script>
+
+<script src="../Controlador/grafico_lana.js"></script>
+<script src="../Controlador/graficos.js"></script>
 </body>
 </html>

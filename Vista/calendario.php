@@ -54,34 +54,31 @@ include 'header.php';
   let currentDate = new Date();
 
  
-  const litrosPorDia = {
-    '2025-01-02': 2,
-    '2025-01-03': 3,
-    '2025-01-08': 2.5,
-    '2025-01-12': 1.8,
-    '2025-01-20': 3.1,
-    '2025-01-25': 2.3,
-    '2025-01-30': 2
-  };
+  const litrosPorDia = <?php echo $produccionJSON ?? '{}'; ?>;
 
   function generateCalendar(month, year) {
     const calendarGrid = document.getElementById("calendarGrid");
     const monthYear = document.getElementById("monthYear");
+
+    //Aca  es donde se dibuja el nombre del mes y el año
     calendarGrid.innerHTML = "";
     monthYear.textContent = `${new Date(year, month).toLocaleString('default', { month: 'long' }).toUpperCase()} ${year}`;
-
+//Toma el primer dia del mes y el total de dias que tiene el mes
     const firstDay = new Date(year, month, 1).getDay();
     const totalDays = new Date(year, month + 1, 0).getDate();
     let day = 1;
-
+//Establecemos las filas y columnas de la tabla, osease las semanas y dias del calendario
+//Fila
     for (let i = 0; i < 6; i++) {
       const row = document.createElement("div");
       row.className = "row text-center";
-
+//Columna
       for (let j = 0; j < 7; j++) {
         const col = document.createElement("div");
         col.className = "col calendar-cell";
 
+
+        //Aca es donde dibuja los campos en blanco para los dias faltantes al terminar el mes
         if ((i === 0 && j < (firstDay === 0 ? 6 : firstDay - 1)) || day > totalDays) {
           col.innerHTML = "&nbsp;";
         } else {
