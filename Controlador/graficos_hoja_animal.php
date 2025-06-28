@@ -5,7 +5,7 @@ $codigoAnimal = $_GET['token'];
 $token = base64_decode($codigoAnimal);
 
 
-$sqlAnimales = "SELECT proposito, sexo, especie, etapa_edad
+$sqlAnimales = "SELECT id_animal,proposito, sexo, especie, etapa_edad
 FROM animal
 WHERE codigo_animal = ?
   AND ((proposito = 'leche'
@@ -19,21 +19,20 @@ $coincidencia = $filtroAnimales->get_result();
 $filas = $coincidencia->fetch_assoc();
 $produccion = '';
 if($filas != null){
+  $idAnimal = $filas['id_animal'];
   if($filas['especie'] === 'Caprino'){
     $produccion .= '
     <img src="https://cdn-icons-png.flaticon.com/512/1790/1790203.png" alt="leche" width="30" class="mb-2">
-    <a class="fw-bold m-0" href="calendario.php?token='.base64_encode($token).'">
+    <a class="fw-bold m-0" href="calendario.php?token='.base64_encode($idAnimal).'">
       <button class="btn btn-danger btn-sm">LECHE (LITROS) DIARIA</button>
     </a>
-    <p>3 L - 21/05/2025</p>
     <div id="chartContainer" style="height: 370px; width: 100%;"></div>
-    <a href="leche.php" role="button" class="btn btn-danger btn-sm">ACTUALIZAR</a>
-    ';
+    <a href="leche.php?token='.base64_encode($token).'" role="button" class="btn btn-danger btn-sm">ACTUALIZAR</a>';
   }
 elseif($filas['especie'] === 'Ovino'){
   $produccion .= '
   <img src="https://cdn-icons-png.flaticon.com/512/763/763812.png" alt="lana" width="30" class="mb-2">
- <a class="fw-bold m-0" href="calendario.php?token='.base64_encode($token).'">
+ <a class="fw-bold m-0" href="calendario.php?token='.base64_encode($idAnimal).'">
     <button class="btn btn-warning btn-sm">LANA (KILOS) ANUAL</button>
   </a>
   <div id="chartContainerLana" style="height: 370px; width: 100%;"></div>

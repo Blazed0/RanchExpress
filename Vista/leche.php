@@ -1,5 +1,7 @@
   <?php
   include '../Controlador/inicio_sesion/sesiones.php';
+  $codigoEncriptado = $_GET['token'];
+  $token = base64_decode($codigoEncriptado);
   ?>
   <!DOCTYPE html>
   <html lang="en">
@@ -43,7 +45,7 @@
         </div>
         <div class="mb-8">
           <label class="form-label">Codigo del animal</label>
-          <input type="number" name="codigo_animal"id= "codigo_animal" class="form-control">
+          <input type="number" name="codigo_animal"id= "codigo_animal" value ="<?php echo htmlspecialchars($token)?>" class="form-control">
         </div>
           </div>
           </center>
@@ -52,10 +54,6 @@
     <button type="submit" class="btn-submit">Registrar producción de leche</button>
   </div>
       </form>
-      <div id="result"></div>
-    
-
-  </div>   
 
         
   </body>

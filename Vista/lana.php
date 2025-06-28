@@ -51,10 +51,6 @@
     <button type="submit" class="btn-submit">Registrar producción de lana</button>
   </div>
       </form>
-      <div id="result"></div>
-    
-
-  </div>   
 
         
   </body>

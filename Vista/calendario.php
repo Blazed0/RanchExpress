@@ -1,6 +1,7 @@
 <?php 
-include '../Controlador/ver_caprinos.php';
+include '../Controlador/calendario_datos.php';
 include 'header.php';
+
 ?>
 
 <!DOCTYPE html>
@@ -54,7 +55,8 @@ include 'header.php';
   let currentDate = new Date();
 
  
-  const litrosPorDia = <?php echo $produccionJSON ?? '{}'; ?>;
+/*   const litrosPorDia = {'2025-06-28':366}; */
+const litrosPorDia = <?php echo $produccionJSON ?? '{}' ?>;
 
   function generateCalendar(month, year) {
     const calendarGrid = document.getElementById("calendarGrid");

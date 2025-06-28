@@ -46,7 +46,6 @@
       </thead>
       <tbody>
           <?php echo $html ?>
-
         
       </tbody>
     </table>

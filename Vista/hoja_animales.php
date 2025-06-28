@@ -32,8 +32,8 @@ include 'header.php';
               <h6 class="m-0">ESTADO</h6>
               <span id = "estado"> <?php echo $html ?></span>
             </div>
-            <p class="mb-1">Padre: <a href= "hoja_animales.php?token=<?=$nombrePadre?>"><?php echo $nombrePadre ?></a></p>
-            <p class="mb-1">Madre:<a href = "hoja_animales.php?token=<?=$nombreMadre?>"><?php echo $nombreMadre ?></a></p>
+            <p class="mb-1">Padre: <a href= "hoja_animales.php?token=<?=base64_encode($nombrePadre)?>"><?php echo $nombrePadre ?></a></p>
+            <p class="mb-1">Madre:<a href = "hoja_animales.php?token=<?=base64_encode($nombreMadre)?>"><?php echo $nombreMadre ?></a></p>
             <p class="mb-1">Codigo: <?php echo $codigo ?></p>
             <p class="mb-1">Raza: <?php echo $raza ?></p>
             <p class="mb-1">Raza Del Padre: <?php echo $padreRaza?></p>

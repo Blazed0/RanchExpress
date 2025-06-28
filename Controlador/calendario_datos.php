@@ -1,4 +1,5 @@
 <?php 
+include '../Modelo/conn.php';
 $token = $_GET['token'];
 $id = base64_decode($token);
 
@@ -10,12 +11,18 @@ if($stmt->execute()){
     $produccionArray =[];
     if($result->num_rows>0){
         while($produccion = $result->fetch_assoc()){
-        $fechaProduccion = $produccion['fecha_produccion'];
-        $litrosProducidos = $produccion['litros_producidos'];
-        $produccionArray[$fechaProduccion] = $litrosProducidos;
+/*         $fechaProduccion = $produccion['fecha_produccion'];
+        $litrosProducidos = $produccion['litros_producidos']; */
+        $produccionArray[$produccion['fecha_produccion']] = $produccion['litros_producidos'];
         }
         $produccionJSON = json_encode($produccionArray);
+
+    }else{
+                echo $id;
     }
+}
+else{
+    echo "nada sirvio";
 }
 
 ?>

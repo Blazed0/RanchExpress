@@ -41,14 +41,7 @@
           <label class="form-label">Fecha del pesaje</label>
           <input type="date" name="fecha_pesaje" class="form-control">
         </div>
-   
-        <div class="mb-8">
-                        <label class="form-label">Tipo de animal</label>
-           <select name="peso" id= "peso" class="form-select">
-            <option value="Adulto">Adulto</option>
-            <option value="Cria">Cria</option>
-          </select>
-        </div>
+  
            <div class="mb-8">
           <label class="form-label">Peso del animal</label>
           <input type="number" name="peso_animal"id= "peso_animal" class="form-control">

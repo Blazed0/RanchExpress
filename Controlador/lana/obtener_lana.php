@@ -8,7 +8,8 @@ if (!isset($_GET['token'])) {
     exit;
 }
 
-$codigo_animal = $_GET['token'];
+$codigoEncriptado = $_GET['token'];
+$codigo_animal = base64_decode($codigoEncriptado);
 
 // Buscar el id_animal
 $sql = "SELECT id_animal FROM animal WHERE codigo_animal = ?";

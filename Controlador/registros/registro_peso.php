@@ -8,53 +8,50 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $codigoAnimal = $_GET['token'];
     $token = base64_decode($codigoAnimal);
     $fecha = $_POST['fecha_pesaje'];
-    $tipo = $_POST['peso'];
     $peso = $_POST['peso_animal'];
     $codigo = $_POST['codigo_animal'];
     $observaciones = trim($_POST['observaciones']);
 
-    // Buscar ID del animal o cría
-    if ($tipo === "Adulto") {
-        $query = "SELECT id_animal FROM animal WHERE codigo_animal = ?";
-    } elseif ($tipo === "Cria") {
-        $query = "SELECT id_animal FROM animal WHERE codigo_animal = ?";
-    } else {
-        echo " Tipo de animal no válido.";
-        exit;
+    $camposObligatorios = [$fecha,$peso,$codigo,$observaciones];
+
+    foreach($camposObligatorios as $obligatorio){
+        if(empty($obligatorio)){
+            $_SESSION['alert'] = alerta("No se pueden enviar campos vacios");
+            header('Location:../../Vista/formulario_peso.php?token='.base64_encode($codigoAnimal));
+            exit;
+        }
     }
+
+    // Buscar ID del animal o cría
+    
 
     $stmt = $conn->prepare($query);
     $stmt->bind_param("i", $codigo);
     $stmt->execute();
     $result = $stmt->get_result();
-
+    
     if ($row = $result->fetch_assoc()) {
         $id_animal = $row['id_animal'];
-
-        // Inserción en tabla de peso
-        if ($tipo === "Adulto") {
-            $insert = "INSERT INTO peso (fecha_pesaje, peso, observaciones, id_animal)
+        $insert = "INSERT INTO peso (fecha_pesaje, peso, observaciones, id_animal)
                        VALUES (?, ?, ?, ?)";
-        } elseif ($tipo === "Cria") {
-            $insert = "INSERT INTO peso (fecha_pesaje, peso, observaciones, id_animal)
-                       VALUES (?, ?, ?, ?)";
-        }
-
         $stmt_insert = $conn->prepare($insert);
         $stmt_insert->bind_param("sdsi", $fecha, $peso, $observaciones, $id_animal);
-
+        
         if ($stmt_insert->execute()) {
-            header("Location: ../../Vista/tabla.php?token=".$id_animal."");
+            header("Location: ../../Vista/tabla.php?token=".base64_encode($id_animal)."");
             exit();
-        } else {
-            echo " Error al insertar los datos.";
+        }else{
+            $_SESSION['alert'] = alerta("Error al ingresar al animal");
+            header('Location: ../../Vista/formulario_peso.php?token='.base64_encode($codigoAnimal));
+            exit();
         }
-
-        $stmt_insert->close();
-    } else {
+        
+    } 
+    else {
         echo " No se encontró un animal/cría con ese código.";
     }
-
+    
+    $stmt_insert->close();
     $stmt->close();
     $conn->close();
 }
