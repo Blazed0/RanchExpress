@@ -48,7 +48,7 @@ label {
     color: white;
     padding: 10px 20px;
     cursor: pointer;
-        background: linear-gradient(to right, #ff5f6d, #ffc371);
+        background: linear-gradient(to right, #6B8E23, #3e5221);
               border: none;
      border-radius: 12px !important ;
     outline: 2px solid white; 
@@ -86,9 +86,9 @@ label {
       background: none;
       border: none;
       cursor: pointer;
-   color: #ff5f6d;
+   color: #6B8E23;
     }
 
     .btn-flecha:hover {
-      color: #0b5ed7;
+      color: #3e5221;
     }

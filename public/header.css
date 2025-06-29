@@ -1,78 +1,88 @@
-/* NAVBAR */
+/* ================= NAVBAR ================= */
 
-
-/* Si container.my-4 es para el diseño de tu página principal y no directamente para el header, considera si debe ir aquí o en un CSS más general */
-.container.my-4{
-    min-height: 78vh;
-    /* grid-template-rows: auto 1fr auto;  Esto sugiere un layout de grid, asegúrate de que el contenedor padre tenga display: grid; */
+.container.my-4 {
+  min-height: 78vh;
 }
+
 .navbar-custom {
-    background-color: #b98c2c; /* color café exacto */
-    padding: 10px 20px;
+  background-color: #4e6821;
+  background-image: linear-gradient(145deg, #6B8E23 0%, #3e5221 100%);
+  padding: 10px 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 .logo {
-    cursor: pointer;
-    margin-right: auto; /* Empuja el logo a la izquierda */
+  cursor: pointer;
+  margin-right: auto;
 }
 
 .logo img {
-    height: 60px; /* Ajustado de 80px para que coincida con el navbar */
-    width: auto;
-    transition: all 0.3s ease; /* Transición suave para el hover */
-    border-radius: 100%; /* Para un logo redondo */
-    margin-right: 10px; /* Espacio a la derecha del logo */
+  height: 60px;
+  width: auto;
+  transition: all 0.3s ease;
+  border-radius: 100%;
+  margin-right: 10px;
 }
 
 .logo img:hover {
-    transform: scale(1.1); /* Ligeramente más pequeño para que no se salga del navbar si es muy grande */
+  transform: scale(1.1);
 }
 
 .navbar-brand {
-    font-family: 'Brush Script MT', cursive; /* Asegúrate de que esta fuente esté disponible o sea una fuente de respaldo */
-    font-size: 24px;
-    color: black;
-    /* Asegúrate de que el <p> dentro del <a> .navbar-brand no anule estos estilos */
+  font-family: 'Brush Script MT', cursive;
+  font-size: 24px;
+  color: #d1e5b2 !important;
 }
 
-/* Estilos para los enlaces de navegación */
 .navbar-nav .nav-item {
-    margin: 0 15px; /* Espacio entre los elementos de la lista */
+  margin: 0 15px;
 }
 
 .navbar-nav .nav-link {
-    color: black !important; /* Sobrescribe los estilos de Bootstrap si es necesario */
-    font-weight: bold;
-    font-family: 'Copperplate', sans-serif; /* Asegúrate de que esta fuente esté disponible o sea una fuente de respaldo */
-    transition: color 0.3s ease;
+  color: #d1e5b2 !important;
+  font-weight: bold;
+  font-family: 'Copperplate', sans-serif;
+  transition: color 0.3s ease;
 }
 
 .navbar-nav .nav-link:hover {
-    color: white !important; /* Color al pasar el ratón */
+  color: white !important;
 }
 
-/* Estilos para el botón de búsqueda */
 .btn-custom-outline {
-    color: black;
-    border-color: black !important; /* Asegúrate de que el borde sea negro */
-    transition: background-color 0.3s ease, color 0.3s ease;
+  color: #d1e5b2;
+  border-color: #d1e5b2 !important;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .btn-custom-outline:hover {
-    background-color: black;
-    color: white;
+  background-color: #7ea93a;
+  color: white;
 }
 
-/* Estilos adicionales para la barra de búsqueda si es necesario */
 .search-form .form-control {
-    border-color: black; /* Borde del input */
+  border-color: #6B8E23;
+  background-color: #cde49a;
+  box-shadow: inset 2px 5px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
+  height: 32px;
+  font-size: 1rem;
+  margin-top: -1px;
+  transition: 300ms ease-in-out;
 }
 
-/* Ajustes para el botón del toggler (hamburguesa) en dispositivos móviles */
+.search-form .form-control:focus {
+  background-color: white;
+  transform: scale(1.05);
+  box-shadow: 13px 13px 100px #969696, -13px -13px 100px #ffffff;
+}
+
 .navbar-toggler {
-    border-color: black !important; /* Borde del botón hamburguesa */
+  border-color: #d1e5b2 !important;
 }
 
 .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e"); /* Icono de hamburguesa negro */
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23d1e5b2' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }

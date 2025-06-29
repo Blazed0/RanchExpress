@@ -4,19 +4,21 @@ include '../Modelo/conn.php';
 $codigoAnimal = $_GET['token'];
 $token = base64_decode($codigoAnimal);
 
-
-$sqlAnimales = "SELECT id_animal,proposito, sexo, especie, etapa_edad
+// Consulta para obtener los datos del animal
+$sqlAnimales = "SELECT proposito, sexo, especie, etapa_edad
 FROM animal
 WHERE codigo_animal = ?
   AND ((proposito = 'leche'
   AND sexo = 'Hembra'
   AND especie = 'Caprino'
   AND etapa_edad = 'Adulto') OR especie = 'Ovino');";
+
 $filtroAnimales = $conn->prepare($sqlAnimales);
 $filtroAnimales->bind_param("s", $token);
 $filtroAnimales->execute();
 $coincidencia = $filtroAnimales->get_result();
 $filas = $coincidencia->fetch_assoc();
+
 $produccion = '';
 if($filas != null){
   $idAnimal = $filas['id_animal'];
@@ -44,17 +46,5 @@ else{
 }
  }
 
- $GLOBALS['produccion'] = $produccion;
-
-
-
-/*   <!-- Script que se ejecuta cuando se carga toda la página -->
-    <div class="row g-3 mt-2">
-      <div class="col-12">
-        <div class="info-box text-center">
-
-        </div>
-      </div>
-    </div>
-*/
+$GLOBALS['produccion'] = $produccion;
 ?>

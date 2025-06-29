@@ -24,9 +24,9 @@ try {
         ORDER BY `animal`.`id_animal` DESC
         LIMIT ?";
         $stmt = $conn->prepare($sqlAnimales);
-        $stmt ->bind_param("si", $especie, $limite); 
-        $stmt ->execute();
-        $resultado = $stmt ->get_result();
+        $stmt->bind_param("si", $especie, $limite); 
+        $stmt->execute();
+        $resultado = $stmt->get_result();
         $html = '';
         if ($resultado && $resultado->num_rows > 0) {
             while ($fila = $resultado->fetch_assoc()) {
@@ -40,7 +40,7 @@ try {
                 <div class="card-body">
                 <h5 class="card-title">Animales no registrados</h5>
                 <p class="card-text">Ingresa un animal y prueba nuevamente.</p>
-                <a href="../Vista/registro_animal.php" class="btn btn-danger w-100 text-wrap" style = "white-space = normal;">Registra un nuevo animal</a>
+                <a href="../Vista/registro_animal.php" class="btn btn-olive w-100 text-wrap" style="white-space: normal;">Registra un nuevo animal</a>
                 </div>
                 <div class="card-footer text-body-secondary">
                 RanchExpress
@@ -52,14 +52,14 @@ try {
 
     // Esto genera las tarjetas
     function generarTarjetas($filas) {
-        return '<div class = "col-6 mb-3">
+        return '<div class="col-6 mb-3">
                 <div class="card h-100" style="width: 100%;">
                 <img src="../Media/Uploads/' . $filas['imagen_animal'] . '" class="card-img-top" alt="Imagen del animal" style="width:100%; height:180px; object-fit:cover; object-position:center;">
                 <div class="card-body">
                 <h5 class="card-title">' . htmlspecialchars($filas['codigo_animal']) . '</h5>
                 <p class="card-text"> Nombre del animal: ' . $filas['nombre'] . '</p>
                 <p class="card-text"> Ingresado por: ' . $filas['nombre_usuario'] . '</p>
-                <a href="../Vista/hoja_animales.php?token=' . base64_encode($filas['codigo_animal']) . '" class="btn btn-danger w-100 text-wrap" style = "white-space = normal;">Ver información Detallada</a>
+                <a href="../Vista/hoja_animales.php?token=' . base64_encode($filas['codigo_animal']) . '" class="btn btn-olive w-100 text-wrap" style="white-space: normal;">Ver información Detallada</a>
                 </div>
                 </div>
                 </div>';
@@ -67,6 +67,7 @@ try {
 
     $htmlOvejas = obtenerAnimal($conn, 'Ovino', 4);
     $htmlCabras = obtenerAnimal($conn, 'Caprino', 4);
+
 } catch (Exception $e) {
     $e->getMessage();
 }

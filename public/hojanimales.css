@@ -1,81 +1,185 @@
+/* hojanimales_moderno.css */
+
+/* BODY */
 body {
-  font-family: Arial, sans-serif;
-  background-color: #fff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0edea;
+  margin: 0;
+  padding: 20px 0;
+  color: #3a3a3a;
 }
 
-/* Header */
-.header {
-  background-color: #b3832c;
-  color: black;
-  flex-wrap: wrap;
-}
-
-.logo {
-  height: 40px;
-}
-
-.brand-name {
-  font-weight: bold;
-  font-size: 20px;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: black;
-  font-weight: bold;
-}
-
-.search-input {
-  padding: 5px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-/* Main */
+/* CONTENEDOR PRINCIPAL */
 .main-box {
-  border: 2px solid black;
-  border-radius: 12px;
+  max-width: 960px;
+  margin: auto;
+  padding: 20px;
+  background: #e0e0e0;
+  border-radius: 25px;
+  box-shadow:
+    8px 8px 15px #bebebe,
+    -8px -8px 15px #ffffff;
 }
 
-/* Imagen que iguala al estado */
+main.container.my-3 {
+  padding: 0 10px;
+}
+
+/* FILAS */
+.row.g-3 {
+  margin-bottom: 20px;
+}
+
+/* TARJETA NEUMÓRFICA: IMAGEN */
 .img-box {
-  border: 2px solid black;
-  border-radius: 10px;
+  border-radius: 25px;
   overflow: hidden;
   height: 100%;
+  box-shadow:
+    inset 6px 6px 10px #bebebe,
+    inset -6px -6px 10px #ffffff;
+  border: none;
+  background: #e0e0e0;
+  transition: transform 0.3s ease;
 }
-
-.object-fit-cover {
+.img-box:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    10px 10px 20px #bebebe,
+    -10px -10px 20px #ffffff;
+}
+.img-box img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  display: block;
 }
 
-/* Cajas de contenido */
+/* TARJETA NEUMÓRFICA: INFO */
 .info-box {
-  border: 2px solid black;
-  border-radius: 10px;
-  padding: 10px;
-  background-color: white;
+  background: #e0e0e0;
+  border-radius: 25px;
+  padding: 25px 30px;
+  box-shadow:
+    8px 8px 15px #bebebe,
+    -8px -8px 15px #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  transition: transform 0.3s ease;
+}
+.info-box:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    12px 12px 25px #bebebe,
+    -12px -12px 25px #ffffff;
 }
 
-/* Puntitos indicadores */
-.dot {
-  width: 12px;
-  height: 12px;
-  background-color: #aaa;
-  border-radius: 50%;
-}
-
-/* Footer */
-.footer {
-  background-color: #b3832c;
-  color: white;
-  font-weight: bold;
-}
-
-.hola{
-  text-decoration: none;
-  
-}
-#estado{
+/* ESTADOS */
+#estado {
   max-width: 50%;
+  font-weight: 700;
+  color: #6b8e23;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-size: 0.9rem;
+}
+
+/* TITULOS Y TEXTOS */
+h6 {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #4b6836;
+}
+p {
+  font-size: 1rem;
+  margin: 6px 0;
+}
+p.fw-bold {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #4b6836;
+}
+
+/* LINKS */
+a {
+  color: #6b8e23;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-weight: 600;
+}
+a:hover {
+  color: #3a5513;
+  text-decoration: underline;
+}
+
+/* BOTONES */
+.btn-danger {
+  background-color: #6b8e23;
+  border: none;
+  box-shadow:
+    5px 5px 15px #4b6836,
+    -5px -5px 15px #8fb870;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+.btn-danger:hover {
+  background-color: #4b6836;
+  box-shadow:
+    2px 2px 8px #364824,
+    -2px -2px 8px #6f9a2a;
+}
+.btn-primary {
+  background-color: #517aba;
+  border: none;
+  box-shadow:
+    5px 5px 15px #3d5a8a,
+    -5px -5px 15px #6f89d0;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+.btn-primary:hover {
+  background-color: #3d5a8a;
+  box-shadow:
+    2px 2px 8px #2d4060,
+    -2px -2px 8px #5470b1;
+}
+
+/* ICONOS PESO */
+.info-box img {
+  filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.1));
+}
+
+/* TITULOS SECCIONES */
+h4 {
+  color: #4b6836;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+/* DIVISOR */
+hr {
+  border: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #b0c68b, transparent);
+  margin: 15px 0;
+}
+
+/* PRODUCCIÓN */
+.info-box.text-center h2 {
+  color: #4b6836;
+  margin-bottom: 20px;
+  font-weight: 900;
+}
+
+/* Responsive ajustes pequeños */
+@media (max-width: 768px) {
+  .info-box {
+    padding: 15px 20px;
+  }
+  h6, p, h4 {
+    font-size: 1rem;
+  }
+  #estado {
+    max-width: 100%;
+  }
 }

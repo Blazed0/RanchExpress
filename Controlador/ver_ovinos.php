@@ -55,21 +55,21 @@ function filtrado($conn,$sexo){
     $sqlCrias = "SELECT animal.imagen_animal, animal.nombre, animal.codigo_animal, usuario.nombre AS nombre_usuario FROM animal LEFT JOIN usuario ON animal.id_usuario = usuario.id_usuario WHERE especie = 'Ovino' AND etapa_edad = 'Cria';";
     $resultado = $conn->query($sqlCrias);
     $htmlCrias = '';
-    if ($resultado && $resultado->num_rows > 0){
-        while ($rows = $resultado->fetch_assoc()){
-            $htmlCrias = '<div class = "col-8 mb-3" style = "margin:auto;" >
+    if ($resultado->num_rows>0){
+        while($filas = $resultado->fetch_assoc()){
+            $htmlCrias .= '<div class = "col-8 mb-3" style="margin:auto;">
             <div class="card h-100" style="width: 100%;">
-            <img src="../Media/Uploads/' . $rows['imagen_animal'] . '" class="card-img-top" alt="Imagen del animal" style="width:100%; height:180px; object-fit:cover; object-position:center;">
+            <img src="../Media/Uploads/' . $filas['imagen_animal'] . '" class="card-img-top" alt="Imagen del animal" style="width:100%; height:180px; object-fit:cover; object-position:center;">
             <div class="card-body">
-            <h5 class="card-title">' . htmlspecialchars($rows['codigo_animal']) . '</h5>
-            <p class="card-text"> Nombre del animal: ' . $rows['nombre'] . '</p>
-            <p class="card-text"> Ingresado por: ' . $rows['nombre_usuario'] . '</p>
-            <a href="../Vista/hoja_animales.php?token=' . base64_encode($rows['codigo_animal']) . '" class="btn btn-danger w-100 text-wrap" style = "white-space = normal;">Ver información Detallada</a>
+            <h5 class="card-title">' . htmlspecialchars($filas['codigo_animal']) . '</h5>
+            <p class="card-text"> Nombre del animal: ' . $filas['nombre'] . '</p>
+            <p class="card-text"> Ingresado por: ' . $filas['nombre_usuario'] . '</p>
+            <a href="../Vista/hoja_animales.php?token=' . base64_encode($filas['codigo_animal']) . '" class="btn btn-danger w-100 text-wrap" style = "white-space = normal;">Ver información Detallada</a>
             </div>
             </div>
             </div>';
         }
-        return $htmlCrias;
+
     }
     else{
         $htmlCrias ='<div class="card text-center">

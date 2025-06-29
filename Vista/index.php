@@ -8,18 +8,176 @@ include 'header.php';
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Página Principal</title>
-<!-- Misma fuente para todas las paginas o maximo hasta 3 fuentes Titulo, Subtitutlo y parrafos y los cuadrados deben ser del mismo color todos -->
   <!-- Bootstrap + Icons -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
   <!-- Tu CSS personalizado -->
   <link rel="stylesheet" href="../public/pagina_principal.css">
+
+  <style>
+    .custom-carousel {
+      height: 400px;
+      overflow: hidden;
+      border-radius: 20px;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .custom-carousel:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    }
+
+    .custom-carousel .carousel-item,
+    .custom-carousel .carousel-inner {
+      height: 100%;
+      border-radius: 20px;
+    }
+
+    .custom-carousel .carousel-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 20px;
+    }
+
+    .carousel-caption {
+      bottom: 20px;
+      left: 20px;
+      text-align: left;
+    }
+
+    .carousel-caption button {
+      font-size: 14px;
+      padding: 10px 20px;
+      border: none;
+      background-color: #6B8E23;
+    }
+
+    /* Neumorphism style for Caprinos */
+    .par5a-caprinos {
+      width: 100%;
+      min-height: 350px;
+      border-radius: 30px;
+      background: #e0e0e0;
+      box-shadow: 15px 15px 30px #bebebe, -15px -15px 30px #ffffff;
+      padding: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .par5a-caprinos:hover {
+      transform: translateY(-10px);
+      box-shadow: 20px 20px 40px #b1b1b1, -20px -20px 40px #ffffff;
+    }
+    .par5a-caprinos h1 {
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: #4b6836;
+    }
+
+    /* Neumorphism style for Total */
+    .par5a-total {
+      width: 100%;
+      min-height: 350px;
+      border-radius: 30px;
+      background: #e0e0e0;
+      box-shadow: 15px 15px 30px #bebebe, -15px -15px 30px #ffffff;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .par5a-total:hover {
+      transform: translateY(-10px);
+      box-shadow: 20px 20px 40px #b1b1b1, -20px -20px 40px #ffffff;
+    }
+    .par5a-total strong {
+      font-size: 1.3rem;
+      color: #4b6836;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .par5a-total .total-count {
+      font-size: 3rem;
+      font-weight: 900;
+      color: #6b8e23;
+    }
+
+    /* Neumorphism style for Ovinos */
+    .par5a-ovinos {
+      width: 100%;
+      min-height: 350px;
+      border-radius: 30px;
+      background: #e0e0e0;
+      box-shadow: 15px 15px 30px #bebebe, -15px -15px 30px #ffffff;
+      padding: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .par5a-ovinos:hover {
+      transform: translateY(-10px);
+      box-shadow: 20px 20px 40px #b1b1b1, -20px -20px 40px #ffffff;
+    }
+    .par5a-ovinos h1 {
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: #4b6836;
+    }
+
+    /* --- Aquí agrego el estilo para el botón verde oliva con efecto neumorphism --- */
+    .btn-olive {
+      background-color: #6b8e23;
+      color: white;
+      font-weight: 600;
+      border: none;
+      border-radius: 20px;
+      box-shadow: 7px 7px 15px #a3b85c,
+                  -7px -7px 15px #b8de65;
+      transition: all 0.3s ease;
+      user-select: none;
+      padding: 10px 12px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-olive:hover {
+      background-color: #7ea93a;
+      box-shadow: 4px 4px 10px #9bb53e,
+                  -4px -4px 10px #b9f07f;
+      cursor: pointer;
+      color: white;
+    }
+  </style>
 </head>
 
+<body>
+  <main class="w-100 p-0 m-0">
+    <!-- Carrusel -->
+    <div id="carouselExample" class="carousel slide custom-carousel mb-4" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="../Media/General/cabra2.jfif" class="d-block w-100" alt="..." />
+          <div class="carousel-caption d-none d-md-block">
+            <button class="btn btn-olive">Detalles</button> <!-- Cambiado a btn-olive -->
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="../Media/General/beja.avif" class="d-block w-100" alt="..." />
+          <div class="carousel-caption d-none d-md-block">
+            <button class="btn btn-olive">Detalles</button> <!-- Cambiado a btn-olive -->
+          </div>
+        </div>
+      </div>
 
-  <main class="container my-4">
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
+    </div>
+
     <div class="row text-center align-items-center">
       <?php
       if(isset($_SESSION['alert'])){
@@ -27,48 +185,35 @@ include 'header.php';
         unset($_SESSION['alert']);
       }
       ?>
+
       <!-- CAPRINOS -->
       <div class="col-md-5 mb-4">
-        <div class="card-custom h-100">
-          <a class="fw-bold m-0 hola" href="animales_caprinos.php">
-            <!-- Los botones deberian de ser similares al color principal -->
-            <button class="btn btn-danger btn-sm">CAPRINOS</button>
-          </a>
-          <p>
-            Su leche es una fuente excelente de proteína animal que puede ser consumida por los niños y la familia en forma de leche fresca o transformada en queso.
-          </p>
+        <div class="par5a-caprinos">
+          <h1>CAPRINOS</h1>
           <div class="row">
-            <?php echo $htmlCabras ?>
+            <?php echo $htmlCabras; ?>
           </div>
         </div>
       </div>
 
       <!-- TOTAL -->
       <div class="col-md-2 mb-4 d-flex align-items-center justify-content-center">
-        <div class="central-box text-center">
-          <strong>TOTAL DE <br> ANIMALES</strong>
-          <div class="total-count"><?php echo $totalResultados ?></div>
+        <div class="par5a-total text-center">
+          <strong>TOTAL DE <br />ANIMALES</strong>
+          <div class="total-count"><?php echo $totalResultados; ?></div>
         </div>
       </div>
 
       <!-- OVINOS -->
       <div class="col-md-5 mb-4">
-        <div class="card-custom h-100">
-          <a class="fw-bold m-0 hola" href="animales_ovinos.php">
-            <button class="btn btn-danger btn-sm">OVINOS</button>
-          </a>
-          <p>
-            Son buenos productores de leche y carne, pero también lo son como proveedores de lana que se emplea en la industria textil para la confección de diversos tipos de tela.
-          </p>
+        <div class="par5a-ovinos">
+          <h1>OVINOS</h1>
           <div class="row">
-            <?php echo $htmlOvejas ?>
+            <?php echo $htmlOvejas; ?>
           </div>
         </div>
       </div>
     </div>
   </main>
-
-  
-  <?php
-include 'footer.html';
-  ?>
+</body>
+</html>
