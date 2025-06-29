@@ -1,6 +1,7 @@
 <?php
 include '../Controlador/pagina_principal.php';
 include 'header.php';
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -159,13 +160,11 @@ include 'header.php';
         <div class="carousel-item active">
           <img src="../Media/General/cabra2.jfif" class="d-block w-100" alt="..." />
           <div class="carousel-caption d-none d-md-block">
-            <button class="btn btn-olive">Detalles</button> <!-- Cambiado a btn-olive -->
           </div>
         </div>
         <div class="carousel-item">
           <img src="../Media/General/beja.avif" class="d-block w-100" alt="..." />
           <div class="carousel-caption d-none d-md-block">
-            <button class="btn btn-olive">Detalles</button> <!-- Cambiado a btn-olive -->
           </div>
         </div>
       </div>

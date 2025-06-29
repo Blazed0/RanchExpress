@@ -5,7 +5,7 @@ $codigoAnimal = $_GET['token'];
 $token = base64_decode($codigoAnimal);
 
 // Consulta para obtener los datos del animal
-$sqlAnimales = "SELECT proposito, sexo, especie, etapa_edad
+$sqlAnimales = "SELECT id_animal,proposito, sexo, especie, etapa_edad
 FROM animal
 WHERE codigo_animal = ?
   AND ((proposito = 'leche'
@@ -41,8 +41,9 @@ elseif($filas['especie'] === 'Ovino'){
 
   <a href="lana.php?token='.base64_encode($token).'" class="btn btn-warning btn-sm mt-2">ACTUALIZAR</a>';
 }
+
 else{
-  $produccion .= "No hay informacion disponible";
+  $produccion .= "<h2>No hay informacion disponible</h2>";
 }
  }
 

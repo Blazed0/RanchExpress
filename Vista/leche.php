@@ -1,5 +1,6 @@
   <?php
   include '../Controlador/inicio_sesion/sesiones.php';
+    include '../Controlador/inicio_sesion/roles.php';
   $codigoEncriptado = $_GET['token'];
   $token = base64_decode($codigoEncriptado);
   ?>

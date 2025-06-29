@@ -25,8 +25,8 @@ session_start();
 <h1>Inicio De Sesión</h1>
 <div class="input-box">
     <select name="rol" id="rol">
-        <option value="instructor">Instructor</option>
-        <option value="aprendiz">Aprendiz</option>
+        <option value="Encargado De Area">Encargado De Area</option>
+        <option value="Visualizador">Visualizador</option>
     </select>
 </div>
 <div class="input-box">

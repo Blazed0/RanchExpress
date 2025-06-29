@@ -1,4 +1,6 @@
-<?php include '../Controlador/inicio_sesion/sesiones.php'; ?>
+<?php 
+include '../Controlador/inicio_sesion/sesiones.php'; 
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -227,15 +229,15 @@
           <li class="nav-item">
             <a class="nav-link" href="registro_animal.php">Registro de animales</a>
           </li>
-           <?php if($_SESSION['rol']='Instructor'): ?>
-                    <?php echo '<li class="nav-item">
-                        <a class="nav-link" href="estadisticaovinos.php">Estadistica de Ovinos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="estadisticacaprinos.php" class="nav-link">Estadistica De Caprinos</a>
-                    </li>';
-                    endif;
-                    ?>
+           <?php if($_SESSION['rol'] =='Encargado De Area'){
+            echo'<li class="nav-item">
+             <a class="nav-link" href="estadisticaovinos.php">Estadistica de Ovinos</a>
+             </li>
+             <li class="nav-item">
+             <a href="estadisticacaprinos.php" class="nav-link">Estadistica De Caprinos</a>
+             </li>';
+          }
+          ?>
         </ul>
 
         <form
@@ -245,17 +247,9 @@
           action="../Controlador/mostrar_info_animales.php"
         >
           <input
-            type="text"
-            autocomplete="off"
-            name="token"
-            class="input me-2"
-            placeholder="Buscar"
-            required
+            type="text" name="token" class="input me-2" placeholder="Buscar" required
           />
-          <button
-            class="booton"
-            
-          >
+          <button class="booton">
             Buscar
           </button>
         </form>
@@ -267,54 +261,25 @@
   <div class="card" id="menuCard">
     <ul class="list">
       <li class="element">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="25"
-          height="25"
-          fill="none"
-          stroke="#7e8590"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <path d="M18 21a8 8 0 0 0-16 0" />
-          <circle cx="10" cy="8" r="5" />
+      <a href="perfil_usuario.php" class="label" role = "button">
+      <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="none" stroke="#7e8590" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 21a8 8 0 0 0-16 0"/> <circle cx="10" cy="8" r="5"/>
         </svg>
-        <a href="perfil_usuario.php" class="label">Perfil</a>
+        Perfil</a>
       </li>
-      <?php if ($_SESSION['rol'] == 'Instructor'): ?>
-      <li class="element">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="25"
-          height="25"
-          fill="none"
-          stroke="#7e8590"
-          stroke-width="2"
-        >
-          <path d="M19 16v6" />
-          <path d="M22 19h-6" />
-          <circle cx="10" cy="8" r="5" />
-          <path d="M2 21a8 8 0 0 1 13.292-6" />
+      <?php if ($_SESSION['rol'] == 'Encargado De Area'){
+        echo '<li class="element">
+        <a href="panel_administrador.php" class="label">
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="none" stroke="#7e8590" stroke-width="2">
+          <path d="M19 16v6"/>
+          <path d="M22 19h-6"/>
+          <circle cx="10" cy="8" r="5"/>
+          <path d="M2 21a8 8 0 0 1 13.292-6"/>
         </svg>
-        <a href="#" class="label">Agregar usuarios</a>
-      </li>
-      <li class="element">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="25"
-          height="25"
-          fill="none"
-          stroke="#7e8590"
-          stroke-width="2"
-        >
-          <path d="M22 19h-6" />
-          <circle cx="10" cy="8" r="5" />
-          <path d="M2 21a8 8 0 0 1 13.292-6" />
-        </svg>
-        <a href="#" class="label">Eliminar usuarios</a>
-      </li>
-      <?php endif; ?>
+          Panel de administracion</a>
+      </li>';
+      }
+      ?>
       <div class="separator"></div>
       <li class="element delete">
         <svg

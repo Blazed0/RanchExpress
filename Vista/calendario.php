@@ -1,7 +1,6 @@
 <?php 
 include '../Controlador/calendario_datos.php';
 include 'header.php';
-
 ?>
 
 <!DOCTYPE html>
