@@ -16,13 +16,6 @@ if($stmt->execute()){
         $produccionArray[$produccion['fecha_produccion']] = $produccion['litros_producidos'];
         }
         $produccionJSON = json_encode($produccionArray);
-
-    }else{
-                echo $id;
     }
 }
-else{
-    echo "nada sirvio";
-}
-
 ?>

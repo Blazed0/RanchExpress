@@ -24,7 +24,7 @@ if($filas != null){
     $produccion .= '
     <img src="https://cdn-icons-png.flaticon.com/512/1790/1790203.png" alt="leche" width="30" class="mb-2">
     <a class="fw-bold m-0" href="calendario.php?token='.base64_encode($idAnimal).'">
-      <button class="btn btn-danger btn-sm">LECHE (LITROS) DIARIA</button>
+      <button class="btn btn-danger btn-sm">Calendario De Produccion Del Animal</button>
     </a>
     <div id="chartContainer" style="height: 370px; width: 100%;"></div>
     <a href="leche.php?token='.base64_encode($token).'" role="button" class="btn btn-danger btn-sm">ACTUALIZAR</a>';
@@ -32,8 +32,8 @@ if($filas != null){
 elseif($filas['especie'] === 'Ovino'){
   $produccion .= '
   <img src="https://cdn-icons-png.flaticon.com/512/763/763812.png" alt="lana" width="30" class="mb-2">
- <a class="fw-bold m-0" href="calendario.php?token='.base64_encode($idAnimal).'">
-    <button class="btn btn-warning btn-sm">LANA (KILOS) ANUAL</button>
+ <a class="fw-bold m-0" href="estadisticaovinos.html">
+    <button class="btn btn-warning btn-sm">Estadisticas De Produccion</button>
   </a>
   <div id="chartContainerLana" style="height: 370px; width: 100%;"></div>
 
