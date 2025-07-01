@@ -1,6 +1,6 @@
 <?php
-  include '../Controlador/inicio_sesion/sesiones.php';
   include '../Controlador/inicio_sesion/roles.php';
+  include '../Controlador/inicio_sesion/sesiones.php';
 ?>
 <!DOCTYPE html>
 <html lang="es">

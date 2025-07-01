@@ -170,18 +170,6 @@ include 'header.php';
                 <h6 class="m-0">ESTADO</h6>
                 <span id="estado"><?php echo $html ?></span>
               </div>
-              <p class="mb-1">Padre: <a href="hoja_animales.php?token=<?= $nombrePadre ?>" class="hola"><?= $nombrePadre ?></a></p>
-              <p class="mb-1">Madre: <a href="hoja_animales.php?token=<?= $nombreMadre ?>" class="hola"><?= $nombreMadre ?></a></p>
-              <p class="mb-1">Codigo: <?= $codigo ?></p>
-              <p class="mb-1">Raza: <?= $raza ?></p>
-              <p class="mb-1">Raza Del Padre: <?= $padreRaza ?></p>
-              <p class="mb-1">Raza De La Madre: <?= $madreRaza ?></p>
-              <p class="mb-2">Sexo: <?= $sexo ?></p>
-            </div>
-            <a class="btn btn-danger btn-sm mt-2" href="#">ACTUALIZAR</a>
-          </div>
-        </div>
-      </div>
             <p class="mb-1">Padre: <a href= "hoja_animales.php?token=<?=base64_encode($nombrePadre)?>"><?php echo $nombrePadre ?></a></p>
             <p class="mb-1">Madre:<a href = "hoja_animales.php?token=<?=base64_encode($nombreMadre)?>"><?php echo $nombreMadre ?></a></p>
             <p class="mb-1">Codigo: <?php echo $codigo ?></p>
@@ -194,6 +182,7 @@ include 'header.php';
         </div>
       </div>
     </div>
+
 
       <!-- Fila 2: Propósito + Peso -->
       <div class="row g-3 mt-2">
@@ -224,7 +213,7 @@ include 'header.php';
           <div class="info-box">
             <div class="d-flex justify-content-between align-items-center">
               <h4 class="m-0">Tratamientos</h4>
-              <a href="registro_tratamiento.php" role="button" class="btn btn-primary btn-sm">Actualizar</a>
+              <a href="registro_tratamiento.php?token=<?=base64_encode($id_animal)?>" role="button" class="btn btn-primary btn-sm">Actualizar</a>
             </div>
             <p class="fw-bold mt-2">
               <?= $nombreTratamiento ?><br />

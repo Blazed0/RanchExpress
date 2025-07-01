@@ -240,19 +240,22 @@ include '../Controlador/inicio_sesion/sesiones.php';
           ?>
         </ul>
 
-        <form
-          class="d-flex search-form"
-          role="search"
-          method="GET"
-          action="../Controlador/mostrar_info_animales.php"
-        >
-          <input
-            type="text" name="token" class="input me-2" placeholder="Buscar" required
-          />
-          <button class="booton">
+        <form class="d-flex search-form" id = "form" role="search" method="GET" action="hoja_animales.php">
+          <input type="text" id="originalToken" class="input me-2" placeholder="Buscar" required/>
+          <input type="hidden" name="token" id= "token"/>
+          <button class="booton" type = "submit">
             Buscar
           </button>
         </form>
+        <script>
+          form.addEventListener('submit', function(event){
+            const originalToken = document.getElementById('originalToken');
+            const originalTokenValue = originalToken.value;
+            const token64 = btoa(originalTokenValue);
+            const tokenHidden = document.getElementById('token');
+            tokenHidden.value = token64;
+          })
+        </script>
       </div>
     </div>
   </nav>

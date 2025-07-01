@@ -189,10 +189,12 @@ INSERT INTO `usuario` (`id_usuario`, `nit`, `nombre`, `correo`, `clave`, `rol`) 
 -- Indices de la tabla `animal`
 --
 ALTER TABLE `animal`
-  ADD PRIMARY KEY (`id_animal`),
-  ADD KEY `dueño vacas` (`id_usuario`) USING BTREE,
-  ADD KEY `padres` (`id_padre`,`id_madre`),
-  ADD KEY `id_madre` (`id_madre`);
+ADD PRIMARY KEY (`id_animal`),
+ADD CONSTRAINT `dueño_vacas` FOREIGN KEY (`id_usuario`)
+REFERENCES `usuario` (`id_usuario`)
+ON DELETE SET NULL
+ON UPDATE CASCADE,
+ADD KEY `padres` (`id_padre`,`id_madre`);
 
 --
 -- Indices de la tabla `lana`
