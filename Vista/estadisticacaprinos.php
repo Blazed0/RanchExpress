@@ -1,6 +1,6 @@
 <?php 
-  include '../Controlador/inicio_sesion/roles.php';
 include 'header.php';
+include '../Controlador/inicio_sesion/roles.php'
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -79,7 +79,7 @@ include 'header.php';
 
 <main class="container my-4 text-center">
   <div class="estadistica-box p-4">
-    <a href="caprinos.php" class="btn-back-interno" title="Regresar">←</a>
+    <a href="index.php" class="btn-back-interno" title="Regresar">←</a>
 
     <h2 class="titulo-estadistica mt-2">ESTADISTICA CAPRINOS</h2>
 
@@ -150,9 +150,14 @@ $(document).ready(function () {
     animationEnabled: true,
     theme: "light2",
     title: { text: "Producción de leche" },
-    axisY: {
-      title: "Litros producidos"
-    },
+      axisX:{
+            title:"Fecha",
+            labelAngle: -45
+        },
+          axisY:{
+            title:"Litros",
+       
+        },
     data: [{
       type: "line",
       dataPoints: dataPointsLeche
@@ -161,9 +166,10 @@ $(document).ready(function () {
   chartLeche.render();
 
   function updateLecheData() {
+    dataPointsLeche.length = 0;
     $.getJSON("../Controlador/leche/datos_leche.php", function(data) {
       $.each(data, function(key, value) {
-        dataPointsLeche.push({ x: value[0], y: parseInt(value[1]) });
+        dataPointsLeche.push({ label: value.label, y: parseInt(value.y)});
       });
       chartLeche.render();
       setTimeout(updateLecheData, 1500);

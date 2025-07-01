@@ -47,17 +47,19 @@ $stmt_suma->close();
 $nueva_produccion = $produccion_total + $kilos_producidos;
 
 // Insertar el nuevo registro
-$sql_insert = "INSERT INTO lana (kilos_producidos, produccion_anual, id_animal) VALUES (?, ?, ?)";
+$año_produccion = date("Y");
+
+$sql_insert = "INSERT INTO lana (kilos_producidos, produccion_anual,año_produccion, id_animal) VALUES (?, ?, ?,?)";
 $stmt_insert = $conn->prepare($sql_insert);
-$stmt_insert->bind_param("ddi", $kilos_producidos, $nueva_produccion, $id_animal);
+$stmt_insert->bind_param("ddii", $kilos_producidos, $nueva_produccion,$año_produccion, $id_animal);
 
 if ($stmt_insert->execute()) {
-    echo json_encode(["success" => "Registro de lana guardado correctamente"]);
+    header("Location: ../../Vista/lana.php?mensaje=ok");
+    exit;
 } else {
-   echo json_encode(["error" => "Error al guardar el registro", "detalle" => $stmt_insert->error]);
-
+    header("Location: ../../Vista/lana.php?mensaje=error");
+    exit;
 }
-
 $stmt_insert->close();
 $conn->close();
 ?>

@@ -45,8 +45,13 @@ include 'header.php';
 
     .carousel-caption {
       bottom: 20px;
+<<<<<<< HEAD
+      center: 20px;
+      text-align: center;
+=======
       left: 20px;
       text-align: left;
+>>>>>>> 9b22825f7b7705bb40dbc5fffafa7e35759c3859
     }
 
     .carousel-caption button {
@@ -160,11 +165,28 @@ include 'header.php';
         <div class="carousel-item active">
           <img src="../Media/General/cabra2.jfif" class="d-block w-100" alt="..." />
           <div class="carousel-caption d-none d-md-block">
+<<<<<<< HEAD
+         <?php if (isset($_SESSION['rol']) && $_SESSION['rol'] == 'Instructor'): ?>
+                <a href="estadisticacaprinos.php" class="btn btn-olive">Estadistica</a> <!-- Cambiado a btn-olive -->
+                   <?php else: ?>
+                     <button class="btn btn-olive" disabled>Estadistica</button>
+                     <?php endif; ?> <!-- Cambiado a btn-olive -->
+=======
+>>>>>>> 9b22825f7b7705bb40dbc5fffafa7e35759c3859
           </div>
         </div>
         <div class="carousel-item">
           <img src="../Media/General/beja.avif" class="d-block w-100" alt="..." />
           <div class="carousel-caption d-none d-md-block">
+<<<<<<< HEAD
+            <?php if (isset($_SESSION['rol']) && $_SESSION['rol'] == 'Instructor'): ?>
+                <a href="estadisticaovinos.php" class="btn btn-olive" >Estadistica</a> <!-- Cambiado a btn-olive -->
+                   <?php else: ?>
+                     <button class="btn btn-olive" disabled>Estadistica</button>
+                     <?php endif; ?>
+            
+=======
+>>>>>>> 9b22825f7b7705bb40dbc5fffafa7e35759c3859
           </div>
         </div>
       </div>

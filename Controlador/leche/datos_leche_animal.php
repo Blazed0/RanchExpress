@@ -35,9 +35,11 @@ $insert = $conn->prepare("INSERT INTO leche (fecha_produccion, litros_producidos
 $insert->bind_param("sii", $fecha_produccion, $litros_producidos, $id_animal);
 
 if ($insert->execute()) {
-    echo json_encode(["exito" => "Registro guardado correctamente"]);
+    header("Location: ../../Vista/leche.php?mensaje=ok");
+    exit;
 } else {
-    echo json_encode(["error" => "Error al guardar el registro"]);
+    header("Location: ../../Vista/leche.php?mensaje=error");
+    exit;
 }
 
 $insert->close();

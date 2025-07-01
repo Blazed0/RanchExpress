@@ -37,11 +37,12 @@ $stmt->execute();
 $resultado = $stmt->get_result();
 
 $datos = [];
-$contador = 0;
+
 
 while ($fila = $resultado->fetch_assoc()) {
-    $datos[] = [$contador, (float)$fila['total_litros']];
-    $contador++;
+    $datos[] = ['label' => $fila['fecha_produccion'],
+    'y'=>(float)$fila['total_litros']];
+    
 }
 
 echo json_encode($datos);

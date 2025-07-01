@@ -7,6 +7,17 @@ $(function() {
     title: {
       text: "Producción de lana"
     },
+     axisX: {
+      title: "Año",
+      interval: 1, // Para que muestre cada punto
+      labelFormatter: function(e) {
+        return e.value;
+      }
+    },
+    axisY: {
+      title: "Kilos producidos"
+    },
+
     data: [{
       type: "line",
       dataPoints: dataPoints
@@ -15,13 +26,20 @@ $(function() {
 
   $("#chartContainerLana").CanvasJSChart(options);
 
+ 
+
   function updateData() {
     const params = new URLSearchParams(window.location.search);
     const token = params.get('token');
 
     $.getJSON(`../Controlador/lana/obtener_lana.php?token=${token}`, function(data) {
-      $.each(data, function(key, value) {
-        dataPoints.push({x: value[0], y: parseFloat(value[1])});
+       dataPoints.length = 0;
+
+      $.each(data, function(index, value) {
+        dataPoints.push({x: value.año, y: value.total_kilos,
+               label: String(value.año)
+        });
+   
       });
       $("#chartContainerLana").CanvasJSChart().render();
     });

@@ -153,6 +153,9 @@ $(document).ready(function () {
     title: {
       text: "Producción anual de lana"
     },
+       axisX: {
+      title: "Año",
+    },
     axisY: {
       title: "Kilos producidos"
     },
@@ -165,7 +168,7 @@ $(document).ready(function () {
   function updateLanaData() {
     $.getJSON("../Controlador/lana/datos_lana.php", function(data) {
       dataPointsLana.length = 0; // Limpia los puntos anteriores
-      $.each(data, function(key, value) {
+      $.each(data, function(index, value) {
         dataPointsLana.push({ label: value.label, y: parseFloat(value.y) });
       });
       chartLana.render();

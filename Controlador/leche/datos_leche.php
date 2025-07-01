@@ -15,14 +15,12 @@ $resultado = $conn->query($sql);
 // arreglo para almacenar los datos que se enviarán al gráfico
 $datos = [];
 
-// Contador para el eje X (puede representar el día en orden)
-$contador = 0;
 
 // bucle para recorrer los resultados y convertirlos al formato [x, y] para el grafico
 while ($fila = $resultado->fetch_assoc()) {
-    //array con el contador como eje X y los litros como eje Y
-    $datos[] = [$contador, (float)$fila['total_litros']];
-    $contador++;
+    $datos[] = ['label' => $fila['fecha_produccion'],
+    'y'=>(float)$fila['total_litros']];
+    
 }
 
 // esto es para enviar los datos en formato json para el grafico

@@ -155,11 +155,10 @@ include 'header.php';
   <main class="container my-4">
 
     <div class="mb-3">
-      <a href="hojanimales.html" aria-label="Volver a hoja de animales">
-        <button class="back-button" title="Volver">
+        <button class="back-button" title="Volver"  onclick="history.back()">
           &#8592;
         </button>
-      </a>
+   
     </div>
 
     <div class="d-flex justify-content-center align-items-center fw-bold fs-4 mb-2">
@@ -178,13 +177,12 @@ include 'header.php';
 
     <div id="calendarGrid" role="grid" aria-label="Calendario"></div>
 
-  <div class="d-flex justify-content-between mt-3">
-    <button class="btn btn-outline-dark rounded-circle" onclick="changeMonth(-1)"><span class="fs-4">&#8592;</span></button>
-    <button class="btn btn-outline-dark rounded-circle" onclick="changeMonth(1)"><span class="fs-4">&#8594;</span></button>
-  </div>
-</main>
+    <div class="month-controls" role="group" aria-label="Cambiar mes">
+      <button class="month-button" onclick="changeMonth(-1)" aria-label="Mes anterior">&#8592;</button>
+      <button class="month-button" onclick="changeMonth(1)" aria-label="Mes siguiente">&#8594;</button>
+    </div>
 
-
+  </main>
 
   <script>
     let currentDate = new Date();
