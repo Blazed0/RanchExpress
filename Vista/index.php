@@ -165,28 +165,22 @@ include 'header.php';
         <div class="carousel-item active">
           <img src="../Media/General/cabra2.jfif" class="d-block w-100" alt="..." />
           <div class="carousel-caption d-none d-md-block">
-<<<<<<< HEAD
-         <?php if (isset($_SESSION['rol']) && $_SESSION['rol'] == 'Instructor'): ?>
-                <a href="estadisticacaprinos.php" class="btn btn-olive">Estadistica</a> <!-- Cambiado a btn-olive -->
+         <?php if (isset($_SESSION['rol']) && $_SESSION['rol'] == 'Encargado De Area'): ?>
+                <a href="estadisticacaprinos.php" class="btn btn-olive">Estadistica De Caprinos</a> <!-- Cambiado a btn-olive -->
                    <?php else: ?>
-                     <button class="btn btn-olive" disabled>Estadistica</button>
+                     <button class="btn btn-olive" disabled>Estadistica De Caprinos</button>
                      <?php endif; ?> <!-- Cambiado a btn-olive -->
-=======
->>>>>>> 9b22825f7b7705bb40dbc5fffafa7e35759c3859
           </div>
         </div>
         <div class="carousel-item">
           <img src="../Media/General/beja.avif" class="d-block w-100" alt="..." />
           <div class="carousel-caption d-none d-md-block">
-<<<<<<< HEAD
-            <?php if (isset($_SESSION['rol']) && $_SESSION['rol'] == 'Instructor'): ?>
-                <a href="estadisticaovinos.php" class="btn btn-olive" >Estadistica</a> <!-- Cambiado a btn-olive -->
+            <?php if (isset($_SESSION['rol']) && $_SESSION['rol'] == 'Encargado De Area'): ?>
+                <a href="estadisticaovinos.php" class="btn btn-olive" >Estadistica De Ovinos</a> <!-- Cambiado a btn-olive -->
                    <?php else: ?>
-                     <button class="btn btn-olive" disabled>Estadistica</button>
+                     <button class="btn btn-olive" disabled>Estadistica De Ovinos</button>
                      <?php endif; ?>
             
-=======
->>>>>>> 9b22825f7b7705bb40dbc5fffafa7e35759c3859
           </div>
         </div>
       </div>
