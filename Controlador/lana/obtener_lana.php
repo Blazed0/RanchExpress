@@ -28,11 +28,11 @@ $id_animal = $fila['id_animal'];
 $stmt->close();
 
 // Consulta de datos para el gráfico
-$sql = "SELECT produccion_anual, SUM(kilos_producidos) AS total_kilos
+$sql = "SELECT año_produccion, SUM(kilos_producidos) AS total_kilos
         FROM lana
         WHERE id_animal = ?
-        GROUP BY produccion_anual
-        ORDER BY produccion_anual ASC";
+        GROUP BY año_produccion
+        ORDER BY año_produccion ASC";
 
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $id_animal);
@@ -40,12 +40,17 @@ $stmt->execute();
 $resultado = $stmt->get_result();
 
 $datos = [];
-$contador = 0;
 
-while ($fila = $resultado->fetch_assoc()) {
-    $datos[] = [$contador, (float)$fila['total_kilos']];
-    $contador++;
-}
+
+   while ($fila = $resultado->fetch_assoc()) {
+    $año_produccion = intval($fila['año_produccion']);
+    $total = floatval($fila['total_kilos']);
+    $datos[] = [
+        "año" => $año_produccion,
+        "total_kilos" => $total
+    ];
+     }
+   
 
 echo json_encode($datos);
 

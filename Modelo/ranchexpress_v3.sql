@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-06-2025 a las 01:21:29
+-- Tiempo de generación: 02-07-2025 a las 00:18:34
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.0.30
 
@@ -71,8 +71,9 @@ INSERT INTO `animal` (`id_animal`, `estado`, `codigo_animal`, `fecha_ingreso`, `
 
 CREATE TABLE `lana` (
   `id_produccion` int(11) NOT NULL,
-  `kilos_producidos` double(5,3) DEFAULT NULL,
-  `produccion_anual` double(5,3) DEFAULT NULL,
+  `kilos_producidos` double(100,3) DEFAULT NULL,
+  `produccion_anual` double(100,3) DEFAULT NULL,
+  `año_produccion` year(4) NOT NULL,
   `id_animal` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
@@ -80,11 +81,12 @@ CREATE TABLE `lana` (
 -- Volcado de datos para la tabla `lana`
 --
 
-INSERT INTO `lana` (`id_produccion`, `kilos_producidos`, `produccion_anual`, `id_animal`) VALUES
-(1, 11.000, 11.000, 36),
-(2, 11.000, 22.000, 36),
-(3, 1.100, 23.100, 36),
-(4, 22.000, 22.000, 37);
+INSERT INTO `lana` (`id_produccion`, `kilos_producidos`, `produccion_anual`, `año_produccion`, `id_animal`) VALUES
+(6, 1.000, 1.000, '2025', 36),
+(7, 1.000, 2.000, '2025', 36),
+(10, 5.000, 5.000, '2025', 37),
+(11, 2.000, 7.000, '2026', 37),
+(12, 3.000, 10.000, '2027', 37);
 
 -- --------------------------------------------------------
 
@@ -105,7 +107,7 @@ CREATE TABLE `leche` (
 
 INSERT INTO `leche` (`id_produccion`, `fecha_produccion`, `litros_producidos`, `id_animal`) VALUES
 (2, '2025-06-25', 11, 39),
-(3, '0000-00-00', 11, 43),
+(3, '2025-06-24', 11, 43),
 (4, '2025-06-25', 3, 43),
 (5, '2025-06-25', 2, 43),
 (6, '2025-06-25', 10, 43);
@@ -177,9 +179,9 @@ CREATE TABLE `usuario` (
 
 INSERT INTO `usuario` (`id_usuario`, `nit`, `nombre`, `correo`, `clave`, `rol`) VALUES
 (1, 1141514648, 'Instructor de prueba', 'soxberg277@gmail.com', '$2y$10$UwxD8e4sUh9deQlSRVp.Uu0Lv5IlJdTIqLyHMf72IYheDDx1bfC1K', 'Instructor'),
-(2, 1141514649, 'Aprendiz Prueba', 'pruebaAprendiz@gmail.com', '$2y$10$J6Tn/FdISha6Xz/wQob.6eS5q5rQOdnLU1a/VBglbs8', 'Aprendiz'),
+(2, 1141514649, 'Aprendiz Prueba', 'maickgarciaochoa@gmail.com', '$2y$10$UyOchSc1uBxZKztD6s4Eh.4AWGwyd7zM9Sl8Cs9qg85h..t4GV2EW', 'Aprendiz'),
 (3, 1141514642, 'Prueba Gallina', 'Sesdasd', '$2y$12$9Zi5iuDHJgQmWTNtR/lCEuemHmcGFgcebk9pgWt3HYY', 'Aprendiz'),
-(12, 1131513253, 'PruebaInsertado', 'maickgarciaochoa@gmail.com', '$2y$10$TjF0ZZ3TwwrRd3pMjh40K.azVMzoZVcIV55Dh.mXVSajkrXwuk78e', 'Instructor');
+(12, 1131513253, 'PruebaInsertado', 'maickgarciaochoa@gmail.com', '$2y$10$UyOchSc1uBxZKztD6s4Eh.4AWGwyd7zM9Sl8Cs9qg85h..t4GV2EW', 'Instructor');
 
 --
 -- Índices para tablas volcadas
@@ -244,7 +246,7 @@ ALTER TABLE `animal`
 -- AUTO_INCREMENT de la tabla `lana`
 --
 ALTER TABLE `lana`
-  MODIFY `id_produccion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_produccion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `leche`

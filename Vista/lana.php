@@ -30,6 +30,15 @@
       ?>
     
       <h2>Registro de producción de lana</h2>
+            <?php
+if (isset($_GET['mensaje'])) {
+    if ($_GET['mensaje'] == 'ok') {
+        echo "<script>alert('Registro guardado correctamente');</script>";
+    } else if ($_GET['mensaje'] == 'error') {
+        echo "<script>alert('Error al guardar el registro');</script>";
+    }
+}
+?>
       <form id="registration-form" action ="../Controlador/lana/datos_lana_animal.php" method="POST">
         
       <center>

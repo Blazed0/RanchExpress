@@ -6,10 +6,10 @@ include '../inicio_sesion/sesiones.php';
 
 
 // Consulta: total de kilos producidos por año(para todos los animales)
-$sql = "SELECT produccion_anual, SUM(kilos_producidos) AS total_kilos
+$sql = "SELECT año_produccion, SUM(kilos_producidos) AS total_kilos
         FROM lana
-        GROUP BY produccion_anual
-        ORDER BY produccion_anual ASC";
+        GROUP BY año_produccion
+        ORDER BY año_produccion ASC";
 
 $resultado = $conn->query($sql);
 
@@ -17,14 +17,11 @@ $resultado = $conn->query($sql);
 $datos = [];
 
 // Contador para el eje X (puede representar el día en orden)
-$contador = 0;
+
 
 // bucle para recorrer los resultados y convertirlos al formato [x, y] para el grafico
 while ($fila = $resultado->fetch_assoc()) {
-    //array con el contador como eje X y los litros como eje Y
-    $datos[] = ['label' => $fila['produccion_anual'], 'y' => (float)$fila['total_kilos']];
-
-    $contador++;
+    $datos[] = ['label' => $fila['año_produccion'], 'y' => (float)$fila['total_kilos']];
 }
 
 // esto es para enviar los datos en formato json para el grafico

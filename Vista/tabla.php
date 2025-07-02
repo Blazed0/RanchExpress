@@ -140,11 +140,9 @@ main.container {
 <main class="container my-4">
   
   <div class="mb-3">
-    <a href="hoja_animales.php">
-    <button class="btn btn-outline-dark rounded-circle" >
+    <button class="btn btn-outline-dark rounded-circle"  onclick="history.back()" >
       <span class="fs-4">&#8592;</span>
     </button>
-    </a>
   </div>
 
   

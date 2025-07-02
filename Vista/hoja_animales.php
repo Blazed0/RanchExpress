@@ -162,6 +162,25 @@ include 'header.php';
               echo '<img src="../Media/Uploads/' . $imagen . '" alt="Animal" />';
             ?>
           </div>
+<<<<<<< HEAD
+        </div>
+        <div class="col-md-6">
+          <div class="info-box h-100 d-flex flex-column justify-content-between">
+            <div>
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <h6 class="m-0">ESTADO</h6>
+                <span id="estado"><?php echo $html ?></span>
+              </div>
+              <p class="mb-1">Padre: <a href="hoja_animales.php?token=<?= $nombrePadre ?>" class="hola"><?= $nombrePadre ?></a></p>
+              <p class="mb-1">Madre: <a href="hoja_animales.php?token=<?= $nombreMadre ?>" class="hola"><?= $nombreMadre ?></a></p>
+              <p class="mb-1">Codigo: <?= $codigo ?></p>
+              <p class="mb-1">Raza: <?= $raza ?></p>
+              <p class="mb-1">Raza Del Padre: <?= $padreRaza ?></p>
+              <p class="mb-1">Raza De La Madre: <?= $madreRaza ?></p>
+              <p class="mb-2">Sexo: <?= $sexo ?></p>
+            </div>
+            <a class="btn btn-danger btn-sm mt-2" href="#">ACTUALIZAR</a>
+=======
         </div>
         <div class="col-md-6">
           <div class="info-box h-100 d-flex flex-column justify-content-between">
@@ -177,11 +196,10 @@ include 'header.php';
             <p class="mb-1">Raza Del Padre: <?php echo $padreRaza?></p>
             <p class="mb-1">Raza De La Madre: <?php echo $madreRaza?></p>
             <p class="mb-2">Sexo: <?php echo $sexo ?></p>
+>>>>>>> 9b22825f7b7705bb40dbc5fffafa7e35759c3859
           </div>
-          <a class="btn btn-danger btn-sm mt-2" href="#">ACTUALIZAR</a>
         </div>
       </div>
-    </div>
 
 
       <!-- Fila 2: Propósito + Peso -->
@@ -194,7 +212,11 @@ include 'header.php';
         </div>
         <div class="col-md-6">
           <div class="info-box text-center h-100">
+<<<<<<< HEAD
+            <img src="../Media/icons/peso.png" alt="peso" width="80" class="mb-2" />
+=======
             <img src="https://cdn-icons-png.flaticon.com/512/5270/5270995.png" alt="peso" width="30" class="mb-2" />
+>>>>>>> 9b22825f7b7705bb40dbc5fffafa7e35759c3859
             <a class="fw-bold m-0 hola" href="tabla.php?token=<?= base64_encode($id_animal) ?>">
               <button class="btn btn-danger btn-sm">Peso En Kilogramos</button>
             </a>

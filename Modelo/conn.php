@@ -1,6 +1,6 @@
 <?php
 // En caso de error quiten el 3307
-$host = "localhost:3307";
+$host = "localhost";
 $usuario = "root";
 $password = "";
 $database = "ranchexpress_v3";
