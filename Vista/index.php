@@ -45,13 +45,8 @@ include 'header.php';
 
     .carousel-caption {
       bottom: 20px;
-<<<<<<< HEAD
       center: 20px;
       text-align: center;
-=======
-      left: 20px;
-      text-align: left;
->>>>>>> 9b22825f7b7705bb40dbc5fffafa7e35759c3859
     }
 
     .carousel-caption button {

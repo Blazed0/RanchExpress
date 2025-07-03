@@ -17,11 +17,11 @@ if($result && $result ->num_rows>0){
     $fecha = $filas['fecha_pesaje'];
     $observaciones = $filas['observaciones'];
     $html .= "
-          <tr>
-          <td>".$peso." KG</td>
-          <td>". $fecha. "</td>
-          <td>" .$observaciones."</td>
-          </tr>";
+            <tr>
+            <td>".$peso." KG</td>
+            <td>". $fecha. "</td>
+            <td>" .$observaciones."</td>
+            </tr>";
     }
 }
 else{

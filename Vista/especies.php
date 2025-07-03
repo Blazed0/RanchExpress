@@ -66,6 +66,10 @@ main {
   box-shadow: 4px 4px 10px #5a7528, -4px -4px 10px #9bd255;
 }
 
+.ovino{
+  margin-top: 200px;
+}
+
   </style>
 </head>
 <body>
@@ -76,7 +80,7 @@ main {
         
         
       
-        <div class="col-md-5">
+        <div class="col-md-5  ovino">
           <div class="card animal-card">
             <img src="../Media/General/easset_upload_file43365_884961_e.png" class="card-img-top" alt="Ganado">
             <div class="card-body" >
@@ -87,7 +91,7 @@ main {
         </div>
 
        
-        <div class="col-md-5">
+        <div class="col-md-5 ovino">
           <div class="card animal-card">
             <img src="../Media/General/tree-goats-morocco.jpg" class="card-img-top" alt="Caprinos">
             <div class="card-body">

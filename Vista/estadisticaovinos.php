@@ -80,7 +80,7 @@
 
 <main class="container my-4 text-center">
   <div class="estadistica-box p-4">
-    <a href="ovinos.php" class="btn-back-interno" title="Regresar">←</a>
+    <a href="animales_ovinos.php" class="btn-back-interno" title="Regresar">←</a>
 
     <h2 class="titulo-estadistica mt-2">ESTADISTICA OVINOS</h2>
     <div class="row mt-4">

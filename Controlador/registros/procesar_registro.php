@@ -25,7 +25,7 @@ $sexo              = $_POST['sexo'];
 $edad              = $_POST['edad'];
 $madre             = $_POST['madre'] === '' ? null : $_POST['madre']; //Verifica si se esta mandando una cadena vacia desde el formulario, de ser asi se declara null y se envia al servidor
 $padre             = $_POST['padre'] === '' ? null : $_POST['padre'];
-$ingresadoPor  = $_SESSION['user'];
+$ingresadoPor  = $idUsuario;
 
 //Variables de tipo archivo tomadas del formulario manejadas por $_FILES
 $imagen = $_FILES['imagen_animal'];
@@ -54,7 +54,6 @@ $valoresPostObligatorios = [
     $edad,
     $ingresadoPor
 ];
-
 
 foreach($valoresPostObligatorios as $valores){
     if(empty($valores)){

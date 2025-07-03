@@ -79,7 +79,7 @@ include '../Controlador/inicio_sesion/roles.php'
 
 <main class="container my-4 text-center">
   <div class="estadistica-box p-4">
-    <a href="index.php" class="btn-back-interno" title="Regresar">←</a>
+    <a href="animales_caprinos.php" class="btn-back-interno" title="Regresar">←</a>
 
     <h2 class="titulo-estadistica mt-2">ESTADISTICA CAPRINOS</h2>
 

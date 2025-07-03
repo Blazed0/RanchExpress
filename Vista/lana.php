@@ -1,6 +1,9 @@
   <?php
   include '../Controlador/inicio_sesion/sesiones.php';
-    include '../Controlador/inicio_sesion/roles.php';
+  include '../Controlador/inicio_sesion/roles.php';
+
+  $codigoEncriptado = $_GET['token'];
+  $token = base64_decode($codigoEncriptado);
   ?>
   <!DOCTYPE html>
   <html lang="en">
@@ -21,26 +24,17 @@
   <button class="btn-flecha" onclick="history.back()">  
       <i class="bi bi-arrow-left"> </i> 
   </button>
-      <?php 
 
+
+      <h2>Registro de producción de lana</h2>
+
+      <form id="registration-form" action ="../Controlador/lana/datos_lana_animal.php" method="POST">
+      <?php 
       if(isset($_SESSION['alert'])){
           echo $_SESSION['alert'];
-          unset ($_SESSION['alert']);
+          unset($_SESSION['alert']);
       }
       ?>
-    
-      <h2>Registro de producción de lana</h2>
-            <?php
-if (isset($_GET['mensaje'])) {
-    if ($_GET['mensaje'] == 'ok') {
-        echo "<script>alert('Registro guardado correctamente');</script>";
-    } else if ($_GET['mensaje'] == 'error') {
-        echo "<script>alert('Error al guardar el registro');</script>";
-    }
-}
-?>
-      <form id="registration-form" action ="../Controlador/lana/datos_lana_animal.php" method="POST">
-        
       <center>
             <div class="col-md-8">
 
@@ -52,7 +46,7 @@ if (isset($_GET['mensaje'])) {
         </div>
           <div class="mb-8">
           <label class="form-label">Codigo del animal</label>
-          <input type="text" name="codigo_animal"id= "codigo_animal" class="form-control">
+          <input type="text" name="codigo_animal"id= "codigo_animal" value = "<?php echo htmlspecialchars($token) ?>" class="form-control">
         </div>
           </div>
           </center>

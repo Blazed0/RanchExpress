@@ -22,8 +22,8 @@
 <h1>Recuperacion De contraseña</h1>
 <div class="input-box">
     <select name="rol" id="rol">
-        <option value="instructor">Instructor</option>
-        <option value="aprendiz">Aprendiz</option>
+        <option value="encargado de area">Encargado De Area</option>
+        <option value="visualizador">Visualizador</option>
     </select>
 </div>
 <div class="input-box">

@@ -1,6 +1,8 @@
 <?php
   include '../Controlador/inicio_sesion/roles.php';
   include '../Controlador/inicio_sesion/sesiones.php';
+  $codigoAnimal = $_GET['token'];
+  $token = base64_decode($codigoAnimal);
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -29,7 +31,7 @@
 
     <h2 >Registro de Tratamiento</h2>
     <form id="registration-form" action="../Controlador/registros/registro_tratamiento.php" method="POST" >
-
+      <input type="hidden" value="<?php echo htmlspecialchars($token) ?>" name = "token">
       <div class="mb-3">
         <label class="form-label">Fecha de aplicacion</label>
         <input type="date" name="fecha_aplicacion" id="fecha_aplicacion" class="form-control" required>

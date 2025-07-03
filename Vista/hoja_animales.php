@@ -151,7 +151,7 @@ include 'header.php';
   </style>
 </head>
 <body>
-  <div class="main-box p-3">
+  <div class="main-box p-3 ">
     <main class="container my-3">
 
       <!-- Fila 1: Imagen + Estado -->
@@ -162,7 +162,6 @@ include 'header.php';
               echo '<img src="../Media/Uploads/' . $imagen . '" alt="Animal" />';
             ?>
           </div>
-<<<<<<< HEAD
         </div>
         <div class="col-md-6">
           <div class="info-box h-100 d-flex flex-column justify-content-between">
@@ -171,33 +170,15 @@ include 'header.php';
                 <h6 class="m-0">ESTADO</h6>
                 <span id="estado"><?php echo $html ?></span>
               </div>
-              <p class="mb-1">Padre: <a href="hoja_animales.php?token=<?= $nombrePadre ?>" class="hola"><?= $nombrePadre ?></a></p>
-              <p class="mb-1">Madre: <a href="hoja_animales.php?token=<?= $nombreMadre ?>" class="hola"><?= $nombreMadre ?></a></p>
-              <p class="mb-1">Codigo: <?= $codigo ?></p>
-              <p class="mb-1">Raza: <?= $raza ?></p>
-              <p class="mb-1">Raza Del Padre: <?= $padreRaza ?></p>
-              <p class="mb-1">Raza De La Madre: <?= $madreRaza ?></p>
-              <p class="mb-2">Sexo: <?= $sexo ?></p>
-            </div>
-            <a class="btn btn-danger btn-sm mt-2" href="#">ACTUALIZAR</a>
-=======
-        </div>
-        <div class="col-md-6">
-          <div class="info-box h-100 d-flex flex-column justify-content-between">
-            <div>
-              <div class="d-flex justify-content-between align-items-center mb-2">
-                <h6 class="m-0">ESTADO</h6>
-                <span id="estado"><?php echo $html ?></span>
-              </div>
-            <p class="mb-1">Padre: <a href= "hoja_animales.php?token=<?=base64_encode($nombrePadre)?>"><?php echo $nombrePadre ?></a></p>
-            <p class="mb-1">Madre:<a href = "hoja_animales.php?token=<?=base64_encode($nombreMadre)?>"><?php echo $nombreMadre ?></a></p>
+            <p class="mb-1">Padre: <a href= "hoja_animales.php?token=<?=base64_encode($nombrePadre)?>" class="hola"><?php echo $nombrePadre ?></a></p>
+            <p class="mb-1">Madre:<a href = "hoja_animales.php?token=<?=base64_encode($nombreMadre)?>" class="hola"><?php echo $nombreMadre ?></a></p>
             <p class="mb-1">Codigo: <?php echo $codigo ?></p>
-            <p class="mb-1">Raza: <?php echo $raza ?></p>
+            <p class="mb-1">Raza: <?= $raza ?></p>
             <p class="mb-1">Raza Del Padre: <?php echo $padreRaza?></p>
             <p class="mb-1">Raza De La Madre: <?php echo $madreRaza?></p>
             <p class="mb-2">Sexo: <?php echo $sexo ?></p>
->>>>>>> 9b22825f7b7705bb40dbc5fffafa7e35759c3859
           </div>
+           <a class="btn btn-danger btn-sm mt-2" href="actualizar_animal.php?codigo=<?= base64_encode($codigo); ?>">Actualizar datos</a>
         </div>
       </div>
 
@@ -207,16 +188,12 @@ include 'header.php';
         <div class="col-md-6">
           <div class="info-box text-center h-100">
             <p class="fw-bold mb-0">Propósito</p>
-            <p class="fs-5"><?= $proposito ?></p>
+            <p class="fs-5" style="margin: auto;"><?= $proposito ?></p>
           </div>
         </div>
         <div class="col-md-6">
           <div class="info-box text-center h-100">
-<<<<<<< HEAD
             <img src="../Media/icons/peso.png" alt="peso" width="80" class="mb-2" />
-=======
-            <img src="https://cdn-icons-png.flaticon.com/512/5270/5270995.png" alt="peso" width="30" class="mb-2" />
->>>>>>> 9b22825f7b7705bb40dbc5fffafa7e35759c3859
             <a class="fw-bold m-0 hola" href="tabla.php?token=<?= base64_encode($id_animal) ?>">
               <button class="btn btn-danger btn-sm">Peso En Kilogramos</button>
             </a>
@@ -234,7 +211,9 @@ include 'header.php';
         <div class="col-12">
           <div class="info-box">
             <div class="d-flex justify-content-between align-items-center">
-              <h4 class="m-0">Tratamientos</h4>
+              <a href="tabla_tratamientos.php?token=<?=base64_encode($id_animal)?>">
+                <button class = "btn btn-danger btn-sm">Tratamientos</button>
+              </a>
               <a href="registro_tratamiento.php?token=<?=base64_encode($id_animal)?>" role="button" class="btn btn-primary btn-sm">Actualizar</a>
             </div>
             <p class="fw-bold mt-2">
@@ -250,9 +229,9 @@ include 'header.php';
       </div>
 
       <!-- Fila 4: Producción -->
-      <div class="row g-3 mt-2">
+      <div class="row g-3 mt-2 ">
         <div class="col-12">
-          <div class="info-box text-center">
+          <div class=" cont text-center">
             <h2>Producción</h2>
 
             <script src="../Controlador/graficos.js"></script>

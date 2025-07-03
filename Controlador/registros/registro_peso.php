@@ -4,9 +4,9 @@ include '../../Modelo/conn.php';
 include '../inicio_sesion/sesiones.php';
 include '../inicio_sesion/alertas.php';
 
+    
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $codigoAnimal = $_GET['token'];
-    $token = base64_decode($codigoAnimal);
+
     $fecha = $_POST['fecha_pesaje'];
     $peso = $_POST['peso_animal'];
     $codigo = $_POST['codigo_animal'];
@@ -23,10 +23,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 
     // Buscar ID del animal o cría
-    
+    $query = "SELECT id_animal FROM animal WHERE codigo_animal = ?";
 
     $stmt = $conn->prepare($query);
-    $stmt->bind_param("i", $codigo);
+    $stmt->bind_param("s", $codigo);
     $stmt->execute();
     $result = $stmt->get_result();
     

@@ -10,79 +10,76 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\SMTP; 
 
-
 try {
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $rol = $_GET['rol'];
     $DNI = $_GET['numeroDNI'];
     $usuario = $_GET['nombre'];
     if (!empty($DNI) && !empty($usuario)) {
-        // Usar consultas preparadas para evitar inyecciones SQL
         $sqlRecuperar = "SELECT * FROM usuario WHERE nit = ? AND nombre = ? AND rol = ?";
         $stmt = $conn->prepare($sqlRecuperar);
         $stmt->bind_param("iss", $DNI, $usuario, $rol);
         $stmt->execute();
         
         $result = $stmt->get_result();
-        //El problema al mandar el formulario se encontraba en usar mal la variable que llamaba a la funcion num_rows
-        //Esta tenia que obtener un resultado y la de stmt no hacia eso, ella solo ejecutaba
-        if($result->num_rows>0){
+        if($result->num_rows > 0){
             $row = $result->fetch_assoc();
             $correo = $row['correo'];
-            //Import PHPMailer classes into the global namespace
-            //These must be at the top of your script, not inside a function
-            
-            //Create an instance; passing `true` enables exceptions
+
             $mail = new PHPMailer(true);
-            
             $clave = 'fmpk nzxi ygwv bnll';
             $correoMensajero = "kyish921@gmail.com";
-                //Server settings 
-                $mail->SMTPDebug = SMTP::DEBUG_CONNECTION;
-                $mail->isSMTP();                                            //Send using SMTP
-                $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
-                $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-                $mail->Username   = $correoMensajero;                     //SMTP username
-                $mail->Password   = $clave;
-                $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;                                 //SMTP password
-                $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
-                
-                //Recipients
-                $mail->setFrom($correoMensajero, 'Mailer');
-                $mail->addAddress($correo, $usuario);     //Add a recipient
-                
-                $token = base64_encode($correo . ',' . time());
 
-                //Content
-                $mail->isHTML(true);                                  //Set email format to HTML
-                $enlace = '<a href="localhost/Ranchexpress/Vista/actualizar_contraseña.php?token= '.$token.'"> Cambio de contraseña </a>';
-                $mail->Subject = 'Recuperacion de contraseña';
-                $mail->Body    = 'Ingresa al siguiente enlace para cambiar tu contraseña ' . $enlace;
-                $mail->AltBody = 'RanchExpress prueba';
-                
-                $mail->send();
-                $_SESSION['alert'] = alerta("Por favor revisa tu correo para seguir el proceso");
-                header('Location:../../Vista/recuperar_contraseña.php');
-                exit();
-}
+            // Config SMTP
+            $mail->SMTPDebug = SMTP::DEBUG_OFF; 
+            $mail->isSMTP();
+            $mail->Host       = 'smtp.gmail.com';
+            $mail->SMTPAuth   = true;
+            $mail->Username   = $correoMensajero;
+            $mail->Password   = $clave;
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+            $mail->Port       = 465;
 
+            // Recipients
+            $mail->setFrom($correoMensajero, 'RanchExpress');
+            $mail->addAddress($correo, $usuario);
 
-else{
-    $_SESSION['alert'] = alerta("Usuario no encontrado, por favor verifica y vuelte a intentar");
-    header("Location:../../Vista/recuperar_contraseña.php");
-    exit();
-}
+            // Token
+            $token = base64_encode($correo . ',' . time());
+            $enlaceUrl = "http://localhost/Ranchexpress/Vista/actualizar_contraseña.php?token=" . $token;
 
-}
-    else{
-    $_SESSION['alert'] = alerta("No puedes enviar campos vacios");
-    header("Location:../../Vista/recuperar_contraseña.php");
-    exit();
+            // Cuerpo HTML mejorado
+            $boton = '<a href="' . $enlaceUrl . '" style="display: inline-block; padding: 12px 24px; background-color: #7ea93a; color: white; text-decoration: none; border-radius: 6px; font-weight: bold;">Cambiar contraseña</a>';
+
+            $mail->isHTML(true);
+            $mail->Subject = 'Recuperar la clave - RanchExpress';
+            $mail->Body    = '
+                <div style="font-family: Arial, sans-serif; text-align: center;">
+                    <h2 style="color: #333;">Solicitud de cambio de contraseña</h2>
+                    <p style="color: #555;">Hola ' . htmlspecialchars($usuario) . ',</p>
+                    <p style="color: #555;">Hemos recibido una solicitud para restablecer tu contraseña. Si fuiste tú, haz clic en el siguiente botón:</p>
+                    <p>' . $boton . '</p>
+                    <p style="color: #777; margin-top: 20px; font-size: 0.9em;">Si no solicitaste este cambio, puedes ignorar este mensaje.</p>
+                    <p style="color: #aaa; font-size: 0.8em;">© 2025 RanchExpress</p>
+                </div>';
+            $mail->AltBody = 'Hola ' . $usuario . ', Ingresa al siguiente enlace para cambiar tu contraseña: ' . $enlaceUrl;
+
+            $mail->send();
+            $_SESSION['alert'] = alerta("Por favor revisa tu correo para seguir el proceso");
+            header('Location:../../Vista/recuperar_contraseña.php');
+            exit();
+        } else {
+            $_SESSION['alert'] = alerta("Usuario no encontrado, por favor verifica y vuelve a intentar");
+            header("Location:../../Vista/recuperar_contraseña.php");
+            exit();
         }
+    } else {
+        $_SESSION['alert'] = alerta("No puedes enviar campos vacíos");
+        header("Location:../../Vista/recuperar_contraseña.php");
+        exit();
     }
-
-}catch (Exception $e) {
-    echo 'Excepcion encontrada: ' .$e->getMessage();
 }
-
+} catch (Exception $e) {
+    echo 'Excepción encontrada: ' . $e->getMessage();
+}
 ?>

@@ -1,5 +1,5 @@
 <?php
-function alerta($mensaje): string{
+function alerta($mensaje){
        return "<div class='alert alert-warning' role='alert'>"
        .htmlspecialchars($mensaje).
        "</div>";

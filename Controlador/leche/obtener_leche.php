@@ -2,13 +2,14 @@
 header('Content-Type: application/json');
 include '../../Modelo/conn.php';
 
+
+$codigoEncriptado = $_GET['token'];
+$codigo_animal = base64_decode($codigoEncriptado);
+
 if (!isset($_GET['token'])) {
     echo json_encode(["error" => "Falta el token"]);
     exit;
 }
-
-$codigoEncriptado = $_GET['token'];
-$codigo_animal = base64_decode($codigoEncriptado);
 
 $sql_buscar = "SELECT id_animal FROM animal WHERE codigo_animal = ?";
 $stmt_buscar = $conn->prepare($sql_buscar);
